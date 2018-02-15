@@ -1,0 +1,37 @@
+OwlH documentation
+
+Welcome
+=======
+
+This is OwlH project. OwlH is born to help security engineers to manage, analyse and response to threat detection of Open Source Network IDS (Suricata and BroIDS) offering:
+
+* Centralized Rule and Network IDS nodes Configuration Management
+* Centralized Visualization, Big Data Storage and Collection
+* Compliance Mapping and Dashboards
+* Incident Response Automation
+
+but all this will take some time. v0.2 right now provides:
+
+* Compliance Mapping Dashboards
+* Network IDS Dashboards like Alerts, DNS, Flow, Http, fileinfo
+* Integration with Wazuh
+
+If you need help:
+
+* Dashboards customization
+* Network IDS Deployment, configuration and tunning
+
+Check this out:
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   getting started
+   installation guide
+   compliance dashboards
+   network ids dashboards
+   release notes
+
+
+**current v0.2**

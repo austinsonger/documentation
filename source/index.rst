@@ -1,55 +1,40 @@
-OwlH documentation
+OwlH Documentation home
+=======================
 
-Welcome
-=======
+What is OwlH?
+-------------
 
-This is OwlH project. OwlH is born to help security engineers to manage, analyse and response to threat detection of Open Source Network IDS (Suricata and BroIDS) offering:
+This is OwlH, open source solution. OwlH is born to help security engineers to manage, visualize, analyze and respond to threats detected from Open Source Network IDS like Suricata and BroIDS, offering:
 
-* Centralized Rule and Network IDS nodes Configuration Management
-* Centralized Visualization, Big Data Storage and Collection
+* Manage Network IDS (suricata and broIDS) nodes at scale
+* Centralized Rule Management
+* Centralized Visualization
+* Network Data Collection and Big Data Storage
 * Compliance Mapping and Dashboards
 * Incident Response Automation
 
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: So, let's look inside:
 
-   getting started
-   installation guide
-   OwlH and PCI-DSS
-   Release notes
+   main/OwlHWhat
+   main/OwlHatwork
+   main/OwlHPCI
+   main/OwlHHow
+   main/NetworkIDS
 
 
+If you need help for:
+---------------------
 
-OwlH node
-=========
+* Network IDS/IPS Deployment, configuration and tunning
+* Network IDS/IPS rule management
+* Visualizacion: Dashboards customization
+* OwlH and Wazuh integration
 
-:doc:`Installing Suricata <installsuricata>`
+.. _OwlH mailing list: https://groups.google.com/d/forum/owlh
 
-* rpm version
-* deb version
+email our support team - support@owlh.net or visit our mailing list - `OwlH mailing list`_ (owlh@googlegroups.com)
 
-installing in wazuh
--------------------
-
-install wazuh agent
--------------------
-
-if you are using wazuh then you can include OwlH as part of wazuh solution.
-
-* deploy elastic indeces, visualizations, dashboards.
-* deploy pci-dss map.
-
-OwlH for PCI-DSS
-================
-
-* check OwlH PCI-DSS v3.2 mapping
-* Dowload OwlH Suricata IDS sids and PCI-DSS 3.2 Version
-
-contribute
-==========
-
-road map
-========
-
-**current v0.2**
+**OwlH - current v0.2**

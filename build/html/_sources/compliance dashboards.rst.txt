@@ -1,0 +1,13 @@
+
+compliance dashboards
+=====================
+
+* NIDS rules and PCI-DSS v3.2 mapping
+* Deploy PCI-DSS mapping
+* integrate Log collection with PCI-DSS
+
+OwlH for PCI-DSS
+----------------
+
+* check OwlH PCI-DSS v3.2 mapping
+* Dowload OwlH Suricata IDS sids and PCI-DSS 3.2 Version

@@ -1,0 +1,24 @@
+Network IDS dashboards
+======================
+
+Suricata can provide traffic analysis information not only related to security issues. OwlH will provide some dashboards that will help to visualize suricata info.
+
+default dashboards
+------------------
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   dashboards/alerts
+   dashboards/files
+   dashboards/flow
+   dashboards/http
+   dashboards/dns
+
+Dashboard Customizacion
+-----------------------
+
+.. _kibana documentation: https://www.elastic.co/guide/en/kibana/current/createvis.html
+
+refer to `kibana documentation`_ to create your own visualizations or dashboards or ask our team for help (support@owlh.net)

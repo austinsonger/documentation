@@ -1,0 +1,25 @@
+
+installation guide
+==================
+
+* OwlH node
+* Wazuh agent
+* Deploy Kibana dashboards
+
+
+OwlH node
+---------
+
+* rpm version
+* deb version
+
+installing in wazuh
+-------------------
+
+install wazuh agent
+-------------------
+
+if you are using wazuh then you can include OwlH as part of wazuh solution.
+
+* deploy elastic indeces, visualizations, dashboards.
+* deploy pci-dss map.
