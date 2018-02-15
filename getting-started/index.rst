@@ -1,4 +1,0 @@
-.. _index:
-
-getting started
-===============
