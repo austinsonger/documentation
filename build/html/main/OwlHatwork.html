@@ -97,11 +97,13 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How does it work?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#main-components">Main components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#owlh-nids-node">OwlH NIDS node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#owlh-master-node">OwlH Master node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#elastic-stack">Elastic Stack</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How does it work?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-components">Main components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#owlh-nids-node">OwlH NIDS node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#owlh-master-node">OwlH Master node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#elastic-stack">Elastic Stack</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHPCI.html">OwlH for PCI</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
 </ul>
@@ -199,9 +201,8 @@
   <div class="section" id="how-does-it-work">
 <h1>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h1>
 <img alt="../_images/architecture.png" src="../_images/architecture.png" />
-</div>
 <div class="section" id="main-components">
-<h1>Main components<a class="headerlink" href="#main-components" title="Permalink to this headline">¶</a></h1>
+<h2>Main components<a class="headerlink" href="#main-components" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>OwlH NIDS node</li>
 <li>OwlH Master node</li>
@@ -209,7 +210,7 @@
 </ul>
 </div>
 <div class="section" id="owlh-nids-node">
-<h1>OwlH NIDS node<a class="headerlink" href="#owlh-nids-node" title="Permalink to this headline">¶</a></h1>
+<h2>OwlH NIDS node<a class="headerlink" href="#owlh-nids-node" title="Permalink to this headline">¶</a></h2>
 <p>This appliance run the Network IDS software. OwlH supports Suricata Network IDS and will support BroIDS on next releases. Usually, best approach is to run a network IDS node as only network IDS so there is no other services or production environment tools working on it that are not related with traffic collection and analysis.</p>
 <p>Main role of this appliance is to listen traffic, analyze captured traffic using the ruleset provided and send the alerts to the master node. Also OwlH will include a capability to run actions in response to detected alerts.</p>
 <p>With OwlH you can deploy this OwlH NIDS node from scratch or you can include an integrate any deployed Network IDS node. Supported platforms are Debian Stretch and CentOS 7.</p>
@@ -219,18 +220,19 @@
 </ul>
 </div>
 <div class="section" id="owlh-master-node">
-<h1>OwlH Master node<a class="headerlink" href="#owlh-master-node" title="Permalink to this headline">¶</a></h1>
+<h2>OwlH Master node<a class="headerlink" href="#owlh-master-node" title="Permalink to this headline">¶</a></h2>
 <p>Centralized management will provide you an easy way to maintain your Network IDS probes. Among others, Master node will provide centralized rule management based on Open Rules solution, probes status Monitoring, configuration management, etc.</p>
 <p>This should be an appliance, you can deploy different managers in parallel as a cluster. The OwlH master software can also run into Wazuh Manager if you will use OwlH together with Wazuh.</p>
 </div>
 <div class="section" id="elastic-stack">
-<h1>Elastic Stack<a class="headerlink" href="#elastic-stack" title="Permalink to this headline">¶</a></h1>
+<h2>Elastic Stack<a class="headerlink" href="#elastic-stack" title="Permalink to this headline">¶</a></h2>
 <p>Data Transport is done in two possible ways.</p>
 <ul class="simple">
 <li>By using Wazuh agent</li>
 <li>By using OwlH forwarder and collector tools</li>
 <li>By using Beat solutions like filebeat or logstash</li>
 </ul>
+</div>
 </div>
 
 
