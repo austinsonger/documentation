@@ -213,6 +213,10 @@
 <p>This appliance run the Network IDS software. OwlH supports Suricata Network IDS and will support BroIDS on next releases. Usually, best approach is to run a network IDS node as only network IDS so there is no other services or production environment tools working on it that are not related with traffic collection and analysis.</p>
 <p>Main role of this appliance is to listen traffic, analyze captured traffic using the ruleset provided and send the alerts to the master node. Also OwlH will include a capability to run actions in response to detected alerts.</p>
 <p>With OwlH you can deploy this OwlH NIDS node from scratch or you can include an integrate any deployed Network IDS node. Supported platforms are Debian Stretch and CentOS 7.</p>
+<ul class="simple">
+<li>deploy as appliance</li>
+<li>deploy as a service in a running Network IDS probe.</li>
+</ul>
 </div>
 <div class="section" id="owlh-master-node">
 <h1>OwlH Master node<a class="headerlink" href="#owlh-master-node" title="Permalink to this headline">¶</a></h1>
@@ -225,6 +229,7 @@
 <ul class="simple">
 <li>By using Wazuh agent</li>
 <li>By using OwlH forwarder and collector tools</li>
+<li>By using Beat solutions like filebeat or logstash</li>
 </ul>
 </div>
 

@@ -19,12 +19,17 @@ Main role of this appliance is to listen traffic, analyze captured traffic using
 
 With OwlH you can deploy this OwlH NIDS node from scratch or you can include an integrate any deployed Network IDS node. Supported platforms are Debian Stretch and CentOS 7.
 
+* deploy as appliance
+* deploy as a service in a running Network IDS probe.
+
 OwlH Master node
 ----------------
 
 Centralized management will provide you an easy way to maintain your Network IDS probes. Among others, Master node will provide centralized rule management based on Open Rules solution, probes status Monitoring, configuration management, etc.
 
 This should be an appliance, you can deploy different managers in parallel as a cluster. The OwlH master software can also run into Wazuh Manager if you will use OwlH together with Wazuh.
+
+
 
 Elastic Stack
 -------------
@@ -33,3 +38,4 @@ Data Transport is done in two possible ways.
 
 * By using Wazuh agent
 * By using OwlH forwarder and collector tools
+* By using Beat solutions like filebeat or logstash
