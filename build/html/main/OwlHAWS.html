@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How does it work? &mdash; owlh 0.2 documentation</title>
+  <title>OwlH for AWS &mdash; owlh 0.2 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="owlh 0.2 documentation" href="../index.html"/>
-        <link rel="next" title="OwlH for PCI" href="OwlHPCI.html"/>
-        <link rel="prev" title="What can you do with OwlH?" href="OwlHWhat.html"/> 
+        <link rel="next" title="How can you install OwlH?" href="OwlHHow.html"/>
+        <link rel="prev" title="OwlH for PCI" href="OwlHPCI.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -97,17 +97,17 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How does it work?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#main-components">Main components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#owlh-nids-node">OwlH NIDS node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#owlh-master-node">OwlH Master node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#elastic-stack">Elastic Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html">How does it work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html#main-components">Main components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html#owlh-nids-node">OwlH NIDS node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html#owlh-master-node">OwlH Master node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html#elastic-stack">Elastic Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHPCI.html">OwlH for PCI</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">OwlH for AWS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment">OwlH will allow you to monitor traffic in your AWS environment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH for AWS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment">OwlH will allow you to monitor traffic in your AWS environment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
@@ -177,13 +177,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>How does it work?</li>
+      <li>OwlH for AWS</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/main/OwlHatwork.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/OwlHAWS.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,36 +196,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-does-it-work">
-<h1>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h1>
-<img alt="../_images/architecture.png" src="../_images/architecture.png" />
+  <div class="section" id="owlh-for-aws">
+<h1>OwlH for AWS<a class="headerlink" href="#owlh-for-aws" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment">
+<h2>OwlH will allow you to monitor traffic in your AWS environment<a class="headerlink" href="#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/owlhaws.png" src="../_images/owlhaws.png" />
+<p>OwlH will use a virtual TAP to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.</p>
 </div>
-<div class="section" id="main-components">
-<h1>Main components<a class="headerlink" href="#main-components" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li>OwlH NIDS node</li>
-<li>OwlH Master node</li>
-<li>Elastic stack</li>
-</ul>
-</div>
-<div class="section" id="owlh-nids-node">
-<h1>OwlH NIDS node<a class="headerlink" href="#owlh-nids-node" title="Permalink to this headline">¶</a></h1>
-<p>This appliance run the Network IDS software. OwlH supports Suricata Network IDS and will support BroIDS on next releases. Usually, best approach is to run a network IDS node as only network IDS so there is no other services or production environment tools working on it that are not related with traffic collection and analysis.</p>
-<p>Main role of this appliance is to listen traffic, analyze captured traffic using the ruleset provided and send the alerts to the master node. Also OwlH will include a capability to run actions in response to detected alerts.</p>
-<p>With OwlH you can deploy this OwlH NIDS node from scratch or you can include an integrate any deployed Network IDS node. Supported platforms are Debian Stretch and CentOS 7.</p>
-</div>
-<div class="section" id="owlh-master-node">
-<h1>OwlH Master node<a class="headerlink" href="#owlh-master-node" title="Permalink to this headline">¶</a></h1>
-<p>Centralized management will provide you an easy way to maintain your Network IDS probes. Among others, Master node will provide centralized rule management based on Open Rules solution, probes status Monitoring, configuration management, etc.</p>
-<p>This should be an appliance, you can deploy different managers in parallel as a cluster. The OwlH master software can also run into Wazuh Manager if you will use OwlH together with Wazuh.</p>
-</div>
-<div class="section" id="elastic-stack">
-<h1>Elastic Stack<a class="headerlink" href="#elastic-stack" title="Permalink to this headline">¶</a></h1>
-<p>Data Transport is done in two possible ways.</p>
-<ul class="simple">
-<li>By using Wazuh agent</li>
-<li>By using OwlH forwarder and collector tools</li>
-</ul>
 </div>
 
 
@@ -238,10 +215,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="OwlHPCI.html" class="btn btn-neutral float-right" title="OwlH for PCI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="OwlHHow.html" class="btn btn-neutral float-right" title="How can you install OwlH?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="OwlHWhat.html" class="btn btn-neutral" title="What can you do with OwlH?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="OwlHPCI.html" class="btn btn-neutral" title="OwlH for PCI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
