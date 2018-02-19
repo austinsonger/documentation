@@ -4,6 +4,8 @@ OwlH for PCI
 OwlH can help you to demonstrate compliance with requirements:
 --------------------------------------------------------------
 
+Download OwlH PCI-DSS v3.2 Mapping - `owlh_pcidss_3.2.pdf`_
+
 * Requirement 1: Install and maintain a firewall configuration to protect cardholder data
 * Requirement 2: Do not use vendor-supplied defaults for system passwords and other security parameters
 * Requirement 4: Encrypt transmission of cardholder data across open, public networks

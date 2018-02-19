@@ -36,7 +36,7 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="owlh 0.2 documentation" href="../index.html"/>
-        <link rel="next" title="How can you install OwlH?" href="OwlHHow.html"/>
+        <link rel="next" title="OwlH for AWS" href="OwlHAWS.html"/>
         <link rel="prev" title="How does it work?" href="OwlHatwork.html"/> 
 
   
@@ -97,19 +97,39 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html">How does it work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html">How does it work?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#main-components">Main components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-nids-node">OwlH NIDS node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-master-node">OwlH Master node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#elastic-stack">Elastic Stack</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH for PCI</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">OwlH for AWS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment">OwlH will allow you to monitor traffic in your AWS environment</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHHow.html#are-you-wazuh-user-or-do-you-want-to-use-wazuh-owlh">Are you Wazuh user? or do you want to use Wazuh + OwlH?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHWazuhWhat.html">OwlH OwlHWazuhWhat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHWazuhHow.html">OwlH OwlHWazuhHow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHNow.html">How-to - use OwlH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHWhat.html">OwlH OwlHWhat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHHow.html">OwlH OwlHHow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHNow.html">How-to - use OwlH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHWazuhWhat.html">Before configure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHWazuhHow.html">Install and configure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHNow.html">Use OwlH</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHHow.html#or-just-install-owlh">Or just install OwlH</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHWhat.html">Before Install OwlH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="install/OwlHWhat.html#before-you-begin">Before you begin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHHow.html">Install and configure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="install/OwlHHow.html#debian-stretch">Debian (Stretch)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install/OwlHHow.html#centos-7">CentOS 7</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHNow.html">Use OwlH</a></li>
 </ul>
 </li>
 </ul>
@@ -182,6 +202,7 @@
 <h1>OwlH for PCI<a class="headerlink" href="#owlh-for-pci" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="owlh-can-help-you-to-demonstrate-compliance-with-requirements">
 <h2>OwlH can help you to demonstrate compliance with requirements:<a class="headerlink" href="#owlh-can-help-you-to-demonstrate-compliance-with-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Download OwlH PCI-DSS v3.2 Mapping - <a class="reference external" href="https://drive.google.com/file/d/1IfC23AHSULjY6GKmXG_S5ZIUWKEMyB33/view?usp=sharing">owlh_pcidss_3.2.pdf</a></p>
 <ul class="simple">
 <li>Requirement 1: Install and maintain a firewall configuration to protect cardholder data</li>
 <li>Requirement 2: Do not use vendor-supplied defaults for system passwords and other security parameters</li>
@@ -207,7 +228,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="OwlHHow.html" class="btn btn-neutral float-right" title="How can you install OwlH?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="OwlHAWS.html" class="btn btn-neutral float-right" title="OwlH for AWS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="OwlHatwork.html" class="btn btn-neutral" title="How does it work?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
