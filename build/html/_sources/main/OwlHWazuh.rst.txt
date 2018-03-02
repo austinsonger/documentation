@@ -54,6 +54,34 @@ Here you have a **SAMPLE** eve-log configuration. Please, there are great config
 
 .. _eve-log sample file: https://raw.githubusercontent.com/owlh/wazuhenrichment/master/eve-log.yaml
 
+::
+
+  outputs:
+    - eve-log:
+      enabled: yes
+      filetype: regular #regular|syslog|unix_dgram|unix_stream|redis
+      filename: eve.json
+      types:
+        - alert:
+          metadata: yes
+          tagged-packets: yes
+          xff:
+            enabled: yes
+            mode: extra-data
+        - http:
+          extended: yes
+        - dns:
+          query: yes     # enable logging of DNS queries
+          answer: yes    # enable logging of DNS answers
+        - tls:
+          extended: yes     # enable this for extended logging information
+        - files:
+          force-magic: no   # force logging magic on all logged files
+        - smtp:
+          extended: yes # enable this for extended logging information
+        - ssh
+        - flow
+
 * Suricata `eve-log sample file`_
 
 **Remember** to restart your Suricata service after any change in your configuration file and check your Suricata logs.

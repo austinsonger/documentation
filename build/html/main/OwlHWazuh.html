@@ -256,6 +256,33 @@
 </pre></div>
 </div>
 <p>Here you have a <strong>SAMPLE</strong> eve-log configuration. Please, there are great configuration settings to use, so expend some time, review your <a class="reference external" href="https://suricata.readthedocs.io/en/suricata-4.0.4/configuration/suricata-yaml.html#eve-extensible-event-format">Suricata documentation</a> and find the right configuration for your needs.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">outputs</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">eve</span><span class="o">-</span><span class="n">log</span><span class="p">:</span>
+    <span class="n">enabled</span><span class="p">:</span> <span class="n">yes</span>
+    <span class="n">filetype</span><span class="p">:</span> <span class="n">regular</span> <span class="c1">#regular|syslog|unix_dgram|unix_stream|redis</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="n">eve</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">types</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">alert</span><span class="p">:</span>
+        <span class="n">metadata</span><span class="p">:</span> <span class="n">yes</span>
+        <span class="n">tagged</span><span class="o">-</span><span class="n">packets</span><span class="p">:</span> <span class="n">yes</span>
+        <span class="n">xff</span><span class="p">:</span>
+          <span class="n">enabled</span><span class="p">:</span> <span class="n">yes</span>
+          <span class="n">mode</span><span class="p">:</span> <span class="n">extra</span><span class="o">-</span><span class="n">data</span>
+      <span class="o">-</span> <span class="n">http</span><span class="p">:</span>
+        <span class="n">extended</span><span class="p">:</span> <span class="n">yes</span>
+      <span class="o">-</span> <span class="n">dns</span><span class="p">:</span>
+        <span class="n">query</span><span class="p">:</span> <span class="n">yes</span>     <span class="c1"># enable logging of DNS queries</span>
+        <span class="n">answer</span><span class="p">:</span> <span class="n">yes</span>    <span class="c1"># enable logging of DNS answers</span>
+      <span class="o">-</span> <span class="n">tls</span><span class="p">:</span>
+        <span class="n">extended</span><span class="p">:</span> <span class="n">yes</span>     <span class="c1"># enable this for extended logging information</span>
+      <span class="o">-</span> <span class="n">files</span><span class="p">:</span>
+        <span class="n">force</span><span class="o">-</span><span class="n">magic</span><span class="p">:</span> <span class="n">no</span>   <span class="c1"># force logging magic on all logged files</span>
+      <span class="o">-</span> <span class="n">smtp</span><span class="p">:</span>
+        <span class="n">extended</span><span class="p">:</span> <span class="n">yes</span> <span class="c1"># enable this for extended logging information</span>
+      <span class="o">-</span> <span class="n">ssh</span>
+      <span class="o">-</span> <span class="n">flow</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li>Suricata <a class="reference external" href="https://raw.githubusercontent.com/owlh/wazuhenrichment/master/eve-log.yaml">eve-log sample file</a></li>
 </ul>
