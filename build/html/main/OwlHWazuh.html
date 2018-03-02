@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OwlH for Wazuh &mdash; owlh 0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="owlh 0.2 documentation" href="../index.html"/>
+        <link rel="next" title="OwlH for PCI" href="OwlHPCI.html"/>
+        <link rel="prev" title="How does it work?" href="OwlHatwork.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> owlh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">So, let's look inside:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What can you do with OwlH?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#right-now-v0-2-provides">Right now v0.2 provides:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html">How does it work?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#main-components">Main components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-nids-node">OwlH NIDS node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-master-node">OwlH Master node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#elastic-stack">Elastic Stack</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH for Wazuh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-easily-integrate-suricata-with-wazuh">How to easily integrate Suricata with Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-steps">Main steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploy-suricata-or-use-a-current-suricata-deployment">Deploy Suricata or use a Current Suricata deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-suricata-to-store-output-in-json-format-eve-log-configuration">Configure Suricata to store output in JSON format - EVE log configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-wazuh-stack-if-you-are-not-done-yet">Install Wazuh stack if you are not done yet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-wazuh-agent-in-the-suricata-system">Install Wazuh Agent in the suricata system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modify-elastic-template">Modify Elastic template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHPCI.html">OwlH for PCI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">OwlH for AWS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment">OwlH will allow you to monitor traffic in your AWS environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHHow.html#are-you-wazuh-user-or-do-you-want-to-use-wazuh-owlh">Are you Wazuh user? or do you want to use Wazuh + OwlH?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHWazuhWhat.html">Before configure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHWazuhHow.html">Install and configure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHNow.html">Use OwlH</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHHow.html#or-just-install-owlh">Or just install OwlH</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHWhat.html">Before Install OwlH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="install/OwlHWhat.html#before-you-begin">Before you begin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHHow.html">Install and configure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="install/OwlHHow.html#debian-stretch">Debian (Stretch)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install/OwlHHow.html#centos-7">CentOS 7</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install/OwlHNow.html">Use OwlH</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">owlh</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>OwlH for Wazuh</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/main/OwlHWazuh.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="owlh-for-wazuh">
+<h1>OwlH for Wazuh<a class="headerlink" href="#owlh-for-wazuh" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-easily-integrate-suricata-with-wazuh">
+<h2>How to easily integrate Suricata with Wazuh<a class="headerlink" href="#how-to-easily-integrate-suricata-with-wazuh" title="Permalink to this headline">¶</a></h2>
+<p>This will introduce an easy way to integrate your Suricata output into Wazuh world. this is a one-way integration process, from your Suricata node to your Wazuh Dashboard. OwlH will help also to manage your Suricata nodes configuration and rules, and many other things. but right now, let’s integrate your Suricata node with Wazuh.</p>
+<p>As usual, please keep in contact if there is any clarification or help needed.</p>
+<blockquote>
+<div><ul class="simple">
+<li>email our support team - <a class="reference external" href="mailto:support&#37;&#52;&#48;owlh&#46;net">support<span>&#64;</span>owlh<span>&#46;</span>net</a></li>
+<li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
+</ul>
+</div></blockquote>
+<div class="section" id="main-steps">
+<h3>Main steps<a class="headerlink" href="#main-steps" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Deploy Suricata or use a Current Suricata deployment</li>
+<li>Configure Suricata to store output in JSON format - EVE log configuration</li>
+<li>Install Wazuh stack if you are not done yet</li>
+<li>Install Wazuh Agent in the suricata system</li>
+<li>Configure Wazuh Suricata rules to create right alarms</li>
+<li>Configure Wazuh Agent to read the eve.json output file</li>
+<li>If you require PCI. Configure OwlH PCI mapping</li>
+<li>Modify Elastic template</li>
+</ul>
+<p>And what’s next?</p>
+<ul class="simple">
+<li>OwlH Network IDS Dashboards. (under construction)</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="deploy-suricata-or-use-a-current-suricata-deployment">
+<h2>Deploy Suricata or use a Current Suricata deployment<a class="headerlink" href="#deploy-suricata-or-use-a-current-suricata-deployment" title="Permalink to this headline">¶</a></h2>
+<p>We assume that you will use a new Suricata deployment or you will use a current one. Both will work. In this procedure, we relay on Wazuh agent to do the collection work, so if your platform supports wazuh agent you should be able to integrate your Suricata too. Most usual environments are supported by both, but anyway, please, verify Suricata and Wazuh-agent requirements to find the right match.</p>
+</div>
+<div class="section" id="configure-suricata-to-store-output-in-json-format-eve-log-configuration">
+<h2>Configure Suricata to store output in JSON format - EVE log configuration<a class="headerlink" href="#configure-suricata-to-store-output-in-json-format-eve-log-configuration" title="Permalink to this headline">¶</a></h2>
+<p>By default Suricata configuration file suricata.yaml has the EVE (Extensible Event Format) enabled and configured to store the output in JSON format. But, anyway is a good idea to review that configuration and verify that we have all the info we want in the output file.</p>
+<p>Output file is usually - /var/log/suricata/eve.json</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">eve</span><span class="o">.</span><span class="n">json</span> <span class="n">will</span> <span class="n">help</span> <span class="n">you</span> <span class="n">to</span> <span class="n">verify</span> <span class="n">that</span> <span class="n">configuration</span> <span class="ow">is</span> <span class="n">working</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Here you have a <strong>SAMPLE</strong> eve-log configuration. Please, there are great configuration settings to use, so expend some time, review your <a class="reference external" href="https://suricata.readthedocs.io/en/suricata-4.0.4/configuration/suricata-yaml.html#eve-extensible-event-format">Suricata documentation</a> and find the right configuration for your needs.</p>
+<ul class="simple">
+<li>Suricata <a class="reference external" href="https://raw.githubusercontent.com/owlh/wazuhenrichment/master/eve-log.yaml">eve-log sample file</a></li>
+</ul>
+<p><strong>Remember</strong> to restart your Suricata service after any change in your configuration file and check your Suricata logs.</p>
+</div>
+<div class="section" id="install-wazuh-stack-if-you-are-not-done-yet">
+<h2>Install Wazuh stack if you are not done yet<a class="headerlink" href="#install-wazuh-stack-if-you-are-not-done-yet" title="Permalink to this headline">¶</a></h2>
+<p>We are integrating Suricata with Wazuh, so we need to have Wazuh Manager and elastic stack running before to end our configuration. At least we will need a Wazuh Manager connected to the elastic stack.</p>
+<p>Please, follow <a class="reference external" href="https://documentation.wazuh.com/current/installation-guide/index.html">Wazuh install guide</a> to deploy manager and elastic stack. If you have this done, you can skip this step.</p>
+</div>
+<div class="section" id="install-wazuh-agent-in-the-suricata-system">
+<h2>Install Wazuh Agent in the suricata system<a class="headerlink" href="#install-wazuh-agent-in-the-suricata-system" title="Permalink to this headline">¶</a></h2>
+<p>Wazuh Agent will be the transporter of our Suricata output. It provides a secure communication channel between our Suricata node and Wazuh Manager and the storage repository. Of course, Wazuh Agent does a lot more, it will help us to take care of our Suricata security by providing FIM, OS and audit Log Monitoring, and many others. Check <a class="reference external" href="https://documentation.wazuh.com/current/getting-started/components.html#wazuh-agent">Wazuh Agent</a> doc if you are not familiar with its capabilities.</p>
+<p>To install it please read and follow the <a class="reference external" href="https://documentation.wazuh.com/current/installation-guide/installing-wazuh-agent/index.html">install instructions</a> from Wazuh. Or request our help.</p>
+<blockquote>
+<div><ul class="simple">
+<li>email our support team - <a class="reference external" href="mailto:support&#37;&#52;&#48;owlh&#46;net">support<span>&#64;</span>owlh<span>&#46;</span>net</a></li>
+<li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="configure-wazuh-suricata-rules-to-create-right-alarms">
+<h2>Configure Wazuh Suricata rules to create right alarms<a class="headerlink" href="#configure-wazuh-suricata-rules-to-create-right-alarms" title="Permalink to this headline">¶</a></h2>
+<p>By default, Wazuh will use the JSON decoder to parse any JSON log entry from a wazuh agent. This decoder works really great, so we don’t need to care about parsing.</p>
+<p>To create an alert from collected logs, Wazuh uses rules. Each rule has an alert value so if the logs match with a rule and the rule’s alert value is equal or higher than alert level umbral defined in wazuh manager, then you will have an alert.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Default alert level configuration defined in manager ossec.conf file</span>
+<span class="o">&lt;</span><span class="n">alerts</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">log_alert_level</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;/</span><span class="n">log_alert_level</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">email_alert_level</span><span class="o">&gt;</span><span class="mi">12</span><span class="o">&lt;/</span><span class="n">email_alert_level</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">alerts</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>So, by default, most Suricata rules will have a 0 value level to prevent noisy events. we suggest to modify this values just to be sure that everything is collected, you can then adjust the alert level as needed in the future, as well as you can modify rules also as you may need.</p>
+<p>If you are not familiar with decoders and rules, this may help - <a class="reference external" href="https://documentation.wazuh.com/current/user-manual/ruleset/index.html#ruleset">Wazuh decoders and rules</a>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Sample rule modified to create an alert</span>
+<span class="o">&lt;</span><span class="n">rule</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;86600&quot;</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">decoded_as</span><span class="o">&gt;</span><span class="n">json</span><span class="o">&lt;/</span><span class="n">decoded_as</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="o">&gt;</span>\<span class="o">.+&lt;/</span><span class="n">field</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;event_type&quot;</span><span class="o">&gt;</span>\<span class="o">.+&lt;/</span><span class="n">field</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Suricata</span> <span class="n">messages</span><span class="o">.&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">rule</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Remember</strong> to restart your Wazuh Manager service after any change in your configuration file and check your Wazuh Manager logs.</p>
+</div>
+<div class="section" id="configure-wazuh-agent-to-read-the-eve-json-output-file">
+<h2>Configure Wazuh Agent to read the eve.json output file<a class="headerlink" href="#configure-wazuh-agent-to-read-the-eve-json-output-file" title="Permalink to this headline">¶</a></h2>
+<p>We need to tell our Wazuh Agent to read the Suricata output file. This will be done in the ossec.conf file under /var/ossec/etc folder (Linux systems). Check your &lt;ossec_config&gt; tag and include following lines.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Modify ossec.conf - read localfile suricata EVE json log</span>
+<span class="o">&lt;</span><span class="n">localfile</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">log_format</span><span class="o">&gt;</span><span class="n">syslog</span><span class="o">&lt;/</span><span class="n">log_format</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">location</span><span class="o">&gt;/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">eve</span><span class="o">.</span><span class="n">json</span><span class="o">&lt;/</span><span class="n">location</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">localfile</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Remember</strong> to restart your Wazuh Agent service after any change in your configuration file and check your Wazuh Agent logs.</p>
+</div>
+<div class="section" id="if-you-require-pci-configure-owlh-pci-mapping">
+<h2>If you require PCI. Configure OwlH PCI mapping<a class="headerlink" href="#if-you-require-pci-configure-owlh-pci-mapping" title="Permalink to this headline">¶</a></h2>
+<p>This must be run on every Wazuh logstash server and it will:</p>
+<ul class="simple">
+<li>Modify logstash configuration file to include OwlH PCI-DSS 3.2 mapping schema</li>
+<li>Copy OwlH suricata PCI-DSS mapping to config folder</li>
+<li>Restart logstash</li>
+</ul>
+<p>Please, download configuration script</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">$</span> <span class="pre">curl</span> <span class="pre">-so</span> <span class="pre">/tmp/owlhconfig.sh</span> <span class="pre">https://raw.githubusercontent.com/owlh/wazuhenrichment/master/owlhconfig.sh</span></code></div></blockquote>
+<p>and then run it</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">bash</span> <span class="pre">/tmp/owlhconfig.sh</span></code></div></blockquote>
+<p>Please, let us know if you need help.</p>
+<blockquote>
+<div><ul class="simple">
+<li>email our support team - <a class="reference external" href="mailto:support&#37;&#52;&#48;owlh&#46;net">support<span>&#64;</span>owlh<span>&#46;</span>net</a></li>
+<li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="modify-elastic-template">
+<h2>Modify Elastic template<a class="headerlink" href="#modify-elastic-template" title="Permalink to this headline">¶</a></h2>
+<p>Elasticsearch Wazuh index template is based on agent fields and doesn’t include all the new fields types that Suricata will provide. This is not a real problem as an index refresh into kibana will allow you to manage Suricata without a problem. But some useful things may happen if we use the right field type as for example an amazing flow dashboard with useful traffic graphics.</p>
+<p>These are some fields that will require template customization.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;flow&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;bytes_toclient&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;doc_values&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;bytes_toserver&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;doc_values&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p><strong>NOTE</strong> As there can be some issues when modifying elasticsearch indices and templates, please request our help to do it. We are working to prepare a full index template and instructions.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OwlHPCI.html" class="btn btn-neutral float-right" title="OwlH for PCI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OwlHatwork.html" class="btn btn-neutral" title="How does it work?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, owlh team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
