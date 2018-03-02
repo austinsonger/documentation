@@ -1,5 +1,5 @@
-OwlH for Wazuh
-==============
+OwlH - Suricata and Wazuh
+=========================
 
 How to easily integrate Suricata with Wazuh
 -------------------------------------------
