@@ -28,7 +28,9 @@ Main steps
 
 And what's next?
 
-* OwlH Network IDS Dashboards. (under construction)
+* OwlH Network IDS Dashboards
+* OwlH Network IDS Configuration management
+* OwlH Network IDS Rule management
 
 ----
 
