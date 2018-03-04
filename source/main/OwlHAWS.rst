@@ -47,3 +47,11 @@ Main Components
 
 Deploy OwlH master as Suricata Network IDS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _Suricata deployment script: https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh
+
+`Suricata deployment script`_ will help you to deploy Suricata 4.0.4 from source code in a Amazon Linux box.
+
+.. _Suricata documentation: https://suricata.readthedocs.io/en/suricata-4.0.4/install.html
+
+If you prefer a different way to deploy suricata, please follow `Suricata documentation`_. 
