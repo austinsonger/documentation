@@ -219,6 +219,43 @@
 <h2>OwlH will allow you to monitor traffic in your AWS environment<a class="headerlink" href="#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/nettap.png" src="../_images/nettap.png" />
 <p>OwlH will use a virtual TAP to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.</p>
+<p>Main steps:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Prepare your environment</dt>
+<dd><ul class="first last">
+<li>Wazuh</li>
+<li></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Deploy OwlH master as Suricata Network IDS</li>
+<li>Integrate OwlH master with Wazuh</li>
+<li><dl class="first docutils">
+<dt>Define global environment variables</dt>
+<dd><ul class="first last">
+<li>Delay between capture</li>
+<li>File rotation time</li>
+<li>Define capture BPF filter</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Configure your servers</li>
+<li>Register your servers</li>
+<li>Integrate into elastic stack</li>
+<li><dl class="first docutils">
+<dt>Network IDS alert enrichment</dt>
+<dd><ul class="first last">
+<li>GEO ip</li>
+<li>Custom</li>
+<li>PCI-DSS</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 </div>
 
