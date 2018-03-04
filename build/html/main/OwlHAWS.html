@@ -129,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#main-components">Main Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deploy-owlh-master-as-suricata-network-ids">Deploy OwlH master as Suricata Network IDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-ansible-and-define-global-environment-variables">Configure Ansible and define global environment variables</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
@@ -238,7 +239,7 @@
 <li>Deploy OwlH master as Suricata Network IDS</li>
 <li>Integrate OwlH master with Wazuh</li>
 <li><dl class="first docutils">
-<dt>Define global environment variables</dt>
+<dt>Configure Ansible and define global environment variables</dt>
 <dd><ul class="first last">
 <li>Delay between capture</li>
 <li>File rotation time</li>
@@ -311,11 +312,44 @@
 </pre></div>
 </div>
 <p>Please review, authd documentation or find a different way to register your agent. <a class="reference external" href="https://documentation.wazuh.com/current/user-manual/registering/index.html">Register agent documentation</a></p>
-<p>And finally, modify your ossec.conf file to monitor your suricata output</p>
+<p>Ginally, modify your ossec.conf file to monitor your suricata output</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">localfile</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">log_format</span><span class="o">&gt;</span><span class="n">syslog</span><span class="o">&lt;/</span><span class="n">log_format</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">location</span><span class="o">&gt;/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">eve</span><span class="o">.</span><span class="n">json</span><span class="o">&lt;/</span><span class="n">location</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">localfile</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>And restart your wazuh agent</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">$</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">wazuh-agent</span></code></div></blockquote>
+</div>
+<div class="section" id="configure-ansible-and-define-global-environment-variables">
+<h2>Configure Ansible and define global environment variables<a class="headerlink" href="#configure-ansible-and-define-global-environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>Please, remember that we are working in an amazon linux system. Check ansible documentation if you want to deploy it in a different system</p>
+<ul class="simple">
+<li>Allow EPEL repository configuration</li>
+</ul>
+<p>Edit epel.repo and enable epel repository</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">yum</span><span class="o">.</span><span class="n">repos</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">epel</span><span class="o">.</span><span class="n">repo</span>
+
+<span class="n">include</span>
+<span class="p">[</span><span class="n">epel</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># by default is set to 0</span>
+</pre></div>
+</div>
+<p>safe and close it.</p>
+<ul>
+<li><p class="first">Install ansible</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">ansible</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first">Create a playbook folder</p>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create palybooks folder</span>
+<span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">playbooks</span>
 </pre></div>
 </div>
 </div>

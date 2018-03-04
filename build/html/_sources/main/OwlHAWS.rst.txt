@@ -20,7 +20,7 @@ Main steps:
    * main components
 * Deploy OwlH master as Suricata Network IDS
 * Integrate OwlH master with Wazuh
-* Define global environment variables
+* Configure Ansible and define global environment variables
    * Delay between capture
    * File rotation time
    * Define capture BPF filter
@@ -108,7 +108,7 @@ A few things here:
 
 Please review, authd documentation or find a different way to register your agent. `Register agent documentation`_
 
-And finally, modify your ossec.conf file to monitor your suricata output
+Ginally, modify your ossec.conf file to monitor your suricata output
 
 ::
 
@@ -116,3 +116,38 @@ And finally, modify your ossec.conf file to monitor your suricata output
       <log_format>syslog</log_format>
       <location>/var/log/suricata/eve.json</location>
     </localfile>
+
+And restart your wazuh agent
+
+    ``$ systemctl restart wazuh-agent``
+
+Configure Ansible and define global environment variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Please, remember that we are working in an amazon linux system. Check ansible documentation if you want to deploy it in a different system
+
+* Allow EPEL repository configuration
+
+Edit epel.repo and enable epel repository
+
+::
+
+    sudo vi /etc/yum.repos.d/epel.repo
+
+    include
+    [epel]
+    ...
+    enabled=1 # by default is set to 0
+
+safe and close it.
+
+* Install ansible
+
+   ``$ sudo yum -y install ansible``
+
+* Create a playbook folder
+
+::
+
+    # create palybooks folder
+    sudo mkdir /etc/ansible/playbooks
