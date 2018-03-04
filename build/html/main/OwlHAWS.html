@@ -128,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#wazuh-system">Wazuh system</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#main-components">Main Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deploy-owlh-master-as-suricata-network-ids">Deploy OwlH master as Suricata Network IDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
@@ -268,11 +269,55 @@
 <div class="section" id="main-components">
 <h2>Main Components<a class="headerlink" href="#main-components" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/nettap-components.png" src="../_images/nettap-components.png" />
+<p>OwlH master</p>
+<div class="line-block">
+<div class="line">Instance | t2.xlarge |</div>
+</div>
 </div>
 <div class="section" id="deploy-owlh-master-as-suricata-network-ids">
 <h2>Deploy OwlH master as Suricata Network IDS<a class="headerlink" href="#deploy-owlh-master-as-suricata-network-ids" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh">Suricata deployment script</a> will help you to deploy Suricata 4.0.4 from source code in a Amazon Linux box.</p>
 <p>If you prefer a different way to deploy suricata, please follow <a class="reference external" href="https://suricata.readthedocs.io/en/suricata-4.0.4/install.html">Suricata documentation</a>.</p>
+</div>
+<div class="section" id="integrate-owlh-master-with-wazuh">
+<h2>Integrate OwlH master with Wazuh<a class="headerlink" href="#integrate-owlh-master-with-wazuh" title="Permalink to this headline">¶</a></h2>
+<p>Integrate OwlH master with Wazuh is pretty easy. We only need to deploy our Wazuh agent into the OwlH master. Follow <a class="reference external" href="https://documentation.wazuh.com/current/installation-guide/installing-wazuh-agent/wazuh_agent_rpm.html">Wazuh agent deploy</a> instructions for RPM packets to deploy the agent.</p>
+<p>in summary, you will set up the repository by running the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cat &gt; /etc/yum.repos.d/wazuh.repo &lt;&lt;\EOF</span>
+<span class="p">[</span><span class="n">wazuh_repo</span><span class="p">]</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">gpgkey</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">wazuh</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">key</span><span class="o">/</span><span class="n">GPG</span><span class="o">-</span><span class="n">KEY</span><span class="o">-</span><span class="n">WAZUH</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">name</span><span class="o">=</span><span class="n">Wazuh</span> <span class="n">repository</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">wazuh</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mf">3.</span><span class="n">x</span><span class="o">/</span><span class="n">yum</span><span class="o">/</span>
+<span class="n">protect</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">EOF</span>
+</pre></div>
+</div>
+<p>and now, install wazuh agent</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum install wazuh-agent</span>
+</pre></div>
+</div>
+<p>now, lest register agent into your Wazuh Manager. if you are using authd on your manager:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># register agent</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">ossec</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">agent</span><span class="o">-</span><span class="n">auth</span> <span class="o">-</span><span class="n">m</span> <span class="mf">1.1</span><span class="o">.</span><span class="mf">1.1</span> <span class="o">-</span><span class="n">A</span> <span class="n">owlhmaster</span>
+</pre></div>
+</div>
+<p>A few things here:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.1</span><span class="o">.</span><span class="mf">1.1</span> <span class="c1"># is your wazuh manager ip</span>
+<span class="o">-</span><span class="n">A</span>      <span class="c1"># option means that you want to specify a name other than hostname.</span>
+        <span class="c1"># This command suppose tcp/1515 port used,</span>
+        <span class="c1"># if not, you should change command to include the right port.</span>
+</pre></div>
+</div>
+<p>Please review, authd documentation or find a different way to register your agent. <a class="reference external" href="https://documentation.wazuh.com/current/user-manual/registering/index.html">Register agent documentation</a></p>
+<p>And finally, modify your ossec.conf file to monitor your suricata output</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">localfile</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">log_format</span><span class="o">&gt;</span><span class="n">syslog</span><span class="o">&lt;/</span><span class="n">log_format</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">location</span><span class="o">&gt;/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">eve</span><span class="o">.</span><span class="n">json</span><span class="o">&lt;/</span><span class="n">location</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">localfile</span><span class="o">&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 
