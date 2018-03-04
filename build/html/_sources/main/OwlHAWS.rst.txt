@@ -20,7 +20,7 @@ Main steps:
    * main components
 * Deploy OwlH master as Suricata Network IDS
 * Integrate OwlH master with Wazuh
-* Configure Ansible and define global environment variables
+* Configure Ansible in OwlH master
    * Delay between capture
    * File rotation time
    * Define capture BPF filter
@@ -44,10 +44,13 @@ Main Components
 
 .. image:: /img/nettap-components.png
 
-OwlH master
+* OwlH master
 
-| Instance | t2.xlarge |
+======== =========
+Instance t2.xlarge
+======== =========
 
+----
 
 Deploy OwlH master as Suricata Network IDS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -60,6 +63,7 @@ Deploy OwlH master as Suricata Network IDS
 
 If you prefer a different way to deploy suricata, please follow `Suricata documentation`_.
 
+----
 
 Integrate OwlH master with Wazuh
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -121,8 +125,10 @@ And restart your wazuh agent
 
     ``$ systemctl restart wazuh-agent``
 
-Configure Ansible and define global environment variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----
+
+Configure Ansible in OwlH master
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Please, remember that we are working in an amazon linux system. Check ansible documentation if you want to deploy it in a different system
 
@@ -144,6 +150,20 @@ save and close it.
 * Install ansible
 
    ``$ sudo yum -y install ansible``
+
+* Create Ansible Key that will be used to manage Traffic capture in your servers
+
+::
+
+   # Create ssh keys
+   ssh-keygen -q -t rsa -C "owlmaster@owlh.net" -f ~/.ssh/owl -N ""
+
+Check your owl.pub file and remember that you will use it when registering your servers in OwlH master
+
+::
+
+    cat owl.pub # it should looks like this
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAfHtB6SGRdWXYEkI+TPgRwnOvwHP0rETVW20X+fokSGmPxH32S2JOw7XoSKp6/sdlqT/iBLhewFsKqc1l+Cx6i/U8httZNBLnDcE/Y8Q5RUoZQqyv2mlrrbtUHeY3Cxm6tOP0sS5iEtg4gCpUage1wDDPITsg9OtX1ljoxn+67QJJuZa7q4J41KQZYD1IyH3HSuA8hk6hURdb+hc9GycQZ6wkejRURlll6j9vfO0dMl4KN6U8QA8g4s7/j10MZJlf1UK2a0U1taqYI1zkPEyJnLDQYkI41+AeHoSuElfN7IG2e+EZOWxcTGL/5dRK5+Hb1dx1iK1rBUzHMW7s0b21 owlmaster@owlh.net
 
 * Create a playbook folder
 

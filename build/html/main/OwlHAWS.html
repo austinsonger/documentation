@@ -129,7 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#main-components">Main Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deploy-owlh-master-as-suricata-network-ids">Deploy OwlH master as Suricata Network IDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-ansible-and-define-global-environment-variables">Configure Ansible and define global environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-ansible-in-owlh-master">Configure Ansible in OwlH master</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
@@ -239,7 +239,7 @@
 <li>Deploy OwlH master as Suricata Network IDS</li>
 <li>Integrate OwlH master with Wazuh</li>
 <li><dl class="first docutils">
-<dt>Configure Ansible and define global environment variables</dt>
+<dt>Configure Ansible in OwlH master</dt>
 <dd><ul class="first last">
 <li>Delay between capture</li>
 <li>File rotation time</li>
@@ -270,16 +270,28 @@
 <div class="section" id="main-components">
 <h2>Main Components<a class="headerlink" href="#main-components" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/nettap-components.png" src="../_images/nettap-components.png" />
-<p>OwlH master</p>
-<div class="line-block">
-<div class="line">Instance | t2.xlarge |</div>
+<ul class="simple">
+<li>OwlH master</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Instance</td>
+<td>t2.xlarge</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
+<hr class="docutils" />
 <div class="section" id="deploy-owlh-master-as-suricata-network-ids">
 <h2>Deploy OwlH master as Suricata Network IDS<a class="headerlink" href="#deploy-owlh-master-as-suricata-network-ids" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh">Suricata deployment script</a> will help you to deploy Suricata 4.0.4 from source code in a Amazon Linux box.</p>
 <p>If you prefer a different way to deploy suricata, please follow <a class="reference external" href="https://suricata.readthedocs.io/en/suricata-4.0.4/install.html">Suricata documentation</a>.</p>
 </div>
+<hr class="docutils" />
 <div class="section" id="integrate-owlh-master-with-wazuh">
 <h2>Integrate OwlH master with Wazuh<a class="headerlink" href="#integrate-owlh-master-with-wazuh" title="Permalink to this headline">¶</a></h2>
 <p>Integrate OwlH master with Wazuh is pretty easy. We only need to deploy our Wazuh agent into the OwlH master. Follow <a class="reference external" href="https://documentation.wazuh.com/current/installation-guide/installing-wazuh-agent/wazuh_agent_rpm.html">Wazuh agent deploy</a> instructions for RPM packets to deploy the agent.</p>
@@ -323,8 +335,9 @@
 <blockquote>
 <div><code class="docutils literal"><span class="pre">$</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">wazuh-agent</span></code></div></blockquote>
 </div>
-<div class="section" id="configure-ansible-and-define-global-environment-variables">
-<h2>Configure Ansible and define global environment variables<a class="headerlink" href="#configure-ansible-and-define-global-environment-variables" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="configure-ansible-in-owlh-master">
+<h2>Configure Ansible in OwlH master<a class="headerlink" href="#configure-ansible-in-owlh-master" title="Permalink to this headline">¶</a></h2>
 <p>Please, remember that we are working in an amazon linux system. Check ansible documentation if you want to deploy it in a different system</p>
 <ul class="simple">
 <li>Allow EPEL repository configuration</li>
@@ -345,8 +358,20 @@
 <div><p><code class="docutils literal"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">ansible</span></code></p>
 </div></blockquote>
 </li>
-<li><p class="first">Create a playbook folder</p>
+<li><p class="first">Create Ansible Key that will be used to manage Traffic capture in your servers</p>
 </li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Create ssh keys</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span> <span class="o">-</span><span class="n">C</span> <span class="s2">&quot;owlmaster@owlh.net&quot;</span> <span class="o">-</span><span class="n">f</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">owl</span> <span class="o">-</span><span class="n">N</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Check your owl.pub file and remember that you will use it when registering your servers in OwlH master</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">owl</span><span class="o">.</span><span class="n">pub</span> <span class="c1"># it should looks like this</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">rsa</span> <span class="n">AAAAB3NzaC1yc2EAAAADAQABAAABAQDAfHtB6SGRdWXYEkI</span><span class="o">+</span><span class="n">TPgRwnOvwHP0rETVW20X</span><span class="o">+</span><span class="n">fokSGmPxH32S2JOw7XoSKp6</span><span class="o">/</span><span class="n">sdlqT</span><span class="o">/</span><span class="n">iBLhewFsKqc1l</span><span class="o">+</span><span class="n">Cx6i</span><span class="o">/</span><span class="n">U8httZNBLnDcE</span><span class="o">/</span><span class="n">Y8Q5RUoZQqyv2mlrrbtUHeY3Cxm6tOP0sS5iEtg4gCpUage1wDDPITsg9OtX1ljoxn</span><span class="o">+</span><span class="mi">67</span><span class="n">QJJuZa7q4J41KQZYD1IyH3HSuA8hk6hURdb</span><span class="o">+</span><span class="n">hc9GycQZ6wkejRURlll6j9vfO0dMl4KN6U8QA8g4s7</span><span class="o">/</span><span class="n">j10MZJlf1UK2a0U1taqYI1zkPEyJnLDQYkI41</span><span class="o">+</span><span class="n">AeHoSuElfN7IG2e</span><span class="o">+</span><span class="n">EZOWxcTGL</span><span class="o">/</span><span class="mi">5</span><span class="n">dRK5</span><span class="o">+</span><span class="n">Hb1dx1iK1rBUzHMW7s0b21</span> <span class="n">owlmaster</span><span class="nd">@owlh</span><span class="o">.</span><span class="n">net</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Create a playbook folder</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create palybooks folder</span>
 <span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">playbooks</span>
