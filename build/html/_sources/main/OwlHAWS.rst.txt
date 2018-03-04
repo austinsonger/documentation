@@ -52,6 +52,13 @@ Instance t2.xlarge
 
 ----
 
+* A more detailed block diagram
+
+.. image:: /img/nettap-blockdiagram.png
+
+
+----
+
 Deploy OwlH master as Suricata Network IDS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -171,3 +178,83 @@ Check your owl.pub file and remember that you will use it when registering your 
 
     # create palybooks folder
     sudo mkdir /etc/ansible/playbooks
+
+
+Configure your servers
+^^^^^^^^^^^^^^^^^^^^^^
+
+We will need some tools and a user in each one of your servers in order to coordinate the traffic capture functionality
+
+* Create and configure owl user in your servers
+
+.. _this script:  https://raw.githubusercontent.com/owlh/owlhostnettap/master/owluser-setup.sh
+
+The owl user will be use by Ansible to run traffic capture and collect pcap files. to create user and configure it please follow `this script`_:
+
+::
+
+   #!/bin/bash
+   # 28.02.18 tested in amazon Linux instance - @owlmaster
+
+   # NOTE -- run this script in a server using
+   # sudo bash owluser-setup.sh
+
+   sudo adduser owl
+   echo "create owl user ssh folder"
+   sudo -u owl mkdir /home/owl/.ssh
+   echo "setting ssh folder permissions"
+   sudo -u owl chmod 700 /home/owl/.ssh
+   echo "create authorized keys file"
+   sudo -u owl touch /home/owl/.ssh/authorized_keys
+   echo "setting authorized keys permissions"
+   sudo -u owl chmod 600 /home/owl/.ssh/authorized_keys
+   echo "include owlmaster key - this is your owl.pub created on your OwlH master"
+   sudo -u owl echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUcJhz9gpE2a1gra67eF/0jjsTBtNHRMawZGLDjQM5mXkmcfy4BTrykvuby0eEEO9hhSRMA5so9cAsmAkQKpW0dxRx0Y5c8LKwrtkzmOHrltQrFTeLmaJaojXDIjVch6XNTwOSnOO9b9O5KKjsJe86I55YP+4sf3ux7azEYVEUWzoN5aqELe+Z4+/A93F142QlJLuCra3Jp5GgeZoBBU7H2bKnSOXOmEQHUjiPETDUDTb1xyb3lVdYALAW3P424KvfmoTK+i3S8hy9vMHcgHQUkyH8ijfKbHZ0V0PTC5WEqVp6bGSGmd2qzyUbapeCnzrtWjiGEhFIL+jZoIg3xXH/ owlmaster@owlh.net" >> /home/owl/.ssh/authorized_keys
+
+   # JUST IN CASE -
+   # sudo -u owl sudo tcpdump -i eth0
+
+   # Prepare owlh related stuff folder
+   echo "prepare owlh stuff folder /var/owlh"
+   sudo mkdir /var/owlh
+   sudo chown owl /var/owlh
+   sudo -u owl mkdir /var/owlh/traffic
+   sudo -u owl mkdir /var/owlh/etc
+   sudo -u owl mkdir /var/owlh/bin
+
+   echo "install tcpdump"
+   sudo yum -y install tcpdump
+
+   # Allow owl use tcpdump with sudo without password
+   echo "allow user owl to use tcpdump"
+   sudo sed -i '/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' /etc/sudoers
+
+
+   # clean and end
+   echo "should be done. Enjoy your day."
+
+Script also includes tcpdump installation as part of the traffic capture stuff. Please be sure you have tcpdump running before continue. This step is only needed if you don't have tcpdump installed yet.
+
+::
+
+   echo "install tcpdump"
+   sudo yum -y install tcpdump
+
+   # Allow owl use tcpdump with sudo without password
+   echo "allow user owl to use tcpdump"
+   sudo sed -i '/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' /etc/sudoers
+
+
+Register your servers
+^^^^^^^^^^^^^^^^^^^^^
+
+We need to know a little bit about your network. At least, we need to know what are the servers that you want to capture traffic from.
+
+Please, include in your OwlH server inventory file all your servers /etc/ansible/hosts. Define them as needed but keep srvs group name.
+
+::
+
+   [srvs]
+   1.1.1.1
+   2.2.2.2
+   3.3.3.3

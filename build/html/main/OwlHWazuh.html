@@ -125,6 +125,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">OwlH for AWS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment">OwlH will allow you to monitor traffic in your AWS environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#wazuh-system">Wazuh system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#main-components">Main Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#deploy-owlh-master-as-suricata-network-ids">Deploy OwlH master as Suricata Network IDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#configure-ansible-in-owlh-master">Configure Ansible in OwlH master</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
@@ -243,9 +248,10 @@
 <li>OwlH Network IDS Configuration management</li>
 <li>OwlH Network IDS Rule management</li>
 </ul>
-</div>
-</div>
 <hr class="docutils" />
+<img alt="../_images/suricatawazuh.png" src="../_images/suricatawazuh.png" />
+</div>
+</div>
 <div class="section" id="deploy-suricata-or-use-a-current-suricata-deployment">
 <h2>Deploy Suricata or use a Current Suricata deployment<a class="headerlink" href="#deploy-suricata-or-use-a-current-suricata-deployment" title="Permalink to this headline">¶</a></h2>
 <p>We assume that you will use a new Suricata deployment or you will use a current one. Both will work. In this procedure, we relay on Wazuh agent to do the collection work, so if your platform supports wazuh agent you should be able to integrate your Suricata too. Most usual environments are supported by both, but anyway, please, verify Suricata and Wazuh-agent requirements to find the right match.</p>

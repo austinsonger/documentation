@@ -130,6 +130,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#deploy-owlh-master-as-suricata-network-ids">Deploy OwlH master as Suricata Network IDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-ansible-in-owlh-master">Configure Ansible in OwlH master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-your-servers">Configure your servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-your-servers">Register your servers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
@@ -284,6 +286,11 @@
 </tr>
 </tbody>
 </table>
+<hr class="docutils" />
+<ul class="simple">
+<li>A more detailed block diagram</li>
+</ul>
+<img alt="../_images/nettap-blockdiagram.png" src="../_images/nettap-blockdiagram.png" />
 </div>
 <hr class="docutils" />
 <div class="section" id="deploy-owlh-master-as-suricata-network-ids">
@@ -375,6 +382,75 @@
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create palybooks folder</span>
 <span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">playbooks</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-your-servers">
+<h2>Configure your servers<a class="headerlink" href="#configure-your-servers" title="Permalink to this headline">¶</a></h2>
+<p>We will need some tools and a user in each one of your servers in order to coordinate the traffic capture functionality</p>
+<ul class="simple">
+<li>Create and configure owl user in your servers</li>
+</ul>
+<p>The owl user will be use by Ansible to run traffic capture and collect pcap files. to create user and configure it please follow <a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/owluser-setup.sh">this script</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># 28.02.18 tested in amazon Linux instance - @owlmaster</span>
+
+<span class="c1"># NOTE -- run this script in a server using</span>
+<span class="c1"># sudo bash owluser-setup.sh</span>
+
+<span class="n">sudo</span> <span class="n">adduser</span> <span class="n">owl</span>
+<span class="n">echo</span> <span class="s2">&quot;create owl user ssh folder&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span>
+<span class="n">echo</span> <span class="s2">&quot;setting ssh folder permissions&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">chmod</span> <span class="mi">700</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span>
+<span class="n">echo</span> <span class="s2">&quot;create authorized keys file&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">touch</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
+<span class="n">echo</span> <span class="s2">&quot;setting authorized keys permissions&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">chmod</span> <span class="mi">600</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
+<span class="n">echo</span> <span class="s2">&quot;include owlmaster key - this is your owl.pub created on your OwlH master&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">echo</span> <span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUcJhz9gpE2a1gra67eF/0jjsTBtNHRMawZGLDjQM5mXkmcfy4BTrykvuby0eEEO9hhSRMA5so9cAsmAkQKpW0dxRx0Y5c8LKwrtkzmOHrltQrFTeLmaJaojXDIjVch6XNTwOSnOO9b9O5KKjsJe86I55YP+4sf3ux7azEYVEUWzoN5aqELe+Z4+/A93F142QlJLuCra3Jp5GgeZoBBU7H2bKnSOXOmEQHUjiPETDUDTb1xyb3lVdYALAW3P424KvfmoTK+i3S8hy9vMHcgHQUkyH8ijfKbHZ0V0PTC5WEqVp6bGSGmd2qzyUbapeCnzrtWjiGEhFIL+jZoIg3xXH/ owlmaster@owlh.net&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
+
+<span class="c1"># JUST IN CASE -</span>
+<span class="c1"># sudo -u owl sudo tcpdump -i eth0</span>
+
+<span class="c1"># Prepare owlh related stuff folder</span>
+<span class="n">echo</span> <span class="s2">&quot;prepare owlh stuff folder /var/owlh&quot;</span>
+<span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span>
+<span class="n">sudo</span> <span class="n">chown</span> <span class="n">owl</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">traffic</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">etc</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="nb">bin</span>
+
+<span class="n">echo</span> <span class="s2">&quot;install tcpdump&quot;</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">tcpdump</span>
+
+<span class="c1"># Allow owl use tcpdump with sudo without password</span>
+<span class="n">echo</span> <span class="s2">&quot;allow user owl to use tcpdump&quot;</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump&#39;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sudoers</span>
+
+
+<span class="c1"># clean and end</span>
+<span class="n">echo</span> <span class="s2">&quot;should be done. Enjoy your day.&quot;</span>
+</pre></div>
+</div>
+<p>Script also includes tcpdump installation as part of the traffic capture stuff. Please be sure you have tcpdump running before continue. This step is only needed if you don’t have tcpdump installed yet.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;install tcpdump&quot;</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">tcpdump</span>
+
+<span class="c1"># Allow owl use tcpdump with sudo without password</span>
+<span class="n">echo</span> <span class="s2">&quot;allow user owl to use tcpdump&quot;</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump&#39;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sudoers</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="register-your-servers">
+<h2>Register your servers<a class="headerlink" href="#register-your-servers" title="Permalink to this headline">¶</a></h2>
+<p>We need to know a little bit about your network. At least, we need to know what are the servers that you want to capture traffic from.</p>
+<p>Please, include in your OwlH server inventory file all your servers /etc/ansible/hosts. Define them as needed but keep srvs group name.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">srvs</span><span class="p">]</span>
+<span class="mf">1.1</span><span class="o">.</span><span class="mf">1.1</span>
+<span class="mf">2.2</span><span class="o">.</span><span class="mf">2.2</span>
+<span class="mf">3.3</span><span class="o">.</span><span class="mf">3.3</span>
 </pre></div>
 </div>
 </div>

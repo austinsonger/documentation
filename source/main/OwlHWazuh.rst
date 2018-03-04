@@ -34,6 +34,8 @@ And what's next?
 
 ----
 
+.. image:: /img/suricatawazuh.png
+
 Deploy Suricata or use a Current Suricata deployment
 ----------------------------------------------------
 
