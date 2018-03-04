@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OwlH for PCI &mdash; owlh 0.2 documentation</title>
+  <title>OwlH for PCI &mdash; owlh 0.3 documentation</title>
   
 
   
@@ -35,9 +35,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="owlh 0.2 documentation" href="../index.html"/>
+    <link rel="top" title="owlh 0.3 documentation" href="../index.html"/>
         <link rel="next" title="OwlH for AWS" href="OwlHAWS.html"/>
-        <link rel="prev" title="How does it work?" href="OwlHatwork.html"/> 
+        <link rel="prev" title="OwlH - Suricata and Wazuh" href="OwlHWazuh.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.2
+                0.3
               </div>
             
           
@@ -104,12 +104,35 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#elastic-stack">Elastic Stack</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHWazuh.html">OwlH - Suricata and Wazuh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#how-to-easily-integrate-suricata-with-wazuh">How to easily integrate Suricata with Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#main-steps">Main steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#deploy-suricata-or-use-a-current-suricata-deployment">Deploy Suricata or use a Current Suricata deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-suricata-to-store-output-in-json-format-eve-log-configuration">Configure Suricata to store output in JSON format - EVE log configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-stack-if-you-are-not-done-yet">Install Wazuh stack if you are not done yet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-agent-in-the-suricata-system">Install Wazuh Agent in the suricata system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH for PCI</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">OwlH for AWS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment">OwlH will allow you to monitor traffic in your AWS environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#wazuh-system">Wazuh system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#main-components">Main Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#deploy-owlh-master-as-suricata-network-ids">Deploy OwlH master as Suricata Network IDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#configure-ansible-in-owlh-master">Configure Ansible in OwlH master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#install-traffic-capture-ansible-playbooks">Install traffic capture Ansible playbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#configure-your-servers">Configure your servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#register-your-servers">Register your servers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
@@ -231,7 +254,7 @@
         <a href="OwlHAWS.html" class="btn btn-neutral float-right" title="OwlH for AWS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="OwlHatwork.html" class="btn btn-neutral" title="How does it work?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="OwlHWazuh.html" class="btn btn-neutral" title="OwlH - Suricata and Wazuh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -262,7 +285,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.2',
+            VERSION:'0.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

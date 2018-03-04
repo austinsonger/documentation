@@ -180,6 +180,109 @@ Check your owl.pub file and remember that you will use it when registering your 
     sudo mkdir /etc/ansible/playbooks
 
 
+Install traffic capture Ansible playbooks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _Traffic capture control: https://raw.githubusercontent.com/owlh/owlhostnettap/master/tcpdump.yaml
+
+* Traffic capture control playbook:
+
+This is `Traffic capture control`_ playbook
+
+::
+
+   # owlmaster
+   # Version 0.0
+   # Ansible Playbook - run tcpdump on destination
+
+   - hosts: srvs
+     tasks:
+       - name: start tcpdump
+         shell: "(sudo tcpdump -i {{ ansible_default_ipv4.interface }} -G 3 -w /var/owlh/traffic/$(hostname)-%y%m%d%H%M%S.pcap -F myfilter &)"
+         async: 10
+         poll: 0
+         become: true
+         become_user: owl
+         become_method: su
+
+* Captured traffic management: Move captured traffic to OwlH, clean remote server traffic files.
+
+.. _Traffic management: https://raw.githubusercontent.com/owlh/owlhostnettap/master/pcapmanage.yaml
+
+.. _Transport and clean: https://raw.githubusercontent.com/owlh/owlhostnettap/master/pcapmanage.yaml
+
+::
+
+   # owlmaster
+   # Version 0.0
+   # Ansible Playbook - get pcap files from servers
+
+   - hosts: srvs
+
+     vars:
+       pcaps_path: "/var/owlh/traffic/"
+       localpcaps_path: "/home/ec2-user/traffic/"
+       period: "3"
+
+    tasks:
+       - name: Recursively find /tmp files older than 2 days
+         find:
+           paths: "{{ pcaps_path }}"
+           age: "{{period}}"
+         register: pcap_files
+
+       - include_tasks: getanddelete.yaml pcap_file={{ item.path }}
+         with_items:
+           - "{{ pcap_files.files }}"
+
+
+
+
+* Analyze captured traffic with Suricata
+
+::
+
+   # owlmaster
+   # Version 0.0
+   # Ansible Playbook - get pcap files from servers
+
+   - hosts: localhost
+
+     vars:
+       pcaps_path: "/var/owlh/traffic/"
+       managed_pcap: "/var/owlh/managed_traffic/"
+
+     tasks:
+       - name: Recursively find /tmp files older than 2 days
+         find:
+           paths: "{{ pcaps_path }}"
+         register: pcap_files
+
+       - include_tasks: managesuricata.yaml pcap_file={{ item.path }}
+         with_items:
+           - "{{ pcap_files.files }}"
+
+* Analyze and clean traffic
+
+::
+
+   # owlmaster
+   # Version 0.0
+   # Ansible tasks file - use suricata to analyze and clean traffic file
+
+   ---
+
+   - name: read pcap with suricata
+     command: sudo /usr/local/suricata-4.0.4/bin/suricata -c /usr/local/etc/suricata/^Cricata.yaml -r {{ pcap_file }} -k none
+     become: true
+     become_user: owl
+     become_method: su
+
+   - name: mv file to managed queue
+     command: mv {{ pcap_file }} {{ managed_pcap }}
+
+
+
 Configure your servers
 ^^^^^^^^^^^^^^^^^^^^^^
 

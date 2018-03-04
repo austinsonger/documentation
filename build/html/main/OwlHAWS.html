@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OwlH for AWS &mdash; owlh 0.2 documentation</title>
+  <title>OwlH for AWS &mdash; owlh 0.3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="owlh 0.2 documentation" href="../index.html"/>
+    <link rel="top" title="owlh 0.3 documentation" href="../index.html"/>
         <link rel="next" title="How can you install OwlH?" href="OwlHHow.html"/>
         <link rel="prev" title="OwlH for PCI" href="OwlHPCI.html"/> 
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.2
+                0.3
               </div>
             
           
@@ -130,6 +130,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#deploy-owlh-master-as-suricata-network-ids">Deploy OwlH master as Suricata Network IDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-ansible-in-owlh-master">Configure Ansible in OwlH master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-traffic-capture-ansible-playbooks">Install traffic capture Ansible playbooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-your-servers">Configure your servers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#register-your-servers">Register your servers</a></li>
 </ul>
@@ -385,6 +386,97 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="install-traffic-capture-ansible-playbooks">
+<h2>Install traffic capture Ansible playbooks<a class="headerlink" href="#install-traffic-capture-ansible-playbooks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Traffic capture control playbook:</li>
+</ul>
+<p>This is <a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/tcpdump.yaml">Traffic capture control</a> playbook</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># owlmaster</span>
+<span class="c1"># Version 0.0</span>
+<span class="c1"># Ansible Playbook - run tcpdump on destination</span>
+
+<span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="n">srvs</span>
+  <span class="n">tasks</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">start</span> <span class="n">tcpdump</span>
+      <span class="n">shell</span><span class="p">:</span> <span class="s2">&quot;(sudo tcpdump -i {{ ansible_default_ipv4.interface }} -G 3 -w /var/owlh/traffic/$(hostname)-%y%m</span><span class="si">%d</span><span class="s2">%H%M%S.pcap -F myfilter &amp;)&quot;</span>
+      <span class="k">async</span><span class="p">:</span> <span class="mi">10</span>
+      <span class="n">poll</span><span class="p">:</span> <span class="mi">0</span>
+      <span class="n">become</span><span class="p">:</span> <span class="n">true</span>
+      <span class="n">become_user</span><span class="p">:</span> <span class="n">owl</span>
+      <span class="n">become_method</span><span class="p">:</span> <span class="n">su</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Captured traffic management: Move captured traffic to OwlH, clean remote server traffic files.</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># owlmaster</span>
+<span class="c1"># Version 0.0</span>
+<span class="c1"># Ansible Playbook - get pcap files from servers</span>
+
+<span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="n">srvs</span>
+
+  <span class="nb">vars</span><span class="p">:</span>
+    <span class="n">pcaps_path</span><span class="p">:</span> <span class="s2">&quot;/var/owlh/traffic/&quot;</span>
+    <span class="n">localpcaps_path</span><span class="p">:</span> <span class="s2">&quot;/home/ec2-user/traffic/&quot;</span>
+    <span class="n">period</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
+
+ <span class="n">tasks</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Recursively</span> <span class="n">find</span> <span class="o">/</span><span class="n">tmp</span> <span class="n">files</span> <span class="n">older</span> <span class="n">than</span> <span class="mi">2</span> <span class="n">days</span>
+      <span class="n">find</span><span class="p">:</span>
+        <span class="n">paths</span><span class="p">:</span> <span class="s2">&quot;{{ pcaps_path }}&quot;</span>
+        <span class="n">age</span><span class="p">:</span> <span class="s2">&quot;{{period}}&quot;</span>
+      <span class="n">register</span><span class="p">:</span> <span class="n">pcap_files</span>
+
+    <span class="o">-</span> <span class="n">include_tasks</span><span class="p">:</span> <span class="n">getanddelete</span><span class="o">.</span><span class="n">yaml</span> <span class="n">pcap_file</span><span class="o">=</span><span class="p">{{</span> <span class="n">item</span><span class="o">.</span><span class="n">path</span> <span class="p">}}</span>
+      <span class="n">with_items</span><span class="p">:</span>
+        <span class="o">-</span> <span class="s2">&quot;{{ pcap_files.files }}&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Analyze captured traffic with Suricata</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># owlmaster</span>
+<span class="c1"># Version 0.0</span>
+<span class="c1"># Ansible Playbook - get pcap files from servers</span>
+
+<span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="n">localhost</span>
+
+  <span class="nb">vars</span><span class="p">:</span>
+    <span class="n">pcaps_path</span><span class="p">:</span> <span class="s2">&quot;/var/owlh/traffic/&quot;</span>
+    <span class="n">managed_pcap</span><span class="p">:</span> <span class="s2">&quot;/var/owlh/managed_traffic/&quot;</span>
+
+  <span class="n">tasks</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Recursively</span> <span class="n">find</span> <span class="o">/</span><span class="n">tmp</span> <span class="n">files</span> <span class="n">older</span> <span class="n">than</span> <span class="mi">2</span> <span class="n">days</span>
+      <span class="n">find</span><span class="p">:</span>
+        <span class="n">paths</span><span class="p">:</span> <span class="s2">&quot;{{ pcaps_path }}&quot;</span>
+      <span class="n">register</span><span class="p">:</span> <span class="n">pcap_files</span>
+
+    <span class="o">-</span> <span class="n">include_tasks</span><span class="p">:</span> <span class="n">managesuricata</span><span class="o">.</span><span class="n">yaml</span> <span class="n">pcap_file</span><span class="o">=</span><span class="p">{{</span> <span class="n">item</span><span class="o">.</span><span class="n">path</span> <span class="p">}}</span>
+      <span class="n">with_items</span><span class="p">:</span>
+        <span class="o">-</span> <span class="s2">&quot;{{ pcap_files.files }}&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Analyze and clean traffic</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># owlmaster</span>
+<span class="c1"># Version 0.0</span>
+<span class="c1"># Ansible tasks file - use suricata to analyze and clean traffic file</span>
+
+<span class="o">---</span>
+
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">read</span> <span class="n">pcap</span> <span class="k">with</span> <span class="n">suricata</span>
+  <span class="n">command</span><span class="p">:</span> <span class="n">sudo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">suricata</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">suricata</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">suricata</span><span class="o">/^</span><span class="n">Cricata</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">r</span> <span class="p">{{</span> <span class="n">pcap_file</span> <span class="p">}}</span> <span class="o">-</span><span class="n">k</span> <span class="n">none</span>
+  <span class="n">become</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">become_user</span><span class="p">:</span> <span class="n">owl</span>
+  <span class="n">become_method</span><span class="p">:</span> <span class="n">su</span>
+
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">mv</span> <span class="n">file</span> <span class="n">to</span> <span class="n">managed</span> <span class="n">queue</span>
+  <span class="n">command</span><span class="p">:</span> <span class="n">mv</span> <span class="p">{{</span> <span class="n">pcap_file</span> <span class="p">}}</span> <span class="p">{{</span> <span class="n">managed_pcap</span> <span class="p">}}</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="configure-your-servers">
 <h2>Configure your servers<a class="headerlink" href="#configure-your-servers" title="Permalink to this headline">¶</a></h2>
 <p>We will need some tools and a user in each one of your servers in order to coordinate the traffic capture functionality</p>
@@ -500,7 +592,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.2',
+            VERSION:'0.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
