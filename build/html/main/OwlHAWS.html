@@ -97,11 +97,28 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html">How does it work?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html#main-components">Main components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html#owlh-nids-node">OwlH NIDS node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html#owlh-master-node">OwlH Master node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html#elastic-stack">Elastic Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html">How does it work?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#main-components">Main components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-nids-node">OwlH NIDS node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-master-node">OwlH Master node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#elastic-stack">Elastic Stack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHWazuh.html">OwlH - Suricata and Wazuh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#how-to-easily-integrate-suricata-with-wazuh">How to easily integrate Suricata with Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#main-steps">Main steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#deploy-suricata-or-use-a-current-suricata-deployment">Deploy Suricata or use a Current Suricata deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-suricata-to-store-output-in-json-format-eve-log-configuration">Configure Suricata to store output in JSON format - EVE log configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-stack-if-you-are-not-done-yet">Install Wazuh stack if you are not done yet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-agent-in-the-suricata-system">Install Wazuh Agent in the suricata system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHPCI.html">OwlH for PCI</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
 </ul>
@@ -200,7 +217,7 @@
 <h1>OwlH for AWS<a class="headerlink" href="#owlh-for-aws" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment">
 <h2>OwlH will allow you to monitor traffic in your AWS environment<a class="headerlink" href="#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment" title="Permalink to this headline">¶</a></h2>
-<img alt="../_images/owlhaws.png" src="../_images/owlhaws.png" />
+<img alt="../_images/nettap.png" src="../_images/nettap.png" />
 <p>OwlH will use a virtual TAP to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.</p>
 </div>
 </div>
