@@ -139,7 +139,7 @@ Edit epel.repo and enable epel repository
     ...
     enabled=1 # by default is set to 0
 
-safe and close it.
+save and close it.
 
 * Install ansible
 
