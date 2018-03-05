@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OwlH for PCI &mdash; owlh 0.3 documentation</title>
+  <title>&lt;no title&gt; &mdash; owlh 0.3 documentation</title>
   
 
   
@@ -37,9 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="owlh 0.3 documentation" href="../index.html"/>
-        <link rel="next" title="OwlH for AWS" href="OwlHAWS.html"/>
-        <link rel="prev" title="OwlH - Suricata and Wazuh" href="OwlHWazuh.html"/> 
+    <link rel="top" title="owlh 0.3 documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -93,7 +91,7 @@
             
             
               <p class="caption"><span class="caption-text">So, let's look inside:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What can you do with OwlH?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#right-now-v0-2-provides">Right now v0.2 provides:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a></li>
@@ -121,8 +119,8 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH for PCI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHPCI.html">OwlH for PCI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">OwlH for AWS</a><ul>
@@ -205,13 +203,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>OwlH for PCI</li>
+      <li>&lt;no title&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/main/OwlHPCI.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/s3management.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -224,25 +222,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="owlh-for-pci">
-<h1>OwlH for PCI<a class="headerlink" href="#owlh-for-pci" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="owlh-can-help-you-to-demonstrate-compliance-with-requirements">
-<h2>OwlH can help you to demonstrate compliance with requirements:<a class="headerlink" href="#owlh-can-help-you-to-demonstrate-compliance-with-requirements" title="Permalink to this headline">¶</a></h2>
-<p>Download OwlH PCI-DSS v3.2 Mapping - <a class="reference external" href="https://drive.google.com/file/d/1IfC23AHSULjY6GKmXG_S5ZIUWKEMyB33/view?usp=sharing">owlh_pcidss_3.2.pdf</a></p>
-<ul class="simple">
-<li>Requirement 1: Install and maintain a firewall configuration to protect cardholder data</li>
-<li>Requirement 2: Do not use vendor-supplied defaults for system passwords and other security parameters</li>
-<li>Requirement 4: Encrypt transmission of cardholder data across open, public networks</li>
-<li>Requirement 5: Use and regularly update anti-virus software or programs</li>
-<li>Requirement 6: Develop and maintain secure systems and applications</li>
-<li>Requirement 8: Assign a unique ID to each person with computer access</li>
-<li>Requirement 10: Track and monitor all access to network resources and cardholder data</li>
-<li>Requirement 11: Regularly test security systems and processes</li>
+  <ul class="simple">
+<li>Use the following command to copy an object from Amazon S3 to your instance.</li>
 </ul>
-<img alt="../_images/pcidssreq.png" src="../_images/pcidssreq.png" />
-<p>Download OwlH PCI-DSS v3.2 Mapping - <a class="reference external" href="https://drive.google.com/file/d/1IfC23AHSULjY6GKmXG_S5ZIUWKEMyB33/view?usp=sharing">owlh_pcidss_3.2.pdf</a></p>
-</div>
-</div>
+<p>[ec2-user ~]$ aws s3 cp s3://my_bucket/my_folder/my_file.ext my_copied_file.ext</p>
+<ul class="simple">
+<li>Use the following command to copy an object from your instance back into Amazon S3.</li>
+</ul>
+<p>[ec2-user ~]$ aws s3 cp my_copied_file.ext s3://my_bucket/my_folder/my_file.ext</p>
 
 
            </div>
@@ -251,15 +238,6 @@
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="OwlHAWS.html" class="btn btn-neutral float-right" title="OwlH for AWS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="OwlHWazuh.html" class="btn btn-neutral" title="OwlH - Suricata and Wazuh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

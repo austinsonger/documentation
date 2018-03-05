@@ -129,6 +129,7 @@ html_sidebars = {
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'owlh_documentationdoc'
 
+html_favicon = 'img/favicon.ico'
 
 # -- Options for LaTeX output ---------------------------------------------
 
