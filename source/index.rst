@@ -25,7 +25,6 @@ This is OwlH, open source solution. OwlH is born to help security engineers to m
    main/OwlHAWS
    main/OwlHHow
    main/NetworkIDS
-   main/support
 
 If you need help for:
 ---------------------
