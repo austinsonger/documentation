@@ -373,3 +373,10 @@ Be sure you define the right path for your ansible_ssh_private_key_file. this is
    ---
    ansible_ssh_private_key_file: /home/ec2-user/.ssh/owl
    period: 60
+   filterpath: /var/owlh/etc/bpf.filter
+
+Your bpf filter should be at least something like this
+
+::
+
+   not host 1.1.1.1 and not port 22

@@ -555,6 +555,11 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
 <span class="n">ansible_ssh_private_key_file</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ec2</span><span class="o">-</span><span class="n">user</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">owl</span>
 <span class="n">period</span><span class="p">:</span> <span class="mi">60</span>
+<span class="n">filterpath</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bpf</span><span class="o">.</span><span class="n">filter</span>
+</pre></div>
+</div>
+<p>Your bpf filter should be at least something like this</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="n">host</span> <span class="mf">1.1</span><span class="o">.</span><span class="mf">1.1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">port</span> <span class="mi">22</span>
 </pre></div>
 </div>
 </div>
