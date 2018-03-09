@@ -295,7 +295,7 @@ Remote `Traffic management`_
    ---
 
    - name: read pcap with suricata
-     command: sudo /usr/local/suricata-4.0.4/bin/suricata -c /usr/local/etc/suricata/^Cricata.yaml -r {{ pcap_file }} -k none
+     command: sudo /usr/local/suricata-4.0.4/bin/suricata -c /usr/local/etc/suricata/suricata.yaml -r {{ pcap_file }} -k none
      become: true
      become_user: owl
      become_method: su
@@ -393,9 +393,15 @@ Be sure you define the right path for your ansible_ssh_private_key_file. this is
 ::
 
    ---
+   ---
    ansible_ssh_private_key_file: /home/ec2-user/.ssh/owl
+   ansible_ssh_user: owl
+
    period: 60
    filterpath: /var/owlh/etc/bpf.filter
+   pcaps_path: /var/owlh/traffic/
+   managed_pcap: /var/owlh/managed_traffic/
+
 
 Your bpf filter should be at least something like this
 
