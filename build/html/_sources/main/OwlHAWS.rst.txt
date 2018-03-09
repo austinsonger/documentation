@@ -298,17 +298,17 @@ Remote `Traffic management`_
 
 
 
-     * configure your main Variables.
+* configure your main Variables.
 
-     create a file /etc/ansible/group_vars/srvs.yaml and include following lines
+create a file /etc/ansible/group_vars/srvs.yaml and include following lines
 
-     Be sure you define the right path for your ansible_ssh_private_key_file. this is the one you have done few lines over this.
+Be sure you define the right path for your ansible_ssh_private_key_file. this is the one you have done few lines over this.
 
-     .. _Global Ansible Vars: https://raw.githubusercontent.com/owlh/owlhostnettap/master/srvrs.yaml
+.. _Global Ansible Vars: https://raw.githubusercontent.com/owlh/owlhostnettap/master/srvrs.yaml
 
-     Copy the `Global Ansible Vars`_ file to the /etc/ansible/group_vars/srvs.yaml file
+Copy the `Global Ansible Vars`_ file to the /etc/ansible/group_vars/srvs.yaml file
 
-     *Please, be sure you have right values for each variable.*
+**Please, be sure you have right values for each variable.**
 
 ::
 
