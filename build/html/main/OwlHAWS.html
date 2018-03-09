@@ -563,6 +563,7 @@
 </ul>
 <p>create a file /etc/ansible/group_vars/srvs.yaml and include following lines</p>
 <p>Be sure you define the right path for your ansible_ssh_private_key_file. this is the one you have done few lines over this.</p>
+<p>Copy the <a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/srvrs.yaml">Global Ansible Vars</a> file to the /etc/ansible/group_vars/srvs.yaml file</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
 <span class="n">ansible_ssh_private_key_file</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ec2</span><span class="o">-</span><span class="n">user</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">owl</span>
 <span class="n">ansible_ssh_user</span><span class="p">:</span> <span class="n">owl</span>
