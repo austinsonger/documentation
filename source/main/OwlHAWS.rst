@@ -209,7 +209,9 @@ This is `Traffic capture control`_ playbook
 
 .. _Traffic management: https://raw.githubusercontent.com/owlh/owlhostnettap/master/pcapmanage.yaml
 
-.. _Transport and clean: https://raw.githubusercontent.com/owlh/owlhostnettap/master/pcapmanage.yaml
+.. _Transport and clean: https://raw.githubusercontent.com/owlh/owlhostnettap/master/getanddelete.yaml
+
+Remote `Traffic management`_
 
 ::
 
@@ -235,6 +237,26 @@ This is `Traffic capture control`_ playbook
          with_items:
            - "{{ pcap_files.files }}"
 
+`Transport and clean`_ remote traffic
+
+::
+
+   # owlmaster
+   # Version 0.0
+   # Ansible tasks file - get file and delete file
+
+   ---
+
+   - name: get file
+     fetch:
+       src: "{{ pcap_file }}"
+       dest: "{{ localpcaps_path }}"
+       flat: yes
+
+   - name: delete file
+     file:
+       path: "{{ pcap_file }}"
+       state: absent
 
 
 
