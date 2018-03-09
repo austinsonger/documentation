@@ -160,7 +160,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support.html">OwlH Support</a></li>
 </ul>
 
             
@@ -546,6 +545,13 @@
 <span class="mf">1.1</span><span class="o">.</span><span class="mf">1.1</span>
 <span class="mf">2.2</span><span class="o">.</span><span class="mf">2.2</span>
 <span class="mf">3.3</span><span class="o">.</span><span class="mf">3.3</span>
+</pre></div>
+</div>
+<p>configure your main Variables.</p>
+<p>create a file /etc/ansible/group_vars/srvs.yaml and include following lines</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">ansible_ssh_private_key_file</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ec2</span><span class="o">-</span><span class="n">user</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">owl</span>
+<span class="n">period</span><span class="p">:</span> <span class="mi">60</span>
 </pre></div>
 </div>
 </div>

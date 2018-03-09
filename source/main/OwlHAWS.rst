@@ -361,3 +361,13 @@ Please, include in your OwlH server inventory file all your servers /etc/ansible
    1.1.1.1
    2.2.2.2
    3.3.3.3
+
+configure your main Variables.
+
+create a file /etc/ansible/group_vars/srvs.yaml and include following lines
+
+::
+
+   ---
+   ansible_ssh_private_key_file: /home/ec2-user/.ssh/owl
+   period: 60
