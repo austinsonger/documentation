@@ -362,9 +362,11 @@ Please, include in your OwlH server inventory file all your servers /etc/ansible
    2.2.2.2
    3.3.3.3
 
-configure your main Variables.
+* configure your main Variables.
 
 create a file /etc/ansible/group_vars/srvs.yaml and include following lines
+
+Be sure you define the right path for your ansible_ssh_private_key_file. this is the one you have done few lines over this.
 
 ::
 
