@@ -412,6 +412,7 @@
 <ul class="simple">
 <li>Captured traffic management: Move captured traffic to OwlH, clean remote server traffic files.</li>
 </ul>
+<p>Remote <a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/pcapmanage.yaml">Traffic management</a></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># owlmaster</span>
 <span class="c1"># Version 0.0</span>
 <span class="c1"># Ansible Playbook - get pcap files from servers</span>
@@ -433,6 +434,25 @@
     <span class="o">-</span> <span class="n">include_tasks</span><span class="p">:</span> <span class="n">getanddelete</span><span class="o">.</span><span class="n">yaml</span> <span class="n">pcap_file</span><span class="o">=</span><span class="p">{{</span> <span class="n">item</span><span class="o">.</span><span class="n">path</span> <span class="p">}}</span>
       <span class="n">with_items</span><span class="p">:</span>
         <span class="o">-</span> <span class="s2">&quot;{{ pcap_files.files }}&quot;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/getanddelete.yaml">Transport and clean</a> remote traffic</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># owlmaster</span>
+<span class="c1"># Version 0.0</span>
+<span class="c1"># Ansible tasks file - get file and delete file</span>
+
+<span class="o">---</span>
+
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">get</span> <span class="n">file</span>
+  <span class="n">fetch</span><span class="p">:</span>
+    <span class="n">src</span><span class="p">:</span> <span class="s2">&quot;{{ pcap_file }}&quot;</span>
+    <span class="n">dest</span><span class="p">:</span> <span class="s2">&quot;{{ localpcaps_path }}&quot;</span>
+    <span class="n">flat</span><span class="p">:</span> <span class="n">yes</span>
+
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">delete</span> <span class="n">file</span>
+  <span class="n">file</span><span class="p">:</span>
+    <span class="n">path</span><span class="p">:</span> <span class="s2">&quot;{{ pcap_file }}&quot;</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">absent</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -469,7 +489,7 @@
 <span class="o">---</span>
 
 <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">read</span> <span class="n">pcap</span> <span class="k">with</span> <span class="n">suricata</span>
-  <span class="n">command</span><span class="p">:</span> <span class="n">sudo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">suricata</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">suricata</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">suricata</span><span class="o">/^</span><span class="n">Cricata</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">r</span> <span class="p">{{</span> <span class="n">pcap_file</span> <span class="p">}}</span> <span class="o">-</span><span class="n">k</span> <span class="n">none</span>
+  <span class="n">command</span><span class="p">:</span> <span class="n">sudo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">suricata</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">suricata</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">suricata</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">r</span> <span class="p">{{</span> <span class="n">pcap_file</span> <span class="p">}}</span> <span class="o">-</span><span class="n">k</span> <span class="n">none</span>
   <span class="n">become</span><span class="p">:</span> <span class="n">true</span>
   <span class="n">become_user</span><span class="p">:</span> <span class="n">owl</span>
   <span class="n">become_method</span><span class="p">:</span> <span class="n">su</span>
@@ -553,9 +573,14 @@
 <p>create a file /etc/ansible/group_vars/srvs.yaml and include following lines</p>
 <p>Be sure you define the right path for your ansible_ssh_private_key_file. this is the one you have done few lines over this.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="o">---</span>
 <span class="n">ansible_ssh_private_key_file</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ec2</span><span class="o">-</span><span class="n">user</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">owl</span>
+<span class="n">ansible_ssh_user</span><span class="p">:</span> <span class="n">owl</span>
+
 <span class="n">period</span><span class="p">:</span> <span class="mi">60</span>
 <span class="n">filterpath</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bpf</span><span class="o">.</span><span class="n">filter</span>
+<span class="n">pcaps_path</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">traffic</span><span class="o">/</span>
+<span class="n">managed_pcap</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">managed_traffic</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>Your bpf filter should be at least something like this</p>
