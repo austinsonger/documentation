@@ -296,6 +296,44 @@ Remote `Traffic management`_
 
 
 
+
+
+     * configure your main Variables.
+
+     create a file /etc/ansible/group_vars/srvs.yaml and include following lines
+
+     Be sure you define the right path for your ansible_ssh_private_key_file. this is the one you have done few lines over this.
+
+     .. _Global Ansible Vars: https://raw.githubusercontent.com/owlh/owlhostnettap/master/srvrs.yaml
+
+     Copy the `Global Ansible Vars`_ file to the /etc/ansible/group_vars/srvs.yaml file
+
+     *Please, be sure you have right values for each variable.*
+
+::
+
+   ---
+   ansible_ssh_private_key_file: /home/ec2-user/.ssh/owl
+   ansible_ssh_user: owl
+
+   period: 60
+   filterpath: /var/owlh/etc/bpf.filter
+   pcaps_path: /var/owlh/traffic/
+   managed_pcap: /var/owlh/managed_traffic/
+   localpcaps_path: /home/ec2-user/traffic/
+
+
+Your bpf filter should be at least something like this
+
+::
+
+   not host 1.1.1.1 and not port 22
+
+Where 1.1.1.1 is your OwlH master ip that will connect to your agent
+
+
+
+
 Configure your servers
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -374,33 +412,3 @@ Please, include in your OwlH server inventory file all your servers /etc/ansible
    1.1.1.1
    2.2.2.2
    3.3.3.3
-
-* configure your main Variables.
-
-create a file /etc/ansible/group_vars/srvs.yaml and include following lines
-
-Be sure you define the right path for your ansible_ssh_private_key_file. this is the one you have done few lines over this.
-
-.. _Global Ansible Vars: https://raw.githubusercontent.com/owlh/owlhostnettap/master/srvrs.yaml
-
-Copy the `Global Ansible Vars`_ file to the /etc/ansible/group_vars/srvs.yaml file
-
-*Please, be sure you have right values for each variable.*
-
-::
-
-   ---
-   ansible_ssh_private_key_file: /home/ec2-user/.ssh/owl
-   ansible_ssh_user: owl
-
-   period: 60
-   filterpath: /var/owlh/etc/bpf.filter
-   pcaps_path: /var/owlh/traffic/
-   managed_pcap: /var/owlh/managed_traffic/
-   localpcaps_path: "/home/ec2-user/traffic/"
-
-Your bpf filter should be at least something like this
-
-::
-
-   not host 1.1.1.1 and not port 22
