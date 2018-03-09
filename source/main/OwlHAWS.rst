@@ -221,11 +221,6 @@ Remote `Traffic management`_
 
    - hosts: srvs
 
-     vars:
-       pcaps_path: "/var/owlh/traffic/"
-       localpcaps_path: "/home/ec2-user/traffic/"
-       period: "3"
-
     tasks:
        - name: Recursively find /tmp files older than 2 days
          find:
@@ -269,10 +264,6 @@ Remote `Traffic management`_
    # Ansible Playbook - get pcap files from servers
 
    - hosts: localhost
-
-     vars:
-       pcaps_path: "/var/owlh/traffic/"
-       managed_pcap: "/var/owlh/managed_traffic/"
 
      tasks:
        - name: Recursively find /tmp files older than 2 days
@@ -393,7 +384,6 @@ Be sure you define the right path for your ansible_ssh_private_key_file. this is
 ::
 
    ---
-   ---
    ansible_ssh_private_key_file: /home/ec2-user/.ssh/owl
    ansible_ssh_user: owl
 
@@ -401,7 +391,7 @@ Be sure you define the right path for your ansible_ssh_private_key_file. this is
    filterpath: /var/owlh/etc/bpf.filter
    pcaps_path: /var/owlh/traffic/
    managed_pcap: /var/owlh/managed_traffic/
-
+   localpcaps_path: "/home/ec2-user/traffic/"
 
 Your bpf filter should be at least something like this
 

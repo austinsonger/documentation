@@ -419,11 +419,6 @@
 
 <span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="n">srvs</span>
 
-  <span class="nb">vars</span><span class="p">:</span>
-    <span class="n">pcaps_path</span><span class="p">:</span> <span class="s2">&quot;/var/owlh/traffic/&quot;</span>
-    <span class="n">localpcaps_path</span><span class="p">:</span> <span class="s2">&quot;/home/ec2-user/traffic/&quot;</span>
-    <span class="n">period</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
-
  <span class="n">tasks</span><span class="p">:</span>
     <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Recursively</span> <span class="n">find</span> <span class="o">/</span><span class="n">tmp</span> <span class="n">files</span> <span class="n">older</span> <span class="n">than</span> <span class="mi">2</span> <span class="n">days</span>
       <span class="n">find</span><span class="p">:</span>
@@ -463,10 +458,6 @@
 <span class="c1"># Ansible Playbook - get pcap files from servers</span>
 
 <span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="n">localhost</span>
-
-  <span class="nb">vars</span><span class="p">:</span>
-    <span class="n">pcaps_path</span><span class="p">:</span> <span class="s2">&quot;/var/owlh/traffic/&quot;</span>
-    <span class="n">managed_pcap</span><span class="p">:</span> <span class="s2">&quot;/var/owlh/managed_traffic/&quot;</span>
 
   <span class="n">tasks</span><span class="p">:</span>
     <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Recursively</span> <span class="n">find</span> <span class="o">/</span><span class="n">tmp</span> <span class="n">files</span> <span class="n">older</span> <span class="n">than</span> <span class="mi">2</span> <span class="n">days</span>
@@ -573,7 +564,6 @@
 <p>create a file /etc/ansible/group_vars/srvs.yaml and include following lines</p>
 <p>Be sure you define the right path for your ansible_ssh_private_key_file. this is the one you have done few lines over this.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
-<span class="o">---</span>
 <span class="n">ansible_ssh_private_key_file</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ec2</span><span class="o">-</span><span class="n">user</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">owl</span>
 <span class="n">ansible_ssh_user</span><span class="p">:</span> <span class="n">owl</span>
 
@@ -581,6 +571,7 @@
 <span class="n">filterpath</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bpf</span><span class="o">.</span><span class="n">filter</span>
 <span class="n">pcaps_path</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">traffic</span><span class="o">/</span>
 <span class="n">managed_pcap</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">managed_traffic</span><span class="o">/</span>
+<span class="n">localpcaps_path</span><span class="p">:</span> <span class="s2">&quot;/home/ec2-user/traffic/&quot;</span>
 </pre></div>
 </div>
 <p>Your bpf filter should be at least something like this</p>
