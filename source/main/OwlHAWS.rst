@@ -385,6 +385,8 @@ Be sure you define the right path for your ansible_ssh_private_key_file. this is
 
 Copy the `Global Ansible Vars`_ file to the /etc/ansible/group_vars/srvs.yaml file
 
+*Please, be sure you have right values for each variable.*
+
 ::
 
    ---
