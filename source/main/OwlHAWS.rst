@@ -194,11 +194,12 @@ This is `Traffic capture control`_ playbook
    # owlmaster
    # Version 0.0
    # Ansible Playbook - run tcpdump on destination
+   # use '-Z owl' after -F option with tcpdump command if you need to specify owl user.
 
    - hosts: srvs
      tasks:
-       - name: start tcpdump
-         shell: "(sudo tcpdump -i {{ ansible_default_ipv4.interface }} -G 3 -w /var/owlh/traffic/$(hostname)-%y%m%d%H%M%S.pcap -F myfilter &)"
+       - name: start tcpdump on servers
+         shell: "(sudo tcpdump -i {{ ansible_default_ipv4.interface }} -G 3 -w {{ pcaps_path }}$(hostname)-%y%m%d%H%M%S.pcap -F myfilter &)"
          async: 10
          poll: 0
          become: true
@@ -222,10 +223,10 @@ Remote `Traffic management`_
    - hosts: srvs
 
     tasks:
-       - name: Recursively find /tmp files older than 2 days
+       - name: get pcap files from servers folder, older than age (period) in seconds
          find:
            paths: "{{ pcaps_path }}"
-           age: "{{period}}"
+           age: "{{ period }}"
          register: pcap_files
 
        - include_tasks: getanddelete.yaml pcap_file={{ item.path }}
@@ -242,13 +243,13 @@ Remote `Traffic management`_
 
    ---
 
-   - name: get file
+   - name: get remote PCAP file
      fetch:
        src: "{{ pcap_file }}"
        dest: "{{ localpcaps_path }}"
        flat: yes
 
-   - name: delete file
+   - name: delete remote PCAP file
      file:
        path: "{{ pcap_file }}"
        state: absent
@@ -261,12 +262,12 @@ Remote `Traffic management`_
 
    # owlmaster
    # Version 0.0
-   # Ansible Playbook - get pcap files from servers
+   # Ansible Playbook - get PCAP files ready to be analyzed
 
    - hosts: localhost
 
      tasks:
-       - name: Recursively find /tmp files older than 2 days
+       - name: get PCAP files ready to be analyzed
          find:
            paths: "{{ pcaps_path }}"
          register: pcap_files
@@ -277,16 +278,26 @@ Remote `Traffic management`_
 
 * Analyze and clean traffic
 
+NOTE: Please be sure your suricata path is the right one. The one included here is a compiled from 4.0.4 source in a amazon linux instance. It may vary
+
+::
+
+   Suricata binary path: /usr/local/suricata-4.0.4/bin/suricata
+
+   Suricata config path: /usr/local/etc/suricata/suricata.yaml
+
+Please, configure your Suricata path as needed.
+
 ::
 
    # owlmaster
    # Version 0.0
-   # Ansible tasks file - use suricata to analyze and clean traffic file
+   # Ansible tasks file - use suricata to analyze and clean PCAP files
 
    ---
 
    - name: read pcap with suricata
-     command: sudo /usr/local/suricata-4.0.4/bin/suricata -c /usr/local/etc/suricata/suricata.yaml -r {{ pcap_file }} -k none
+     command: sudo {{ suricata_binary }} -c {{ suricata_config }} -r {{ pcap_file }} -k none
      become: true
      become_user: owl
      become_method: su
@@ -320,8 +331,26 @@ Copy the `Global Ansible Vars`_ file to the /etc/ansible/group_vars/srvs.yaml fi
    filterpath: /var/owlh/etc/bpf.filter
    pcaps_path: /var/owlh/traffic/
    managed_pcap: /var/owlh/managed_traffic/
-   localpcaps_path: /home/ec2-user/traffic/
+   localpcaps_path: /var/owlh/traffic/
 
+   suricata_binary: /usr/local/suricata-4.0.4/bin/suricata
+   suricata_config: /usr/local/etc/suricata/suricata.yaml
+
+**NOTE: PCAP behaviour.**
+
+you can choose to store analyzed PCAP files or remove them after analysis is done.
+
+**managed_pcap** means the folder in which one you want to store analyzed PCAP files. This can be useful as forensic storage, so you may want to use an S3 bucket to save them.
+
+If you choose a folder, make sure the folder is present and has the right permissions.
+
+
+
+**BPF filter**
+
+You can specify what traffic to be captured if you don't want to capture everything. Main and default configuration will provide filter to not collect management traffic from OwlH master to your agents.
+
+Remember this filter must be deployed into each one agent. be sure it is on each one of your servers.
 
 Your bpf filter should be at least something like this
 
@@ -329,7 +358,7 @@ Your bpf filter should be at least something like this
 
    not host 1.1.1.1 and not port 22
 
-Where 1.1.1.1 is your OwlH master ip that will connect to your agent
+Where 1.1.1.1 must be replaced with your OwlH master ip that will connect to your server.
 
 
 
