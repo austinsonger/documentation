@@ -427,6 +427,9 @@ Script also includes tcpdump installation as part of the traffic capture stuff. 
    echo "allow user owl to use tcpdump"
    sudo sed -i '/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' /etc/sudoers
 
+**Copy bpf filter file.**
+
+
 
 Register your servers
 ^^^^^^^^^^^^^^^^^^^^^
