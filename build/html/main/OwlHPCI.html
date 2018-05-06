@@ -123,6 +123,8 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH for PCI</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-apply-suricata-pci-mapping">How to apply Suricata PCI Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-manage-and-custom-your-suricata-pci-mapping">How to manage and custom your Suricata PCI Mapping</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">OwlH for AWS</a><ul>
@@ -160,7 +162,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support.html">OwlH Support</a></li>
 </ul>
 
             
@@ -240,7 +241,38 @@
 <li>Requirement 11: Regularly test security systems and processes</li>
 </ul>
 <img alt="../_images/pcidssreq.png" src="../_images/pcidssreq.png" />
-<p>Download OwlH PCI-DSS v3.2 Mapping - <a class="reference external" href="https://drive.google.com/file/d/1IfC23AHSULjY6GKmXG_S5ZIUWKEMyB33/view?usp=sharing">owlh_pcidss_3.2.pdf</a></p>
+</div>
+<div class="section" id="how-to-apply-suricata-pci-mapping">
+<h2>How to apply Suricata PCI Mapping<a class="headerlink" href="#how-to-apply-suricata-pci-mapping" title="Permalink to this headline">¶</a></h2>
+<p>This must be run on every Wazuh logstash server and it will:</p>
+<ul class="simple">
+<li>Modify logstash configuration file to include OwlH PCI-DSS 3.2 mapping schema</li>
+<li>Copy OwlH suricata ET ruleset PCI-DSS mapping to config folder</li>
+<li>Restart logstash</li>
+</ul>
+<p>Please, download configuration script</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">$</span> <span class="pre">curl</span> <span class="pre">-so</span> <span class="pre">/tmp/owlhconfig.sh</span> <span class="pre">https://raw.githubusercontent.com/owlh/wazuhenrichment/master/owlhconfig.sh</span></code></div></blockquote>
+<p>and then run it</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">bash</span> <span class="pre">/tmp/owlhconfig.sh</span></code></div></blockquote>
+</div>
+<div class="section" id="how-to-manage-and-custom-your-suricata-pci-mapping">
+<h2>How to manage and custom your Suricata PCI Mapping<a class="headerlink" href="#how-to-manage-and-custom-your-suricata-pci-mapping" title="Permalink to this headline">¶</a></h2>
+<p>Please download the script that will allow you to manage your compliance mapping</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">$</span> <span class="pre">curl</span> <span class="pre">-so</span> <span class="pre">/tmp/owlh-suri2pci.sh</span> <span class="pre">https://raw.githubusercontent.com/owlh/owlhpci/master/owlh-suri2pci.sh</span></code></div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="o">./</span><span class="n">owlh</span><span class="o">-</span><span class="n">suri2pci</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">a</span><span class="o">|</span><span class="n">ls</span><span class="o">|</span><span class="n">lc</span><span class="o">|</span><span class="n">m</span><span class="o">|</span><span class="n">d</span> <span class="o">-</span><span class="n">s</span> <span class="n">sid</span> <span class="o">-</span><span class="n">c</span> <span class="n">pci</span><span class="o">-</span><span class="n">controls</span> <span class="o">-</span><span class="n">b</span> <span class="n">bulk_file</span>  <span class="n">pci_map_file</span>
+
+      <span class="o">-</span><span class="n">a</span><span class="o">|--</span><span class="n">append</span>       <span class="o">-</span> <span class="n">append</span> <span class="n">sid</span> <span class="ow">and</span> <span class="n">pci</span><span class="o">-</span><span class="n">dss</span> <span class="n">related</span> <span class="n">controls</span> <span class="n">to</span> <span class="nb">map</span> <span class="n">file</span>
+      <span class="o">-</span><span class="n">d</span><span class="o">|--</span><span class="n">delete</span>       <span class="o">-</span> <span class="n">sid</span> <span class="ow">and</span> <span class="n">pci</span><span class="o">-</span><span class="n">dss</span> <span class="n">related</span> <span class="n">controls</span> <span class="kn">from</span> <span class="nn">map</span> <span class="n">file</span>
+      <span class="o">-</span><span class="n">ls</span><span class="o">|--</span><span class="n">listsid</span>     <span class="o">-</span> <span class="nb">list</span> <span class="n">pci</span> <span class="n">controlers</span> <span class="n">related</span> <span class="k">with</span> <span class="n">a</span> <span class="n">sid</span> <span class="ow">or</span> <span class="n">group</span> <span class="n">of</span> <span class="n">sids</span> <span class="p">(</span><span class="n">grep</span><span class="p">)</span>
+      <span class="o">-</span><span class="n">lc</span><span class="o">|--</span><span class="n">listctrl</span>    <span class="o">-</span> <span class="nb">list</span> <span class="n">sids</span> <span class="n">that</span> <span class="n">are</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">pci</span> <span class="n">control</span>
+      <span class="o">-</span><span class="n">m</span><span class="o">|--</span><span class="n">modify</span>       <span class="o">-</span> <span class="n">modify</span> <span class="n">sid</span> <span class="ow">and</span> <span class="n">pci</span> <span class="n">mapping</span>
+      <span class="o">-</span><span class="n">s</span><span class="o">|--</span><span class="n">sid</span>          <span class="o">-</span> <span class="n">sid</span> <span class="n">number</span>
+      <span class="o">-</span><span class="n">c</span><span class="o">|--</span><span class="n">control</span>      <span class="o">-</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">controls</span> <span class="n">comma</span> <span class="n">separated</span>
+</pre></div>
+</div>
 </div>
 </div>
 
