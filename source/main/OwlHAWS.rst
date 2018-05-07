@@ -46,7 +46,7 @@ Main Components
 
 Note: For cloud like AWS or Google Cloud should be good idea to deploy our instances with two different network interfaces, so we can use main interface as public service interface and secondary for management propouses, as traffic forward from instances to OwlH system
 
-.. image:: /img/awsmng.png
+.. image:: /img/awsmgm.png
 
 * OwlH master
 
