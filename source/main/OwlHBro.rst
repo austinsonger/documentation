@@ -1,5 +1,5 @@
-Use Bro as Network IDS
-======================
+Use Bro with Wazuh
+==================
 
 JSON output
 -----------
@@ -11,6 +11,8 @@ modify your /etc/bro/local.bro to include following line at the end
 
     @load tuning/json_logs.bro
 
+Logstash Filter
+---------------
 
 We need to modify Logstash filters to allow JSON record cleaning from Bro to Wazuh Indces. 
 
@@ -29,6 +31,9 @@ We need to modify Logstash filters to allow JSON record cleaning from Bro to Waz
         }
     }
 
+Wazuh Agent configuration
+-------------------------
+
 Modify your Wazuh agent to read the Bro Logs files 
 
 ::
@@ -37,6 +42,10 @@ Modify your Wazuh agent to read the Bro Logs files
       <log_format>syslog</log_format>
       <location>/root/*.log</location>
     </localfile>
+
+
+Wazuh Bro IDS Rules 
+-------------------
 
 Include the Wazuh rules to manage your BRO logs 
 
