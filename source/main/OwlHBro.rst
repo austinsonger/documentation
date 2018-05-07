@@ -1,5 +1,5 @@
-Use Bro with Wazuh
-==================
+OwlH - Bro and Wazuh
+====================
 
 JSON output
 -----------
@@ -65,3 +65,11 @@ Include the Wazuh rules to manage your BRO logs
         <description>BRO: Connection detail</description>
       </rule>
     </group>
+
+Review your Kibana Dashboard
+----------------------------
+
+.. image:: /img/kibanabro.png
+
+
+

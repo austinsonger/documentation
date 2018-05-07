@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Use Bro with Wazuh &mdash; owlh 0.3 documentation</title>
+  <title>OwlH - Bro and Wazuh &mdash; owlh 0.3 documentation</title>
   
 
   
@@ -177,11 +177,12 @@
 <li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Use Bro with Wazuh</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OwlH - Bro and Wazuh</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#json-output">JSON output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#logstash-filter">Logstash Filter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#wazuh-bro-ids-rules">Wazuh Bro IDS Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#review-your-kibana-dashboard">Review your Kibana Dashboard</a></li>
 </ul>
 </li>
 </ul>
@@ -232,7 +233,7 @@
         
           <li><a href="NetworkIDS.html">Network IDS support</a> &raquo;</li>
         
-      <li>Use Bro with Wazuh</li>
+      <li>OwlH - Bro and Wazuh</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -251,8 +252,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="use-bro-with-wazuh">
-<h1>Use Bro with Wazuh<a class="headerlink" href="#use-bro-with-wazuh" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="owlh-bro-and-wazuh">
+<h1>OwlH - Bro and Wazuh<a class="headerlink" href="#owlh-bro-and-wazuh" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="json-output">
 <h2>JSON output<a class="headerlink" href="#json-output" title="Permalink to this headline">¶</a></h2>
 <p>you must load the json_logs.bro plugin
@@ -307,6 +308,10 @@ modify your /etc/bro/local.bro to include following line at the end</p>
 <span class="o">&lt;/</span><span class="n">group</span><span class="o">&gt;</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="review-your-kibana-dashboard">
+<h2>Review your Kibana Dashboard<a class="headerlink" href="#review-your-kibana-dashboard" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/kibanabro.png" src="../_images/kibanabro.png" />
 </div>
 </div>
 
