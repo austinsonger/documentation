@@ -3,14 +3,14 @@ Network IDS support
 
 OwlH works with
 
+.. toctree::
+   :maxdepth: 1
+
+   OwlHWazuh   
+   OwlHBro
+
 .. _suricata: https://suricata-ids.org/
+.. _broIDS: https://www.bro.org/
 
 * Suricata IDS - `suricata`_
-
-Soon we will include support for
-
-.. _broIDS: https://www.bro.org/
-.. _snort: https://snort.org/
-
 * Bro IDS - `broIDS`_
-* Snort IDS - `snort`_

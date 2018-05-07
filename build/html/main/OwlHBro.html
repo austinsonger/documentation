@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Network IDS support &mdash; owlh 0.3 documentation</title>
+  <title>Use Bro as Network IDS &mdash; owlh 0.3 documentation</title>
   
 
   
@@ -37,9 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="owlh 0.3 documentation" href="../index.html"/>
-        <link rel="next" title="Use Bro as Network IDS" href="OwlHBro.html"/>
-        <link rel="prev" title="Install and configure" href="install/OwlHHow.html"/> 
+    <link rel="top" title="owlh 0.3 documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -93,7 +91,7 @@
             
             
               <p class="caption"><span class="caption-text">So, let's look inside:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What can you do with OwlH?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#right-now-v0-2-provides">Right now v0.2 provides:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a></li>
@@ -161,28 +159,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Network IDS support</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html">OwlH - Suricata and Wazuh</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#how-to-easily-integrate-suricata-with-wazuh">How to easily integrate Suricata with Wazuh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="OwlHWazuh.html#main-steps">Main steps</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#deploy-suricata-or-use-a-current-suricata-deployment">Deploy Suricata or use a Current Suricata deployment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-suricata-to-store-output-in-json-format-eve-log-configuration">Configure Suricata to store output in JSON format - EVE log configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-stack-if-you-are-not-done-yet">Install Wazuh stack if you are not done yet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-agent-in-the-suricata-system">Install Wazuh Agent in the suricata system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html">Use Bro as Network IDS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#json-output">JSON output</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a></li>
 </ul>
 
             
@@ -227,13 +204,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Network IDS support</li>
+      <li>Use Bro as Network IDS</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/main/NetworkIDS.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/OwlHBro.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -246,19 +223,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="network-ids-support">
-<h1>Network IDS support<a class="headerlink" href="#network-ids-support" title="Permalink to this headline">¶</a></h1>
-<p>OwlH works with</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="OwlHWazuh.html">OwlH - Suricata and Wazuh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHBro.html">Use Bro as Network IDS</a></li>
-</ul>
+  <div class="section" id="use-bro-as-network-ids">
+<h1>Use Bro as Network IDS<a class="headerlink" href="#use-bro-as-network-ids" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="json-output">
+<h2>JSON output<a class="headerlink" href="#json-output" title="Permalink to this headline">¶</a></h2>
+<p>you must load the json_logs.bro plugin
+modify your /etc/bro/local.bro to include following line at the end</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@load</span> <span class="n">tuning</span><span class="o">/</span><span class="n">json_logs</span><span class="o">.</span><span class="n">bro</span>
+</pre></div>
 </div>
-<ul class="simple">
-<li>Suricata IDS - <a class="reference external" href="https://suricata-ids.org/">suricata</a></li>
-<li>Bro IDS - <a class="reference external" href="https://www.bro.org/">broIDS</a></li>
-</ul>
+<p>We need to modify Logstash filters to allow JSON record cleaning from Bro to Wazuh Indces.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">filter</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="nb">id</span><span class="p">][</span><span class="n">orig_h</span><span class="p">]</span> <span class="p">{</span>
+         <span class="n">mutate</span> <span class="p">{</span>
+            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_ip]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][orig_h]}&quot;</span> <span class="p">]</span>
+            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_ip]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][resp_h]}&quot;</span> <span class="p">]</span>
+            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_port]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][orig_p]}&quot;</span> <span class="p">]</span>
+            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_port]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][resp_p]}&quot;</span> <span class="p">]</span>
+            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][id]&quot;</span> <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Modify your Wazuh agent to read the Bro Logs files</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">localfile</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">log_format</span><span class="o">&gt;</span><span class="n">syslog</span><span class="o">&lt;/</span><span class="n">log_format</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">location</span><span class="o">&gt;/</span><span class="n">root</span><span class="o">/*.</span><span class="n">log</span><span class="o">&lt;/</span><span class="n">location</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">localfile</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Include the Wazuh rules to manage your BRO logs</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">group</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bro&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">rule</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;99001&quot;</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bro_engine&quot;</span><span class="o">&gt;</span><span class="n">SSH</span><span class="o">&lt;/</span><span class="n">field</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">BRO</span><span class="p">:</span> <span class="n">SSH</span> <span class="n">Connection</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">rule</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">rule</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;99002&quot;</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bro_engine&quot;</span><span class="o">&gt;</span><span class="n">DNS</span><span class="o">&lt;/</span><span class="n">field</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">BRO</span><span class="p">:</span> <span class="n">DNS</span> <span class="n">Query</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">rule</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">rule</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;99004&quot;</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bro_engine&quot;</span><span class="o">&gt;</span><span class="n">CONN</span><span class="o">&lt;/</span><span class="n">field</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">BRO</span><span class="p">:</span> <span class="n">Connection</span> <span class="n">detail</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">rule</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">group</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -268,15 +280,6 @@
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="OwlHBro.html" class="btn btn-neutral float-right" title="Use Bro as Network IDS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="install/OwlHHow.html" class="btn btn-neutral" title="Install and configure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
