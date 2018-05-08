@@ -1,8 +1,8 @@
 OwlH - Bro and Wazuh
 ====================
 
-JSON output
------------
+Bro Logs Output format to JSON
+------------------------------
 
 you must load the json_logs.bro plugin 
 modify your /etc/bro/local.bro to include following line at the end
@@ -10,6 +10,74 @@ modify your /etc/bro/local.bro to include following line at the end
 ::
 
     @load tuning/json_logs.bro
+
+Bro Event Enritchment to help Wazuh ruleset
+------------------------------------------- 
+
+it is a good idea to help wazuh rules to do their job, to include a field that will identify what kind of log line we are analyzing. Bro output doesn't include that info per line by default, so we are going to help wazuh by including the field 'bro_engine' that will tell wazuh what kind of log is it. 
+
+:: 
+
+    redef record DNS::Info += {
+        bro_engine:    string    &default:"DNS"    &log;
+    };
+    redef record Conn::Info += {
+        bro_engine:    string    &default:"CONN"    &log;
+    };
+    redef record Weird::Info += {
+        bro_engine:    string    &default:"WEIRD"    &log;
+    };
+    redef record SSL::Info += {
+        bro_engine:    string    &default:"SSL"    &log;
+    };
+    redef record SSH::Info += {
+        bro_engine:    string    &default:"SSH"    &log;
+    };
+
+Loading Bro customizations at Bro start
+---------------------------------------
+
+We include all OwlH customizations in OwlH*.bro files, that helps to have a clean view about what we do as well as we hope it will simplify config management. 
+
+Under /etc/bro/site we will create two files 
+
+* owlh.bro - Will include JSON call and @load for bro_engine field definition.
+* owlh_types.bro - Will include all redef statments
+
+You will only need to load OwlH.bro at the end of your local.bro file to include all these configurations
+
+:: 
+
+    @load /etc/bro/site/OwlH.bro
+
+owlh.bro looks like: 
+
+::
+    
+    @load tuning/json-logs.bro
+    @load /etc/bro/site/owlh_types.bro
+
+and owlh_types.bro:
+
+:: 
+
+    redef record DNS::Info += {
+        bro_engine:    string    &default:"DNS"    &log;
+    };
+    redef record Conn::Info += {
+        bro_engine:    string    &default:"CONN"    &log;
+    };
+    redef record Weird::Info += {
+        bro_engine:    string    &default:"WEIRD"    &log;
+    };
+    redef record SSL::Info += {
+        bro_engine:    string    &default:"SSL"    &log;
+    };
+    redef record SSH::Info += {
+        bro_engine:    string    &default:"SSH"    &log;
+    };
+ 
+
 
 Logstash Filter
 ---------------
@@ -68,6 +136,8 @@ Include the Wazuh rules to manage your BRO logs
 
 Review your Kibana Dashboard
 ----------------------------
+
+You will need to refresh your Wazuh-alerts indeces to include the new Bro fields. from your kibana console, go to Management -> index -> select right wazuh-alerts index -> click top-right refresh icon to refresh 
 
 .. image:: /img/kibanabro.png
 

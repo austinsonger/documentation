@@ -178,7 +178,9 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">OwlH - Bro and Wazuh</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#json-output">JSON output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#logstash-filter">Logstash Filter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#wazuh-bro-ids-rules">Wazuh Bro IDS Rules</a></li>
@@ -254,11 +256,68 @@
             
   <div class="section" id="owlh-bro-and-wazuh">
 <h1>OwlH - Bro and Wazuh<a class="headerlink" href="#owlh-bro-and-wazuh" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="json-output">
-<h2>JSON output<a class="headerlink" href="#json-output" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bro-logs-output-format-to-json">
+<h2>Bro Logs Output format to JSON<a class="headerlink" href="#bro-logs-output-format-to-json" title="Permalink to this headline">¶</a></h2>
 <p>you must load the json_logs.bro plugin
 modify your /etc/bro/local.bro to include following line at the end</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@load</span> <span class="n">tuning</span><span class="o">/</span><span class="n">json_logs</span><span class="o">.</span><span class="n">bro</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bro-event-enritchment-to-help-wazuh-ruleset">
+<h2>Bro Event Enritchment to help Wazuh ruleset<a class="headerlink" href="#bro-event-enritchment-to-help-wazuh-ruleset" title="Permalink to this headline">¶</a></h2>
+<p>it is a good idea to help wazuh rules to do their job, to include a field that will identify what kind of log line we are analyzing. Bro output doesn’t include that info per line by default, so we are going to help wazuh by including the field ‘bro_engine’ that will tell wazuh what kind of log is it.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">redef</span> <span class="n">record</span> <span class="n">DNS</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;DNS&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">redef</span> <span class="n">record</span> <span class="n">Conn</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;CONN&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">redef</span> <span class="n">record</span> <span class="n">Weird</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;WEIRD&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">redef</span> <span class="n">record</span> <span class="n">SSL</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;SSL&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">redef</span> <span class="n">record</span> <span class="n">SSH</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;SSH&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loading-bro-customizations-at-bro-start">
+<h2>Loading Bro customizations at Bro start<a class="headerlink" href="#loading-bro-customizations-at-bro-start" title="Permalink to this headline">¶</a></h2>
+<p>We include all OwlH customizations in OwlH*.bro files, that helps to have a clean view about what we do as well as we hope it will simplify config management.</p>
+<p>Under /etc/bro/site we will create two files</p>
+<ul class="simple">
+<li>owlh.bro - Will include JSON call and &#64;load for bro_engine field definition.</li>
+<li>owlh_types.bro - Will include all redef statments</li>
+</ul>
+<p>You will only need to load OwlH.bro at the end of your local.bro file to include all these configurations</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@load</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bro</span><span class="o">/</span><span class="n">site</span><span class="o">/</span><span class="n">OwlH</span><span class="o">.</span><span class="n">bro</span>
+</pre></div>
+</div>
+<p>owlh.bro looks like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@load</span> <span class="n">tuning</span><span class="o">/</span><span class="n">json</span><span class="o">-</span><span class="n">logs</span><span class="o">.</span><span class="n">bro</span>
+<span class="nd">@load</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bro</span><span class="o">/</span><span class="n">site</span><span class="o">/</span><span class="n">owlh_types</span><span class="o">.</span><span class="n">bro</span>
+</pre></div>
+</div>
+<p>and owlh_types.bro:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">redef</span> <span class="n">record</span> <span class="n">DNS</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;DNS&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">redef</span> <span class="n">record</span> <span class="n">Conn</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;CONN&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">redef</span> <span class="n">record</span> <span class="n">Weird</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;WEIRD&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">redef</span> <span class="n">record</span> <span class="n">SSL</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;SSL&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">redef</span> <span class="n">record</span> <span class="n">SSH</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;SSH&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </div>
@@ -311,6 +370,7 @@ modify your /etc/bro/local.bro to include following line at the end</p>
 </div>
 <div class="section" id="review-your-kibana-dashboard">
 <h2>Review your Kibana Dashboard<a class="headerlink" href="#review-your-kibana-dashboard" title="Permalink to this headline">¶</a></h2>
+<p>You will need to refresh your Wazuh-alerts indeces to include the new Bro fields. from your kibana console, go to Management -&gt; index -&gt; select right wazuh-alerts index -&gt; click top-right refresh icon to refresh</p>
 <img alt="../_images/kibanabro.png" src="../_images/kibanabro.png" />
 </div>
 </div>
