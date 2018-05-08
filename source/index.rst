@@ -21,6 +21,7 @@ This is OwlH, open source solution. OwlH is born to help security engineers to m
    main/OwlHWhat
    main/OwlHatwork
    main/OwlHWazuh
+   main/OwlHBro
    main/OwlHPCI
    main/OwlHAWS
    main/OwlHHow

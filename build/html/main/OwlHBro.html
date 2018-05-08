@@ -38,8 +38,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="owlh 0.4 - Cloud and Bro documentation" href="../index.html"/>
-        <link rel="up" title="Network IDS support" href="NetworkIDS.html"/>
-        <link rel="prev" title="Network IDS support" href="NetworkIDS.html"/> 
+        <link rel="next" title="OwlH for PCI" href="OwlHPCI.html"/>
+        <link rel="prev" title="OwlH - Suricata and Wazuh" href="OwlHWazuh.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -95,7 +95,9 @@
               <p class="caption"><span class="caption-text">So, let's look inside:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What can you do with OwlH?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#right-now-v0-2-provides">Right now v0.2 provides:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#owlh-will-help-you-to">OwlH will help you to:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#backlog-there-is-something-else-to-be-done-always">BackLog - There is something else to be done, always.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-4-release-notes-may">v0.4 - Release notes (May)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a></li>
 </ul>
 </li>
@@ -119,6 +121,16 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH - Bro and Wazuh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logstash-filter">Logstash Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wazuh-bro-ids-rules">Wazuh Bro IDS Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#review-your-kibana-dashboard">Review your Kibana Dashboard</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHPCI.html">OwlH for PCI</a><ul>
@@ -233,8 +245,6 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="NetworkIDS.html">Network IDS support</a> &raquo;</li>
-        
       <li>OwlH - Bro and Wazuh</li>
     
     
@@ -287,7 +297,7 @@ modify your /etc/bro/local.bro to include following line at the end</p>
 </div>
 <div class="section" id="loading-bro-customizations-at-bro-start">
 <h2>Loading Bro customizations at Bro start<a class="headerlink" href="#loading-bro-customizations-at-bro-start" title="Permalink to this headline">¶</a></h2>
-<p>We include all OwlH customizations in OwlH*.bro files, that helps to have a clean view about what we do as well as we hope it will simplify config management.</p>
+<p>We include all OwlH customizations in OwlH_*.bro files, that helps to have a clear view of what OwlH does as well as we hope it will simplify configuration management.</p>
 <p>Under /etc/bro/site we will create two files</p>
 <ul class="simple">
 <li>owlh.bro - Will include JSON call and &#64;load for bro_engine field definition.</li>
@@ -385,8 +395,10 @@ modify your /etc/bro/local.bro to include following line at the end</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="OwlHPCI.html" class="btn btn-neutral float-right" title="OwlH for PCI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="NetworkIDS.html" class="btn btn-neutral" title="Network IDS support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="OwlHWazuh.html" class="btn btn-neutral" title="OwlH - Suricata and Wazuh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

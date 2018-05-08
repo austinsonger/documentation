@@ -37,7 +37,7 @@ it is a good idea to help wazuh rules to do their job, to include a field that w
 Loading Bro customizations at Bro start
 ---------------------------------------
 
-We include all OwlH customizations in OwlH*.bro files, that helps to have a clean view about what we do as well as we hope it will simplify config management. 
+We include all OwlH customizations in OwlH_*.bro files, that helps to have a clear view of what OwlH does as well as we hope it will simplify configuration management. 
 
 Under /etc/bro/site we will create two files 
 
