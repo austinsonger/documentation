@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OwlH Support &mdash; owlh 0.3 documentation</title>
+  <title>OwlH Support &mdash; owlh 0.4 - Cloud and Bro documentation</title>
   
 
   
@@ -37,8 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="owlh 0.3 documentation" href="../index.html"/>
-        <link rel="prev" title="Network IDS support" href="NetworkIDS.html"/> 
+    <link rel="top" title="owlh 0.4 - Cloud and Bro documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -67,7 +66,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -92,7 +91,7 @@
             
             
               <p class="caption"><span class="caption-text">So, let's look inside:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What can you do with OwlH?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#right-now-v0-2-provides">Right now v0.2 provides:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a></li>
@@ -122,6 +121,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHPCI.html">OwlH for PCI</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#how-to-apply-suricata-pci-mapping">How to apply Suricata PCI Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#how-to-manage-and-custom-your-suricata-pci-mapping">How to manage and custom your Suricata PCI Mapping</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">OwlH for AWS</a><ul>
@@ -158,8 +159,34 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html">OwlH - Suricata and Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#how-to-easily-integrate-suricata-with-wazuh">How to easily integrate Suricata with Wazuh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHWazuh.html#main-steps">Main steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#deploy-suricata-or-use-a-current-suricata-deployment">Deploy Suricata or use a Current Suricata deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-suricata-to-store-output-in-json-format-eve-log-configuration">Configure Suricata to store output in JSON format - EVE log configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-stack-if-you-are-not-done-yet">Install Wazuh stack if you are not done yet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-agent-in-the-suricata-system">Install Wazuh Agent in the suricata system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html">OwlH - Bro and Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#logstash-filter">Logstash Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#wazuh-bro-ids-rules">Wazuh Bro IDS Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#review-your-kibana-dashboard">Review your Kibana Dashboard</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -305,13 +332,6 @@
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="NetworkIDS.html" class="btn btn-neutral" title="Network IDS support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
@@ -339,7 +359,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.3',
+            VERSION:'0.4 - Cloud and Bro',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
