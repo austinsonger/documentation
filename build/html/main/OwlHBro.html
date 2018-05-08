@@ -94,7 +94,7 @@
             
               <p class="caption"><span class="caption-text">So, let's look inside:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What can you do with OwlH?</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What can you do with OwlH? -= Roadmap =-</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#owlh-will-help-you-to">OwlH will help you to:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#backlog-there-is-something-else-to-be-done-always">BackLog - There is something else to be done, always.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-4-release-notes-may">v0.4 - Release notes (May)</a></li>
@@ -124,6 +124,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH - Bro and Wazuh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#integration-logical-diagram">Integration Logical Diagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
@@ -151,28 +152,6 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#register-your-servers">Register your servers</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHHow.html">How can you install OwlH?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="OwlHHow.html#are-you-wazuh-user-or-do-you-want-to-use-wazuh-owlh">Are you Wazuh user? or do you want to use Wazuh + OwlH?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHWazuhWhat.html">Before configure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHWazuhHow.html">Install and configure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHNow.html">Use OwlH</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHHow.html#or-just-install-owlh">Or just install OwlH</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHWhat.html">Before Install OwlH</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="install/OwlHWhat.html#before-you-begin">Before you begin</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHHow.html">Install and configure</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="install/OwlHHow.html#debian-stretch">Debian (Stretch)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="install/OwlHHow.html#centos-7">CentOS 7</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="install/OwlHNow.html">Use OwlH</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1 current"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html">OwlH - Suricata and Wazuh</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#how-to-easily-integrate-suricata-with-wazuh">How to easily integrate Suricata with Wazuh</a><ul>
@@ -190,6 +169,7 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">OwlH - Bro and Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#integration-logical-diagram">Integration Logical Diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
@@ -266,6 +246,10 @@
             
   <div class="section" id="owlh-bro-and-wazuh">
 <h1>OwlH - Bro and Wazuh<a class="headerlink" href="#owlh-bro-and-wazuh" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="integration-logical-diagram">
+<h2>Integration Logical Diagram<a class="headerlink" href="#integration-logical-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/broowlh.png" src="../_images/broowlh.png" />
+</div>
 <div class="section" id="bro-logs-output-format-to-json">
 <h2>Bro Logs Output format to JSON<a class="headerlink" href="#bro-logs-output-format-to-json" title="Permalink to this headline">¶</a></h2>
 <p>you must load the json_logs.bro plugin

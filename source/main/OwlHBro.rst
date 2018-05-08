@@ -1,6 +1,11 @@
 OwlH - Bro and Wazuh
 ====================
 
+Integration Logical Diagram
+---------------------------
+
+.. image:: /img/broowlh.png
+
 Bro Logs Output format to JSON
 ------------------------------
 
