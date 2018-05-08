@@ -39,4 +39,4 @@ If you need help for:
 * email our support team - support@owlh.net
 * visit our mailing list - `OwlH mailing list`_ (owlh@googlegroups.com)
 
-**OwlH - current v0.2**
+**OwlH - current v0.4 - May : Bro integration and AWS and GCloud support**
