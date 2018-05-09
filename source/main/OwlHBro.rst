@@ -7,7 +7,7 @@ Integration Logical Diagram
 .. image:: /img/broowlh.png
 
 Components
-^^^^^^^^^
+^^^^^^^^^^
 
 * Bro Node - Bro IDS and Wazuh Agent
 * Wazuh Manger 
@@ -25,18 +25,38 @@ This system will require Bro working of course, and Wazuh agent installed. OwlH 
 Bro Logs Output format to JSON
 ------------------------------
 
-you must load the json_logs.bro configuration that will tell ASCII writer to write output in JSON format.
-You must include following line in your .bro configuration files. It can be /etc/bro/site/local.bro or you can follow our recomendation and write the configs in OwlH.bro file (please, see below). 
+Option 1 - Modify ASCII writer output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Load and redef ASCII writer config.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+you can load the json_logs.bro configuration that will tell ASCII writer to write output in JSON format.
+You must include following line in your .bro configuration files. It can be /etc/bro/site/local.bro or you can follow our recomendation and write the configs in owlh.bro file (please, see below). 
+
+This will modify output and will store just json output, you won't have ASCII output.
 
 ::
 
     @load tuning/json_logs.bro
 
+
+Option 2 - Use add-json package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Usually, you would like to have both outputs, ASCII and JSON. You can use add-json packet (https://github.com/J-Gras/add-json) and load it in your local.bro or owlh.bro. 
+
+::
+
+    @load packages/add-json/add-json.bro
+
+To install add-json package you can use bro-pkg tool 
+
+:: 
+    bro-pkg install add-json
+
+*NOTE - bro-pkg installation (http://bro-package-manager.readthedocs.io/en/stable/quickstart.html#installation)*
+
+
 Bro Event Enritchment to help Wazuh ruleset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is a good idea to help wazuh rules to do their job, to include a field that will identify what kind of log line we are analyzing. Bro output doesn't include that info per line by default, so we are going to help wazuh by including the field 'bro_engine' that will tell wazuh what kind of log is it. 
 
@@ -80,7 +100,9 @@ owlh.bro looks like:
 
 ::
     
-    @load tuning/json-logs.bro
+    # Select prefered output
+    #@load tuning/json-logs.bro
+    @load packages/add-json/add-json.bro
     @load /etc/bro/site/owlh_types.bro
 
 and owlh_types.bro:

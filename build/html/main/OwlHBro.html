@@ -135,7 +135,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#configure-bro-node">Configure - Bro Node</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#load-and-redef-ascii-writer-config">Load and redef ASCII writer config.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-1-modify-ascii-writer-output">Option 1 - Modify ASCII writer output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-2-use-add-json-package">Option 2 - Use add-json package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
 </ul>
@@ -203,7 +204,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-bro-node">Configure - Bro Node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#load-and-redef-ascii-writer-config">Load and redef ASCII writer config.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#option-1-modify-ascii-writer-output">Option 1 - Modify ASCII writer output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#option-2-use-add-json-package">Option 2 - Use add-json package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
 </ul>
@@ -311,13 +313,27 @@
 <p>This system will require Bro working of course, and Wazuh agent installed. OwlH instructions will help to configure both Bro and Wazuh agent.</p>
 <div class="section" id="bro-logs-output-format-to-json">
 <h2>Bro Logs Output format to JSON<a class="headerlink" href="#bro-logs-output-format-to-json" title="Permalink to this headline">¶</a></h2>
-<p>you must load the json_logs.bro configuration that will tell ASCII writer to write output in JSON format.
-You must include following line in your .bro configuration files. It can be /etc/bro/site/local.bro or you can follow our recomendation and write the configs in OwlH.bro file (please, see below).</p>
-<div class="section" id="load-and-redef-ascii-writer-config">
-<h3>Load and redef ASCII writer config.<a class="headerlink" href="#load-and-redef-ascii-writer-config" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="option-1-modify-ascii-writer-output">
+<h3>Option 1 - Modify ASCII writer output<a class="headerlink" href="#option-1-modify-ascii-writer-output" title="Permalink to this headline">¶</a></h3>
+<p>you can load the json_logs.bro configuration that will tell ASCII writer to write output in JSON format.
+You must include following line in your .bro configuration files. It can be /etc/bro/site/local.bro or you can follow our recomendation and write the configs in owlh.bro file (please, see below).</p>
+<p>This will modify output and will store just json output, you won’t have ASCII output.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@load</span> <span class="n">tuning</span><span class="o">/</span><span class="n">json_logs</span><span class="o">.</span><span class="n">bro</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="option-2-use-add-json-package">
+<h3>Option 2 - Use add-json package<a class="headerlink" href="#option-2-use-add-json-package" title="Permalink to this headline">¶</a></h3>
+<p>Usually, you would like to have both outputs, ASCII and JSON. You can use add-json packet (<a class="reference external" href="https://github.com/J-Gras/add-json">https://github.com/J-Gras/add-json</a>) and load it in your local.bro or owlh.bro.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@load</span> <span class="n">packages</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">json</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">json</span><span class="o">.</span><span class="n">bro</span>
+</pre></div>
+</div>
+<p>To install add-json package you can use bro-pkg tool</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>bro-pkg install add-json</dd>
+</dl>
+<p><em>NOTE - bro-pkg installation (http://bro-package-manager.readthedocs.io/en/stable/quickstart.html#installation)</em></p>
 </div>
 <div class="section" id="bro-event-enritchment-to-help-wazuh-ruleset">
 <h3>Bro Event Enritchment to help Wazuh ruleset<a class="headerlink" href="#bro-event-enritchment-to-help-wazuh-ruleset" title="Permalink to this headline">¶</a></h3>
@@ -354,7 +370,9 @@ You must include following line in your .bro configuration files. It can be /etc
 </pre></div>
 </div>
 <p>owlh.bro looks like:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@load</span> <span class="n">tuning</span><span class="o">/</span><span class="n">json</span><span class="o">-</span><span class="n">logs</span><span class="o">.</span><span class="n">bro</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Select prefered output</span>
+<span class="c1">#@load tuning/json-logs.bro</span>
+<span class="nd">@load</span> <span class="n">packages</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">json</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">json</span><span class="o">.</span><span class="n">bro</span>
 <span class="nd">@load</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bro</span><span class="o">/</span><span class="n">site</span><span class="o">/</span><span class="n">owlh_types</span><span class="o">.</span><span class="n">bro</span>
 </pre></div>
 </div>
