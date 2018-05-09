@@ -6,20 +6,41 @@ Integration Logical Diagram
 
 .. image:: /img/broowlh.png
 
+Components
+^^^^^^^^^
+
+* Bro Node - Bro IDS and Wazuh Agent
+* Wazuh Manger 
+* Logstash Server
+* Elastic and Kibana Server
+
+Let's see what we need to modify on each component to be able to manage this Bro and Wazuh integration.
+
+
+Configure - Bro Node
+====================
+
+This system will require Bro working of course, and Wazuh agent installed. OwlH instructions will help to configure both Bro and Wazuh agent.
+
 Bro Logs Output format to JSON
 ------------------------------
 
-you must load the json_logs.bro plugin 
-modify your /etc/bro/local.bro to include following line at the end
+you must load the json_logs.bro configuration that will tell ASCII writer to write output in JSON format.
+You must include following line in your .bro configuration files. It can be /etc/bro/site/local.bro or you can follow our recomendation and write the configs in OwlH.bro file (please, see below). 
+
+Load and redef ASCII writer config.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
     @load tuning/json_logs.bro
 
 Bro Event Enritchment to help Wazuh ruleset
-------------------------------------------- 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-it is a good idea to help wazuh rules to do their job, to include a field that will identify what kind of log line we are analyzing. Bro output doesn't include that info per line by default, so we are going to help wazuh by including the field 'bro_engine' that will tell wazuh what kind of log is it. 
+It is a good idea to help wazuh rules to do their job, to include a field that will identify what kind of log line we are analyzing. Bro output doesn't include that info per line by default, so we are going to help wazuh by including the field 'bro_engine' that will tell wazuh what kind of log is it. 
+
+We are using redef function to include a custom field for each ::Info record of each Protocol. Here are just a few of them, we will include more by default in next releases. 
 
 :: 
 
@@ -40,7 +61,7 @@ it is a good idea to help wazuh rules to do their job, to include a field that w
     };
 
 Loading Bro customizations at Bro start
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We include all OwlH customizations in OwlH_*.bro files, that helps to have a clear view of what OwlH does as well as we hope it will simplify configuration management. 
 
@@ -84,10 +105,82 @@ and owlh_types.bro:
  
 
 
+Wazuh Agent configuration
+-------------------------
+
+*NOTE: Remember we are on Bro Node component.*
+
+Modify your Wazuh agent to read the Bro Logs files 
+
+::
+
+    <localfile>
+      <log_format>syslog</log_format>
+      <location>/path/to/bro/logs/*.log</location>
+    </localfile>
+
+
+Note: if needed, You can specify files instead of all .log ones 
+
+::
+
+    <localfile>
+      <log_format>syslog</log_format>
+      <location>/path/to/bro/logs/weird.log</location>
+    </localfile>
+    <localfile>
+      <log_format>syslog</log_format>
+      <location>/path/to/bro/logs/conn.log</location>
+    </localfile>
+
+Configure - Wazuh Manager
+=========================
+
+Good news is that Wazuh's JSON decoder works really great, so using JSON output from BRO allow us to save time developing an specific decoder for its standard ASCII out. 
+
+We only need to create a few rules to identify the Bro events and forward them to ELK. 
+
+
+
+Wazuh Bro IDS Rules 
+-------------------
+
+Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to manage your BRO logs 
+
+:: 
+
+    <group name="bro">
+      <rule id="99001" level="5">
+        <field name="bro_engine">SSH</field>
+        <description>BRO: SSH Connection</description>
+      </rule>
+      <rule id="99001" level="5">
+        <field name="bro_engine">SSL</field>
+        <description>BRO: SSL Connection</description>
+      </rule>
+      <rule id="99002" level="5">
+        <field name="bro_engine">DNS</field>
+        <description>BRO: DNS Query</description>
+      </rule>
+      <rule id="99004" level="5">
+        <field name="bro_engine">CONN</field>
+        <description>BRO: Connection detail</description>
+      </rule>
+    </group>
+
+*NOTE: remember restart your wazuh agent after change.*
+
+
+Configure - Logstash Server
+===========================
+
 Logstash Filter
 ---------------
 
-We need to modify Logstash filters to allow JSON record cleaning from Bro to Wazuh Indces. 
+We need to modify Logstash filters to allow JSON record cleaning from Bro to Wazuh-alert index parsing. 
+*It is necesary because bro uses [id] field to group network src and dest addresses and ports info and parsing will fail*
+
+*Also, it is done so we can store IP-PORT data in the right fields for wazuh index*
 
 
 ::
@@ -104,47 +197,16 @@ We need to modify Logstash filters to allow JSON record cleaning from Bro to Waz
         }
     }
 
-Wazuh Agent configuration
--------------------------
 
-Modify your Wazuh agent to read the Bro Logs files 
-
-::
-
-    <localfile>
-      <log_format>syslog</log_format>
-      <location>/root/*.log</location>
-    </localfile>
-
-
-Wazuh Bro IDS Rules 
--------------------
-
-Include the Wazuh rules to manage your BRO logs 
-
-:: 
-
-    <group name="bro">
-      <rule id="99001" level="5">
-        <field name="bro_engine">SSH</field>
-        <description>BRO: SSH Connection</description>
-      </rule>
-      <rule id="99002" level="5">
-        <field name="bro_engine">DNS</field>
-        <description>BRO: DNS Query</description>
-      </rule>
-      <rule id="99004" level="5">
-        <field name="bro_engine">CONN</field>
-        <description>BRO: Connection detail</description>
-      </rule>
-    </group>
 
 Review your Kibana Dashboard
-----------------------------
+============================
 
-You will need to refresh your Wazuh-alerts indeces to include the new Bro fields. from your kibana console, go to Management -> index -> select right wazuh-alerts index -> click top-right refresh icon to refresh 
+You will need to refresh your Wazuh-alerts-3.x indeces to include the new Bro fields. from your kibana console, go to Management -> index -> select right wazuh-alerts index -> click top-right refresh icon to refresh
 
 .. image:: /img/kibanabro.png
 
 
+And that's all folks.
 
+.. include:: /main/contact.rst

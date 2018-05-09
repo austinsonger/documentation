@@ -14,3 +14,5 @@ OwlH works with
 
 * Suricata IDS - `suricata`_
 * Bro IDS - `broIDS`_
+
+.. include:: /main/contact.rst

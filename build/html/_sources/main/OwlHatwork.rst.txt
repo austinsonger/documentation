@@ -39,3 +39,7 @@ Data Transport is done in two possible ways.
 * By using Wazuh agent
 * By using OwlH forwarder and collector tools
 * By using Beat solutions like filebeat or logstash
+
+
+
+.. include:: /main/contact.rst

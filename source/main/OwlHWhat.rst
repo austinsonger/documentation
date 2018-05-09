@@ -54,3 +54,6 @@ NIDS Support             Suricata + Wazuh          0.3
 PCI Compliance           Suricata + PCI Mapping    0.3
 Web and Documentation    Documentation             0.3
 =======================  ========================= =======
+
+
+.. include:: /main/contact.rst

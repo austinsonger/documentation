@@ -20,3 +20,5 @@ Or just install OwlH
    install/OwlHWhat
    install/OwlHHow
    install/OwlHNow
+
+.. include:: /main/contact.rst
