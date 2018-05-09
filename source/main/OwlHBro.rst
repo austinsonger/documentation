@@ -54,6 +54,8 @@ To install add-json package you can use bro-pkg tool
 
 *NOTE - bro-pkg installation (http://bro-package-manager.readthedocs.io/en/stable/quickstart.html#installation)*
 
+*Note: Thanks to C.L.Martinez and Jan.Grashoefer*
+
 
 Bro Event Enritchment to help Wazuh ruleset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
