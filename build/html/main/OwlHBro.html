@@ -131,9 +131,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#components">Components</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#configure-bro-node">Configure - Bro Node</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configure-bro-node">Configure - Bro Node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#option-1-modify-ascii-writer-output">Option 1 - Modify ASCII writer output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#option-2-use-add-json-package">Option 2 - Use add-json package</a></li>
@@ -142,17 +140,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#configure-wazuh-manager">Configure - Wazuh Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configure-wazuh-manager">Configure - Wazuh Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#wazuh-bro-ids-rules">Wazuh Bro IDS Rules</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#configure-logstash-server">Configure - Logstash Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configure-logstash-server">Configure - Logstash Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#logstash-filter">Logstash Filter</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#review-your-kibana-dashboard">Review your Kibana Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#review-your-kibana-dashboard">Review your Kibana Dashboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#if-you-need-help">If you need help:</a></li>
 </ul>
 </li>
@@ -200,9 +192,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#components">Components</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-bro-node">Configure - Bro Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-bro-node">Configure - Bro Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#option-1-modify-ascii-writer-output">Option 1 - Modify ASCII writer output</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#option-2-use-add-json-package">Option 2 - Use add-json package</a></li>
@@ -211,17 +201,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-wazuh-manager">Configure - Wazuh Manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-wazuh-manager">Configure - Wazuh Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#wazuh-bro-ids-rules">Wazuh Bro IDS Rules</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-logstash-server">Configure - Logstash Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-logstash-server">Configure - Logstash Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#logstash-filter">Logstash Filter</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#review-your-kibana-dashboard">Review your Kibana Dashboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#review-your-kibana-dashboard">Review your Kibana Dashboard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#if-you-need-help">If you need help:</a></li>
 </ul>
 </li>
@@ -307,10 +291,10 @@
 <p>Let’s see what we need to modify on each component to be able to manage this Bro and Wazuh integration.</p>
 </div>
 </div>
-</div>
 <div class="section" id="configure-bro-node">
-<h1>Configure - Bro Node<a class="headerlink" href="#configure-bro-node" title="Permalink to this headline">¶</a></h1>
+<h2>Configure - Bro Node<a class="headerlink" href="#configure-bro-node" title="Permalink to this headline">¶</a></h2>
 <p>This system will require Bro working of course, and Wazuh agent installed. OwlH instructions will help to configure both Bro and Wazuh agent.</p>
+</div>
 <div class="section" id="bro-logs-output-format-to-json">
 <h2>Bro Logs Output format to JSON<a class="headerlink" href="#bro-logs-output-format-to-json" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="option-1-modify-ascii-writer-output">
@@ -419,11 +403,11 @@ You must include following line in your .bro configuration files. It can be /etc
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="configure-wazuh-manager">
-<h1>Configure - Wazuh Manager<a class="headerlink" href="#configure-wazuh-manager" title="Permalink to this headline">¶</a></h1>
+<h2>Configure - Wazuh Manager<a class="headerlink" href="#configure-wazuh-manager" title="Permalink to this headline">¶</a></h2>
 <p>Good news is that Wazuh’s JSON decoder works really great, so using JSON output from BRO allow us to save time developing an specific decoder for its standard ASCII out.</p>
 <p>We only need to create a few rules to identify the Bro events and forward them to ELK.</p>
+</div>
 <div class="section" id="wazuh-bro-ids-rules">
 <h2>Wazuh Bro IDS Rules<a class="headerlink" href="#wazuh-bro-ids-rules" title="Permalink to this headline">¶</a></h2>
 <p>Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to manage your BRO logs</p>
@@ -449,9 +433,9 @@ You must include following line in your .bro configuration files. It can be /etc
 </div>
 <p><em>NOTE: remember restart your wazuh agent after change.</em></p>
 </div>
-</div>
 <div class="section" id="configure-logstash-server">
-<h1>Configure - Logstash Server<a class="headerlink" href="#configure-logstash-server" title="Permalink to this headline">¶</a></h1>
+<h2>Configure - Logstash Server<a class="headerlink" href="#configure-logstash-server" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="logstash-filter">
 <h2>Logstash Filter<a class="headerlink" href="#logstash-filter" title="Permalink to this headline">¶</a></h2>
 <p>We need to modify Logstash filters to allow JSON record cleaning from Bro to Wazuh-alert index parsing.
@@ -471,12 +455,12 @@ You must include following line in your .bro configuration files. It can be /etc
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="review-your-kibana-dashboard">
-<h1>Review your Kibana Dashboard<a class="headerlink" href="#review-your-kibana-dashboard" title="Permalink to this headline">¶</a></h1>
+<h2>Review your Kibana Dashboard<a class="headerlink" href="#review-your-kibana-dashboard" title="Permalink to this headline">¶</a></h2>
 <p>You will need to refresh your Wazuh-alerts-3.x indeces to include the new Bro fields. from your kibana console, go to Management -&gt; index -&gt; select right wazuh-alerts index -&gt; click top-right refresh icon to refresh</p>
 <img alt="../_images/kibanabro.png" src="../_images/kibanabro.png" />
 <p>And that’s all folks.</p>
+</div>
 <div class="section" id="if-you-need-help">
 <h2>If you need help:<a class="headerlink" href="#if-you-need-help" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">

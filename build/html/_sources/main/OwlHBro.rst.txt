@@ -18,7 +18,7 @@ Let's see what we need to modify on each component to be able to manage this Bro
 
 
 Configure - Bro Node
-====================
+--------------------
 
 This system will require Bro working of course, and Wazuh agent installed. OwlH instructions will help to configure both Bro and Wazuh agent.
 
@@ -158,7 +158,7 @@ Note: if needed, You can specify files instead of all .log ones
     </localfile>
 
 Configure - Wazuh Manager
-=========================
+-------------------------
 
 Good news is that Wazuh's JSON decoder works really great, so using JSON output from BRO allow us to save time developing an specific decoder for its standard ASCII out. 
 
@@ -196,7 +196,7 @@ Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to m
 
 
 Configure - Logstash Server
-===========================
+---------------------------
 
 Logstash Filter
 ---------------
@@ -224,7 +224,7 @@ We need to modify Logstash filters to allow JSON record cleaning from Bro to Waz
 
 
 Review your Kibana Dashboard
-============================
+----------------------------
 
 You will need to refresh your Wazuh-alerts-3.x indeces to include the new Bro fields. from your kibana console, go to Management -> index -> select right wazuh-alerts index -> click top-right refresh icon to refresh
 
