@@ -1,8 +1,8 @@
 Software TAP for AWS
 ====================
 
-OwlH Software TAP will allow you to monitor traffic in your AWS environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OwlH Software TAP configuration will allow you to monitor traffic in your AWS environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: /img/nettap.png
 
