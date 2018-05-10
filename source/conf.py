@@ -30,7 +30,15 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.githubpages']
+
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition
+from sphinx.util import compat
+compat.make_admonition = BaseAdmonition
+
+extensions = [
+    'sphinx.ext.githubpages',
+    'sphinxcontrib.images'
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

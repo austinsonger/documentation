@@ -4,7 +4,13 @@ OwlH for AWS
 OwlH will allow you to monitor traffic in your AWS environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: /img/nettap.png
+.. |SOFTWARE_TAP| thumbnail:: /img/nettap.png
+   :title: Sotware TAP
+   :align: center
+   :width: 100%
+
+|SOFTWARE_TAP|
+
 
 
 OwlH will use a software TAP (vTAP) to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.
