@@ -52,9 +52,9 @@ To install add-json package you can use bro-pkg tool
 :: 
     bro-pkg install add-json
 
-*NOTE - bro-pkg installation (http://bro-package-manager.readthedocs.io/en/stable/quickstart.html#installation)*
+.. note:: bro-pkg installation (http://bro-package-manager.readthedocs.io/en/stable/quickstart.html#installation)*
 
-*Note: Thanks to C.L.Martinez and Jan.Grashoefer*
+.. note:: Thanks to C.L.Martinez and Jan.Grashoefer*
 
 
 Bro Event Enritchment to help Wazuh ruleset
@@ -132,7 +132,7 @@ and owlh_types.bro:
 Wazuh Agent configuration
 -------------------------
 
-*NOTE: Remember we are on Bro Node component.*
+.. note:: Remember we are on Bro Node component.*
 
 Modify your Wazuh agent to read the Bro Logs files 
 
@@ -144,7 +144,7 @@ Modify your Wazuh agent to read the Bro Logs files
     </localfile>
 
 
-Note: if needed, You can specify files instead of all .log ones 
+.. note:: if needed, You can specify files instead of all .log ones 
 
 ::
 
@@ -192,7 +192,7 @@ Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to m
       </rule>
     </group>
 
-*NOTE: remember restart your wazuh agent after change.*
+.. note:: remember restart your wazuh agent after change.*
 
 
 Configure - Logstash Server
@@ -201,7 +201,7 @@ Configure - Logstash Server
 Logstash Filter
 ---------------
 
-We need to modify Logstash filters to allow JSON record cleaning from Bro to Wazuh-alert index parsing. 
+We need to modify Logstash filters (/etc/logstash/conf.d/) to allow JSON record cleaning from Bro to Wazuh-alert index parsing. 
 *It is necesary because bro uses [id] field to group network src and dest addresses and ports info and parsing will fail*
 
 *Also, it is done so we can store IP-PORT data in the right fields for wazuh index*

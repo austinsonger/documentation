@@ -217,7 +217,7 @@ These are some fields that will require template customization.
     }
   },
 
-**NOTE** As there can be some issues when modifying elasticsearch indices and templates, please request our help to do it. We are working to prepare a full index template and instructions.
+.. note:: As there can be some issues when modifying elasticsearch indices and templates, please request our help to do it. We are working to prepare a full index template and instructions.
 
 
 

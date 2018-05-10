@@ -157,8 +157,8 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#if-you-need-help">If you need help:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">OwlH for AWS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#owlh-will-allow-you-to-monitor-traffic-in-your-aws-environment">OwlH will allow you to monitor traffic in your AWS environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHAWS.html">Software TAP for AWS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#owlh-software-tap-will-allow-you-to-monitor-traffic-in-your-aws-environment">OwlH Software TAP will allow you to monitor traffic in your AWS environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#wazuh-system">Wazuh system</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#main-components">Main Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHAWS.html#deploy-owlh-master-as-suricata-network-ids">Deploy OwlH master as Suricata Network IDS</a></li>
@@ -319,8 +319,14 @@ You must include following line in your .bro configuration files. It can be /etc
 <dt>::</dt>
 <dd>bro-pkg install add-json</dd>
 </dl>
-<p><em>NOTE - bro-pkg installation (http://bro-package-manager.readthedocs.io/en/stable/quickstart.html#installation)</em></p>
-<p><em>Note: Thanks to C.L.Martinez and Jan.Grashoefer</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">bro-pkg installation (<a class="reference external" href="http://bro-package-manager.readthedocs.io/en/stable/quickstart.html#installation)*">http://bro-package-manager.readthedocs.io/en/stable/quickstart.html#installation)*</a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Thanks to C.L.Martinez and Jan.Grashoefer*</p>
+</div>
 </div>
 <div class="section" id="bro-event-enritchment-to-help-wazuh-ruleset">
 <h3>Bro Event Enritchment to help Wazuh ruleset<a class="headerlink" href="#bro-event-enritchment-to-help-wazuh-ruleset" title="Permalink to this headline">¶</a></h3>
@@ -385,7 +391,10 @@ You must include following line in your .bro configuration files. It can be /etc
 </div>
 <div class="section" id="wazuh-agent-configuration">
 <h2>Wazuh Agent configuration<a class="headerlink" href="#wazuh-agent-configuration" title="Permalink to this headline">¶</a></h2>
-<p><em>NOTE: Remember we are on Bro Node component.</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Remember we are on Bro Node component.*</p>
+</div>
 <p>Modify your Wazuh agent to read the Bro Logs files</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">localfile</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">log_format</span><span class="o">&gt;</span><span class="n">syslog</span><span class="o">&lt;/</span><span class="n">log_format</span><span class="o">&gt;</span>
@@ -393,7 +402,10 @@ You must include following line in your .bro configuration files. It can be /etc
 <span class="o">&lt;/</span><span class="n">localfile</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Note: if needed, You can specify files instead of all .log ones</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if needed, You can specify files instead of all .log ones</p>
+</div>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">localfile</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">log_format</span><span class="o">&gt;</span><span class="n">syslog</span><span class="o">&lt;/</span><span class="n">log_format</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">location</span><span class="o">&gt;/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">bro</span><span class="o">/</span><span class="n">logs</span><span class="o">/</span><span class="n">weird</span><span class="o">.</span><span class="n">log</span><span class="o">&lt;/</span><span class="n">location</span><span class="o">&gt;</span>
@@ -433,14 +445,17 @@ You must include following line in your .bro configuration files. It can be /etc
 <span class="o">&lt;/</span><span class="n">group</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p><em>NOTE: remember restart your wazuh agent after change.</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">remember restart your wazuh agent after change.*</p>
+</div>
 </div>
 <div class="section" id="configure-logstash-server">
 <h2>Configure - Logstash Server<a class="headerlink" href="#configure-logstash-server" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="logstash-filter">
 <h2>Logstash Filter<a class="headerlink" href="#logstash-filter" title="Permalink to this headline">¶</a></h2>
-<p>We need to modify Logstash filters to allow JSON record cleaning from Bro to Wazuh-alert index parsing.
+<p>We need to modify Logstash filters (/etc/logstash/conf.d/) to allow JSON record cleaning from Bro to Wazuh-alert index parsing.
 <em>It is necesary because bro uses [id] field to group network src and dest addresses and ports info and parsing will fail</em></p>
 <p><em>Also, it is done so we can store IP-PORT data in the right fields for wazuh index</em></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">filter</span> <span class="p">{</span>

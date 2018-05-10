@@ -4,13 +4,7 @@ Software TAP for AWS
 OwlH Software TAP will allow you to monitor traffic in your AWS environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. |SOFTWARE_TAP| thumbnail:: /img/nettap.png
-   :title: Sotware TAP
-   :align: center
-   :width: 100%
-
-|SOFTWARE_TAP|
-
+.. image:: /img/nettap.png
 
 
 OwlH will use a software TAP (vTAP) to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.
@@ -50,7 +44,7 @@ Main Components
 
 .. image:: /img/nettap-components.png
 
-Note: For cloud like AWS or Google Cloud should be good idea to deploy our instances with two different network interfaces, so we can use main interface as public service interface and secondary for management propouses, as traffic forward from instances to OwlH system
+.. note:: For cloud like AWS or Google Cloud should be good idea to deploy our instances with two different network interfaces, so we can use main interface as public service interface and secondary for management propouses, as traffic forward from instances to OwlH system
 
 .. image:: /img/awsmgm.png
 
@@ -288,7 +282,7 @@ Remote `Traffic management`_
 
 * Analyze and clean traffic
 
-NOTE: Please be sure your suricata path is the right one. The one included here is a compiled from 4.0.4 source in a amazon linux instance. It may vary
+.. note:: Please be sure your suricata path is the right one. The one included here is a compiled from 4.0.4 source in a amazon linux instance. It may vary
 
 ::
 
@@ -346,13 +340,13 @@ Copy the `Global Ansible Vars`_ file to the /etc/ansible/group_vars/srvs.yaml fi
    suricata_binary: /usr/local/suricata-4.0.4/bin/suricata
    suricata_config: /usr/local/etc/suricata/suricata.yaml
 
-**NOTE: PCAP behaviour.**
+.. note:: PCAP behaviour:
 
-you can choose to store analyzed PCAP files or remove them after analysis is done.
+          you can choose to store analyzed PCAP files or remove them after analysis is done.
 
-**managed_pcap** means the folder in which one you want to store analyzed PCAP files. This can be useful as forensic storage, so you may want to use an S3 bucket to save them.
+          **managed_pcap** means the folder in which one you want to store analyzed PCAP files. This can be useful as forensic storage, so you may want to use an S3 bucket to save them.
 
-If you choose a folder, make sure the folder is present and has the right permissions.
+          If you choose a folder, make sure the folder is present and has the right permissions.
 
 
 

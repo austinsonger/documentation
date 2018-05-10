@@ -281,17 +281,7 @@
 <h1>Software TAP for AWS<a class="headerlink" href="#software-tap-for-aws" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="owlh-software-tap-will-allow-you-to-monitor-traffic-in-your-aws-environment">
 <h2>OwlH Software TAP will allow you to monitor traffic in your AWS environment<a class="headerlink" href="#owlh-software-tap-will-allow-you-to-monitor-traffic-in-your-aws-environment" title="Permalink to this headline">¶</a></h2>
-<p><a class=""
-               data-lightbox="group-740ad24a-ee62-44a7-9c59-119fd3b91d11"
-               href="../_images/nettap1.png"
-               title="Sotware TAP"
-               data-title="Sotware TAP"
-               ><img src="../_images/nettap1.png"
-                     class="align-center"
-                     width="100%"
-                     height="auto"
-                     alt="SOFTWARE_TAP"/>
-                </a></p>
+<img alt="../_images/nettap1.png" src="../_images/nettap1.png" />
 <p>OwlH will use a software TAP (vTAP) to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.</p>
 <p>Scripts are configs are described here in detail. you may find some links to them inline. Also, if you want, you can access our <a class="reference external" href="https://github.com/owlh/owlhostnettap">OwlH net-tap repository</a> to see all them.</p>
 <p>Main steps:</p>
@@ -339,7 +329,10 @@
 <div class="section" id="main-components">
 <h2>Main Components<a class="headerlink" href="#main-components" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/nettap-components.png" src="../_images/nettap-components.png" />
-<p>Note: For cloud like AWS or Google Cloud should be good idea to deploy our instances with two different network interfaces, so we can use main interface as public service interface and secondary for management propouses, as traffic forward from instances to OwlH system</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For cloud like AWS or Google Cloud should be good idea to deploy our instances with two different network interfaces, so we can use main interface as public service interface and secondary for management propouses, as traffic forward from instances to OwlH system</p>
+</div>
 <img alt="../_images/awsmgm.png" src="../_images/awsmgm.png" />
 <ul class="simple">
 <li>OwlH master</li>
@@ -540,7 +533,10 @@
 <ul class="simple">
 <li>Analyze and clean traffic</li>
 </ul>
-<p>NOTE: Please be sure your suricata path is the right one. The one included here is a compiled from 4.0.4 source in a amazon linux instance. It may vary</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please be sure your suricata path is the right one. The one included here is a compiled from 4.0.4 source in a amazon linux instance. It may vary</p>
+</div>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Suricata</span> <span class="n">binary</span> <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">suricata</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">suricata</span>
 
 <span class="n">Suricata</span> <span class="n">config</span> <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">suricata</span><span class="o">.</span><span class="n">yaml</span>
@@ -584,10 +580,13 @@
 <span class="n">suricata_config</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">suricata</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
-<p><strong>NOTE: PCAP behaviour.</strong></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>PCAP behaviour:</p>
 <p>you can choose to store analyzed PCAP files or remove them after analysis is done.</p>
 <p><strong>managed_pcap</strong> means the folder in which one you want to store analyzed PCAP files. This can be useful as forensic storage, so you may want to use an S3 bucket to save them.</p>
-<p>If you choose a folder, make sure the folder is present and has the right permissions.</p>
+<p class="last">If you choose a folder, make sure the folder is present and has the right permissions.</p>
+</div>
 <p><strong>BPF filter</strong></p>
 <p>You can specify what traffic to be captured if you don’t want to capture everything. Main and default configuration will provide filter to not collect management traffic from OwlH master to your agents.</p>
 <p>Remember this filter must be deployed into each one agent. be sure it is on each one of your servers.</p>
