@@ -36,8 +36,8 @@ from sphinx.util import compat
 compat.make_admonition = BaseAdmonition
 
 extensions = [
-    'sphinx.ext.githubpages',
-    'sphinxcontrib.images'
+    'sphinx.ext.githubpages'
+#    'sphinxcontrib.images'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
