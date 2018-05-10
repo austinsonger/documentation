@@ -13,10 +13,11 @@ This is OwlH, open source solution. OwlH is born to help security engineers to m
 * Compliance Mapping and Dashboards
 * Incident Response Automation
 
+A few topics
+------------
 
 .. toctree::
    :maxdepth: 1
-   :caption: So, let's look inside:
 
    main/OwlHWhat
    main/OwlHatwork

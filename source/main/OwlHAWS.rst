@@ -1,5 +1,5 @@
-Software TAP for AWS
-====================
+Software TAP for Cloud (AWS and GCloud)
+=======================================
 
 OwlH Software TAP configuration will allow you to monitor traffic in your AWS environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -290,7 +290,7 @@ Remote `Traffic management`_
 
    Suricata config path: /usr/local/etc/suricata/suricata.yaml
 
-Please, configure your Suricata path as needed.
+.. note:: Please, configure your Suricata path as needed.
 
 ::
 
@@ -340,7 +340,7 @@ Copy the `Global Ansible Vars`_ file to the /etc/ansible/group_vars/srvs.yaml fi
    suricata_binary: /usr/local/suricata-4.0.4/bin/suricata
    suricata_config: /usr/local/etc/suricata/suricata.yaml
 
-.. note:: PCAP behaviour:
+.. warning:: PCAP behaviour:
 
           you can choose to store analyzed PCAP files or remove them after analysis is done.
 
