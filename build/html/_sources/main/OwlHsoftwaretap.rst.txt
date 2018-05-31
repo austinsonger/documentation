@@ -265,6 +265,35 @@ Script also includes tcpdump installation as part of the traffic capture stuff. 
 
 **Modify your bpf filter file.**
 
+
+
+Register your servers
+^^^^^^^^^^^^^^^^^^^^^
+
+We need to know a little bit about your network. At least, we need to know what are the servers that you want to capture traffic from.
+
+Please, include in your OwlH server inventory file all your servers /etc/owlh/inventory.json. Define them as needed but keep json format.
+
+:: 
+
+    [
+        {
+            "id" : "1",
+            "name" : "agent-1-openrules",
+            "ip" : "192.168.1.218",
+            "enabled" : "true",
+            "active" : "true"
+        },
+        {
+            "id" : "2",
+            "name" : "agent-2-217",
+            "ip" : "192.168.1.217",
+            "enabled" : "true",
+            "active" : "true"
+        }
+    ]
+
+
 ----
 
 Wazuh system
@@ -335,37 +364,6 @@ And restart your wazuh agent
 
     ``$ systemctl restart wazuh-agent``
 
-
-
-
-
-
-
-Register your servers
-^^^^^^^^^^^^^^^^^^^^^
-
-We need to know a little bit about your network. At least, we need to know what are the servers that you want to capture traffic from.
-
-Please, include in your OwlH server inventory file all your servers /etc/owlh/inventory.json. Define them as needed but keep json format.
-
-:: 
-
-    [
-        {
-            "id" : "1",
-            "name" : "agent-1-openrules",
-            "ip" : "192.168.1.218",
-            "enabled" : "true",
-            "active" : "true"
-        },
-        {
-            "id" : "2",
-            "name" : "agent-2-217",
-            "ip" : "192.168.1.217",
-            "enabled" : "true",
-            "active" : "true"
-        }
-    ]
 
 
 

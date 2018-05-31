@@ -181,9 +181,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#owlh-master-configuration">OwlH Master Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#target-instances">Target Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-your-servers">Register your servers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#wazuh-system">Wazuh system</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#register-your-servers">Register your servers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enjoy-it">Enjoy It</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#if-you-need-help">If you need help:</a></li>
 </ul>
@@ -486,6 +486,29 @@ sudo echo &quot;owlh     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump, /usr/bin/c
 </div>
 <p><strong>Modify your bpf filter file.</strong></p>
 </div>
+<div class="section" id="register-your-servers">
+<h2>Register your servers<a class="headerlink" href="#register-your-servers" title="Permalink to this headline">¶</a></h2>
+<p>We need to know a little bit about your network. At least, we need to know what are the servers that you want to capture traffic from.</p>
+<p>Please, include in your OwlH server inventory file all your servers /etc/owlh/inventory.json. Define them as needed but keep json format.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;agent-1-openrules&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ip&quot;</span> <span class="p">:</span> <span class="s2">&quot;192.168.1.218&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;enabled&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;active&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;agent-2-217&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ip&quot;</span> <span class="p">:</span> <span class="s2">&quot;192.168.1.217&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;enabled&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;active&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
 <hr class="docutils" />
 <div class="section" id="wazuh-system">
 <h2>Wazuh system<a class="headerlink" href="#wazuh-system" title="Permalink to this headline">¶</a></h2>
@@ -533,29 +556,6 @@ sudo echo &quot;owlh     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump, /usr/bin/c
 <p>And restart your wazuh agent</p>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">$</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">wazuh-agent</span></code></div></blockquote>
-</div>
-<div class="section" id="register-your-servers">
-<h2>Register your servers<a class="headerlink" href="#register-your-servers" title="Permalink to this headline">¶</a></h2>
-<p>We need to know a little bit about your network. At least, we need to know what are the servers that you want to capture traffic from.</p>
-<p>Please, include in your OwlH server inventory file all your servers /etc/owlh/inventory.json. Define them as needed but keep json format.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;agent-1-openrules&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ip&quot;</span> <span class="p">:</span> <span class="s2">&quot;192.168.1.218&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;enabled&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;active&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;agent-2-217&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ip&quot;</span> <span class="p">:</span> <span class="s2">&quot;192.168.1.217&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;enabled&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;active&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="enjoy-it">
 <h2>Enjoy It<a class="headerlink" href="#enjoy-it" title="Permalink to this headline">¶</a></h2>
