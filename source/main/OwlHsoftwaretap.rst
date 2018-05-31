@@ -105,8 +105,8 @@ Create Dummy interface for Network IDS
 Network IDS support
 ^^^^^^^^^^^^^^^^^^^
 
-Continuous Network IDS sniffing
--------------------------------
+Continuous Network IDS monitor and sniffing
+-------------------------------------------
 
 We will help to have a better continuous monitoring by using a configuration based on a dummy network interface and running Network IDS solutions continuously. PCAPS will be injected using TCPREPLAY script in the dummy interface. 
 
