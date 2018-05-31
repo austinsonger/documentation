@@ -176,6 +176,94 @@ Your bpf filter should be at least something like this
 
 Where 1.1.1.1 must be replaced with your OwlH master ip that will connect to your server.
 
+----
+
+
+Target Instances
+^^^^^^^^^^^^^^^^
+
+We will need some tools and a user in each one of your servers in order to coordinate the traffic capture functionality
+
+* Create and configure owl user in your servers
+
+.. _this script:  https://raw.githubusercontent.com/owlh/owlhostnettap/master/owlh-setup.sh.centos7
+
+The owlh user will be use by OwlH Master Orchestrator to run traffic capture and collect pcap files. to create user and configure it please follow `this script`_:
+
+::
+
+    #!/bin/bash
+    # Created 28.02.18
+    # v0.1 24.05.18 master@owlh.net
+
+    # tested in amazon Linux instance
+    # tested GCLOUD - centos7 - CIS version
+
+    # NOTE -- run this script in a server using
+    # sudo bash owluser-setup.sh
+
+
+    sudo adduser owlh
+    echo "create owlh user ssh folder"
+    sudo -u owlh mkdir /home/owlh/.ssh
+    echo "setting ssh folder permissions"
+    sudo -u owlh chmod 700 /home/owlh/.ssh
+    echo "create authorized keys file"
+    sudo -u owlh touch /home/owlh/.ssh/authorized_keys
+    echo "setting authorized keys permissions"
+    sudo -u owlh chmod 600 /home/owlh/.ssh/authorized_keys
+    echo "include owlmaster key"
+    echo "be sure you have your owlh master pub key in /tmp/owlhmaster.pub file"
+    sudo cat /tmp/owlhmaster.pub >> /home/owlh/.ssh/authorized_keys
+    echo "Allow owlh user to login with ssh"
+    sudo sed -i '/^AllowUsers/s/$/ owlh/' /etc/ssh/sshd_config
+    sudo systemctl restart sshd
+
+    echo "install tcpdump"
+    if ! sudo yum list installed tcpdump ; then
+        sudo yum -y install tcpdump
+    fi
+
+    # Allow owlh use tcpdump with sudo without password
+    echo "allow user owlh to use tcpdump and chown"
+    #sudo sed -i '/^%wheel/a owlh     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' /etc/sudoers
+    sudo echo "owlh     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump, /usr/bin/chown" >> /etc/sudoers.d/owlh
+
+    # Prepare owlh related stuff folder
+    echo "prepare owlh stuff folders /etc, /var/log, /usr/share"
+    sudo mkdir /etc/owlh
+    sudo mkdir /var/log/owlh
+    sudo mkdir /usr/share/owlh
+    sudo mkdir /usr/share/owlh/pcap
+
+    sudo chown owlh /etc/owlh
+    sudo chgrp owlh /etc/owlh
+    sudo chown owlh /var/log/owlh
+    sudo chgrp owlh /var/log/owlh
+    sudo chown -R owlh /usr/share/owlh
+    sudo chgrp -R owlh /usr/share/owlh
+
+    #sudo echo "not host 10.164.0.4 and not port 22" > /etc/owlh/filter.bpf
+
+
+    # clean and end
+    echo "should be done. Enjoy your day."
+
+Script also includes tcpdump installation as part of the traffic capture stuff. Please be sure you have tcpdump running before continue. This step is only needed if you don't have tcpdump installed yet.
+
+::
+
+    echo "install tcpdump"
+    if ! sudo yum list installed tcpdump ; then
+        sudo yum -y install tcpdump
+    fi
+
+    # Allow owlh use tcpdump with sudo without password
+    echo "allow user owlh to use tcpdump and chown"
+    #sudo sed -i '/^%wheel/a owlh     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' /etc/sudoers
+    sudo echo "owlh     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump, /usr/bin/chown" >> /etc/sudoers.d/owlh
+
+**Modify your bpf filter file.**
 
 ----
 
@@ -250,71 +338,6 @@ And restart your wazuh agent
 
 
 
-Target Instances
-^^^^^^^^^^^^^^^^
-
-We will need some tools and a user in each one of your servers in order to coordinate the traffic capture functionality
-
-* Create and configure owl user in your servers
-
-.. _this script:  https://raw.githubusercontent.com/owlh/owlhostnettap/master/owluser-setup.sh
-
-The owl user will be use by Ansible to run traffic capture and collect pcap files. to create user and configure it please follow `this script`_:
-
-::
-
-   #!/bin/bash
-   # 28.02.18 tested in amazon Linux instance - @owlmaster
-
-   # NOTE -- run this script in a server using
-   # sudo bash owluser-setup.sh
-
-   sudo adduser owl
-   echo "create owl user ssh folder"
-   sudo -u owl mkdir /home/owl/.ssh
-   echo "setting ssh folder permissions"
-   sudo -u owl chmod 700 /home/owl/.ssh
-   echo "create authorized keys file"
-   sudo -u owl touch /home/owl/.ssh/authorized_keys
-   echo "setting authorized keys permissions"
-   sudo -u owl chmod 600 /home/owl/.ssh/authorized_keys
-   echo "include owlmaster key - this is your owl.pub created on your OwlH master"
-   sudo -u owl echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUcJhz9gpE2a1gra67eF/0jjsTBtNHRMawZGLDjQM5mXkmcfy4BTrykvuby0eEEO9hhSRMA5so9cAsmAkQKpW0dxRx0Y5c8LKwrtkzmOHrltQrFTeLmaJaojXDIjVch6XNTwOSnOO9b9O5KKjsJe86I55YP+4sf3ux7azEYVEUWzoN5aqELe+Z4+/A93F142QlJLuCra3Jp5GgeZoBBU7H2bKnSOXOmEQHUjiPETDUDTb1xyb3lVdYALAW3P424KvfmoTK+i3S8hy9vMHcgHQUkyH8ijfKbHZ0V0PTC5WEqVp6bGSGmd2qzyUbapeCnzrtWjiGEhFIL+jZoIg3xXH/ owlmaster@owlh.net" >> /home/owl/.ssh/authorized_keys
-
-   # JUST IN CASE -
-   # sudo -u owl sudo tcpdump -i eth0
-
-   # Prepare owlh related stuff folder
-   echo "prepare owlh stuff folder /var/owlh"
-   sudo mkdir /var/owlh
-   sudo chown owl /var/owlh
-   sudo -u owl mkdir /var/owlh/traffic
-   sudo -u owl mkdir /var/owlh/etc
-   sudo -u owl mkdir /var/owlh/bin
-
-   echo "install tcpdump"
-   sudo yum -y install tcpdump
-
-   # Allow owl use tcpdump with sudo without password
-   echo "allow user owl to use tcpdump"
-   sudo sed -i '/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' /etc/sudoers
-
-
-   # clean and end
-   echo "should be done. Enjoy your day."
-
-Script also includes tcpdump installation as part of the traffic capture stuff. Please be sure you have tcpdump running before continue. This step is only needed if you don't have tcpdump installed yet.
-
-::
-
-   echo "install tcpdump"
-   sudo yum -y install tcpdump
-
-   # Allow owl use tcpdump with sudo without password
-   echo "allow user owl to use tcpdump"
-   sudo sed -i '/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' /etc/sudoers
-
-**Copy bpf filter file.**
 
 
 
