@@ -175,6 +175,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#network-ids-support">Network IDS support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#continuous-network-ids-sniffing">Continuous Network IDS sniffing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deploy-suricata-as-network-ids">Deploy Suricata as Network IDS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deploy-bro-as-network-ids">Deploy Bro as Network IDS</a></li>
 </ul>
@@ -360,6 +361,11 @@
 <hr class="docutils" />
 <div class="section" id="network-ids-support">
 <h2>Network IDS support<a class="headerlink" href="#network-ids-support" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="continuous-network-ids-sniffing">
+<h3>Continuous Network IDS sniffing<a class="headerlink" href="#continuous-network-ids-sniffing" title="Permalink to this headline">¶</a></h3>
+<p>We will help to have a better continuous monitoring by using a configuration based on a dummy network interface and running Network IDS solutions continuously. PCAPS will be injected using TCPREPLAY script in the dummy interface.</p>
+<img alt="../_images/ContinuousListening.png" src="../_images/ContinuousListening.png" />
+</div>
 <div class="section" id="deploy-suricata-as-network-ids">
 <h3>Deploy Suricata as Network IDS<a class="headerlink" href="#deploy-suricata-as-network-ids" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh">Suricata deployment script</a> will help you to deploy Suricata 4.0.4 from source code in a CentOS 7 box.</p>

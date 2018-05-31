@@ -105,6 +105,14 @@ Create Dummy interface for Network IDS
 Network IDS support
 ^^^^^^^^^^^^^^^^^^^
 
+Continuous Network IDS sniffing
+-------------------------------
+
+We will help to have a better continuous monitoring by using a configuration based on a dummy network interface and running Network IDS solutions continuously. PCAPS will be injected using TCPREPLAY script in the dummy interface. 
+
+.. image:: /img/ContinuousListening.png
+
+
 Deploy Suricata as Network IDS
 ------------------------------
 
