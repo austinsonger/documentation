@@ -1,0 +1,633 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Software TAP for AWS and GCloud &mdash; owlh 0.4 - Cloud and Bro documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="owlh 0.4 - Cloud and Bro documentation" href="../index.html"/>
+        <link rel="next" title="Network IDS support" href="NetworkIDS.html"/>
+        <link rel="prev" title="OwlH for PCI" href="OwlHPCI.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> owlh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What can you do with OwlH? -= Roadmap =-</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#owlh-will-help-you-to">OwlH will help you to:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#backlog-there-is-something-else-to-be-done-always">BackLog - There is something else to be done, always.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-4-release-notes-may">v0.4 - Release notes (May)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWhat.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html">How does it work?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#main-components">Main components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-nids-node">OwlH NIDS node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-master-node">OwlH Master node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#elastic-stack">Elastic Stack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHatwork.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHWazuh.html">OwlH - Suricata and Wazuh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#how-to-easily-integrate-suricata-with-wazuh">How to easily integrate Suricata with Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#main-steps">Main steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#deploy-suricata-or-use-a-current-suricata-deployment">Deploy Suricata or use a Current Suricata deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-suricata-to-store-output-in-json-format-eve-log-configuration">Configure Suricata to store output in JSON format - EVE log configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-stack-if-you-are-not-done-yet">Install Wazuh stack if you are not done yet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-agent-in-the-suricata-system">Install Wazuh Agent in the suricata system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHBro.html">OwlH - Bro and Wazuh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#integration-logical-diagram">Integration Logical Diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#components">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#configure-bro-node">Configure - Bro Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#option-1-modify-ascii-writer-output">Option 1 - Modify ASCII writer output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#option-2-use-add-json-package">Option 2 - Use add-json package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#configure-wazuh-manager">Configure - Wazuh Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#wazuh-bro-ids-rules">Wazuh Bro IDS Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#configure-logstash-server">Configure - Logstash Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#logstash-filter">Logstash Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#review-your-kibana-dashboard">Review your Kibana Dashboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHPCI.html">OwlH for PCI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#how-to-apply-suricata-pci-mapping">How to apply Suricata PCI Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHPCI.html#how-to-manage-and-custom-your-suricata-pci-mapping">How to manage and custom your Suricata PCI Mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHPCI.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software TAP for AWS and GCloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#owlh-software-tap-to-monitor-traffic-in-aws-and-gcloud-environments">OwlH Software TAP to monitor traffic in AWS and GCLOUD environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-what-does-sotware-tap-do-and-how-does-it-work">Introduction: What does Sotware TAP do and how does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main-components">Main Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#owlh-master-orchestration">OwlH Master Orchestration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-owlh-master-software">Prepare OwlH Master software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#owlh-master-ssh-key">OwlH Master ssh Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-dummy-interface-for-network-ids">Create Dummy interface for Network IDS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#network-ids-support">Network IDS support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deploy-suricata-as-network-ids">Deploy Suricata as Network IDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deploy-bro-as-network-ids">Deploy Bro as Network IDS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#owlh-master-configuration">OwlH Master Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wazuh-system">Wazuh system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#target-instances">Target Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-your-servers">Register your servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enjoy-it">Enjoy It</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="NetworkIDS.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">owlh</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Software TAP for AWS and GCloud</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/main/OwlHsoftwaretap.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="software-tap-for-aws-and-gcloud">
+<h1>Software TAP for AWS and GCloud<a class="headerlink" href="#software-tap-for-aws-and-gcloud" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="owlh-software-tap-to-monitor-traffic-in-aws-and-gcloud-environments">
+<h2>OwlH Software TAP to monitor traffic in AWS and GCLOUD environments<a class="headerlink" href="#owlh-software-tap-to-monitor-traffic-in-aws-and-gcloud-environments" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/softwareTAP.png" src="../_images/softwareTAP.png" />
+<p>OwlH Software TAP (vTAP) will collect full or specific traffic from your instances and forward it to OwlH Master that will run the Network IDS tool to do the analysis.</p>
+<p>This doc will describe a basic configuration using CentOS instances, Bro and Suricata Network IDS and Wazuh Integration. (other Linux distributions as well as Windows Support is available)</p>
+<p>There are a lot of moving pieces, feel free to ask for help <a class="reference external" href="mailto:support&#37;&#52;&#48;owlh&#46;net">support<span>&#64;</span>owlh<span>&#46;</span>net</a>. This doc will try to simplify deployment but for sure it will need some customization as well as may need some architecture understanding.</p>
+<p>Main steps:</p>
+<ul class="simple">
+<li>Introduction: How does it work?</li>
+<li><dl class="first docutils">
+<dt>Prepare your environment</dt>
+<dd><ul class="first last">
+<li>Option: Create an administration network</li>
+<li>OwlH Master</li>
+<li>Suricata NIDS</li>
+<li>BRO NIDS</li>
+<li>Wazuh Integration</li>
+<li>Default configuration settings</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Register your instances</dt>
+<dd><ul class="first last">
+<li>Define Instances settings</li>
+<li>Configure your instance</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Enjoy it</li>
+</ul>
+</div>
+<div class="section" id="introduction-what-does-sotware-tap-do-and-how-does-it-work">
+<h2>Introduction: What does Sotware TAP do and how does it work?<a class="headerlink" href="#introduction-what-does-sotware-tap-do-and-how-does-it-work" title="Permalink to this headline">¶</a></h2>
+<p>Software TAP is for capture traffic in remote instances, transport captured traffic to a central analysis platform, analyze the traffic and alert. It works in any environment, but it is really useful when you need this visibility in a cloud environment.</p>
+</div>
+<div class="section" id="main-components">
+<h2>Main Components<a class="headerlink" href="#main-components" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/nettap-components.png" src="../_images/nettap-components.png" />
+<p>There are different components.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>OwlH Master</dt>
+<dd><ul class="first last">
+<li>Orchestration</li>
+<li>Dummy Interface</li>
+<li>Network IDS</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Target Instances</li>
+<li>Storage and Visualization</li>
+<li>Wazuh Integration</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For cloud like AWS or Google Cloud should be good idea to deploy our instances with two different network interfaces, so we can use main interface as public service interface and secondary for management propouses, as traffic forward from instances to OwlH system</p>
+</div>
+<img alt="../_images/awsmgm.png" src="../_images/awsmgm.png" />
+<ul class="simple">
+<li>A more detailed block diagram</li>
+</ul>
+<img alt="../_images/softwareTapGCAWS.png" src="../_images/softwareTapGCAWS.png" />
+</div>
+<hr class="docutils" />
+<div class="section" id="owlh-master-orchestration">
+<h2>OwlH Master Orchestration<a class="headerlink" href="#owlh-master-orchestration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prepare-owlh-master-software">
+<h3>Prepare OwlH Master software<a class="headerlink" href="#prepare-owlh-master-software" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo curl https://raw.githubusercontent.com/owlh/owlhmaster/master/softwareTAP/config.sh &gt; /tmp/configure_OwlHmaster.sh</span>
+<span class="c1"># sudo bash /tmp/configure_OwlHmaster.sh</span>
+<span class="c1"># rm /tmp/configure_OwlHmaster.sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="owlh-master-ssh-key">
+<h3>OwlH Master ssh Key<a class="headerlink" href="#owlh-master-ssh-key" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Copy your owlh master ssh key to your instances /tmp folder. Be sure it is in the right place.</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># scp /home/owlh/.ssh/owlhmaster.pub user@1.1.1.1:/tmp/owlhmaster.pub</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">change user and 1.1.1.1 as required or please, follow your own deployment process to ensure that the owlh master pub key is in place on each instance.</p>
+</div>
+</div>
+<div class="section" id="create-dummy-interface-for-network-ids">
+<h3>Create Dummy interface for Network IDS<a class="headerlink" href="#create-dummy-interface-for-network-ids" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo curl https://raw.githubusercontent.com/owlh/owlhostnettap/master/dummy.sh.centos7 &gt; /tmp/dummy.sh</span>
+<span class="c1"># sudo bash /tmp/dummy.sh</span>
+<span class="c1"># rm /tmp/dummy.sh</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="network-ids-support">
+<h2>Network IDS support<a class="headerlink" href="#network-ids-support" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="deploy-suricata-as-network-ids">
+<h3>Deploy Suricata as Network IDS<a class="headerlink" href="#deploy-suricata-as-network-ids" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh">Suricata deployment script</a> will help you to deploy Suricata 4.0.4 from source code in a CentOS 7 box.</p>
+<p>If you prefer a different way to deploy suricata, please follow <a class="reference external" href="https://suricata.readthedocs.io/en/suricata-4.0.4/install.html">Suricata documentation</a>.</p>
+<p><strong>Run Suricata IDS</strong></p>
+</div>
+<div class="section" id="deploy-bro-as-network-ids">
+<h3>Deploy Bro as Network IDS<a class="headerlink" href="#deploy-bro-as-network-ids" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh">Bro deployment script</a> will help you to deploy Bro IDS from source code in a CentOS 7 box.</p>
+<p>If you prefer a different way to deploy Bro, please follow <a class="reference external" href="https://suricata.readthedocs.io/en/suricata-4.0.4/install.html">Bro documentation</a>.</p>
+<p><strong>Run Bro IDS</strong></p>
+</div>
+</div>
+<div class="section" id="owlh-master-configuration">
+<h2>OwlH Master Configuration<a class="headerlink" href="#owlh-master-configuration" title="Permalink to this headline">¶</a></h2>
+<p><strong>OwlH Master Configuration for Software TAP</strong></p>
+<p>We call flock Controller the main process that will drive Software TAP functionality. This is the default configuration file that you will find in your /etc/owlh/ folder.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;pidfile&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp/flock.pid&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;logfile&quot;</span> <span class="p">:</span> <span class="s2">&quot;/var/log/owlh/flock.log&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;inventory&quot;</span> <span class="p">:</span> <span class="s2">&quot;/etc/owlh/inventory.conf&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;owlh_user&quot;</span> <span class="p">:</span> <span class="s2">&quot;owlh&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;owlh_user_key&quot;</span> <span class="p">:</span> <span class="s2">&quot;/home/owlh/.ssh/owlhmaster&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;max_cpu&quot;</span> <span class="p">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;max_mem&quot;</span> <span class="p">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;max_storage&quot;</span> <span class="p">:</span> <span class="s2">&quot;80&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;capture_time&quot;</span> <span class="p">:</span> <span class="s2">&quot;60&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;default_interface&quot;</span> <span class="p">:</span> <span class="s2">&quot;ens33&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;filter_path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/etc/owlh/filter.bpf&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;local_pcap_path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/usr/share/owlh/in_queue/&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;pcap_path&quot;</span> <span class="p">:</span> <span class="s2">&quot;/usr/share/owlh/pcap/&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;owlh_interface&quot;</span> <span class="p">:</span> <span class="s2">&quot;owlh&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;suricata_on&quot;</span> <span class="p">:</span> <span class="s2">&quot;True&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;bro_on&quot;</span> <span class="p">:</span> <span class="s2">&quot;True&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>BPF filter</strong></p>
+<p>You can specify what traffic to be captured if you don’t want to capture everything. Main and default configuration will provide filter to not collect management traffic from OwlH master to your agents.</p>
+<p>Remember this filter must be deployed into each one agent. be sure it is on each one of your servers.</p>
+<p>Your bpf filter should be at least something like this</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="n">host</span> <span class="mf">1.1</span><span class="o">.</span><span class="mf">1.1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">port</span> <span class="mi">22</span>
+</pre></div>
+</div>
+<p>Where 1.1.1.1 must be replaced with your OwlH master ip that will connect to your server.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="wazuh-system">
+<h2>Wazuh system<a class="headerlink" href="#wazuh-system" title="Permalink to this headline">¶</a></h2>
+<p>Be sure you have at least one Wazuh manager and elastic stack working before to continue. Please follow <a class="reference external" href="https://documentation.wazuh.com/current/installation-guide/index.html">Wazuh documentation</a>.</p>
+</div>
+<div class="section" id="integrate-owlh-master-with-wazuh">
+<h2>Integrate OwlH master with Wazuh<a class="headerlink" href="#integrate-owlh-master-with-wazuh" title="Permalink to this headline">¶</a></h2>
+<p>Integrate OwlH master with Wazuh is pretty easy. We only need to deploy our Wazuh agent into the OwlH master. Follow <a class="reference external" href="https://documentation.wazuh.com/current/installation-guide/installing-wazuh-agent/wazuh_agent_rpm.html">Wazuh agent deploy</a> instructions for RPM packets to deploy the agent.</p>
+<p>in summary, you will set up the repository by running the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cat &gt; /etc/yum.repos.d/wazuh.repo &lt;&lt;\EOF</span>
+<span class="p">[</span><span class="n">wazuh_repo</span><span class="p">]</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">gpgkey</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">wazuh</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">key</span><span class="o">/</span><span class="n">GPG</span><span class="o">-</span><span class="n">KEY</span><span class="o">-</span><span class="n">WAZUH</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">name</span><span class="o">=</span><span class="n">Wazuh</span> <span class="n">repository</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">wazuh</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mf">3.</span><span class="n">x</span><span class="o">/</span><span class="n">yum</span><span class="o">/</span>
+<span class="n">protect</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">EOF</span>
+</pre></div>
+</div>
+<p>and now, install wazuh agent</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum install wazuh-agent</span>
+</pre></div>
+</div>
+<p>now, lest register agent into your Wazuh Manager. if you are using authd on your manager:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># register agent</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">ossec</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">agent</span><span class="o">-</span><span class="n">auth</span> <span class="o">-</span><span class="n">m</span> <span class="mf">1.1</span><span class="o">.</span><span class="mf">1.1</span> <span class="o">-</span><span class="n">A</span> <span class="n">owlhmaster</span>
+</pre></div>
+</div>
+<p>A few things here:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.1</span><span class="o">.</span><span class="mf">1.1</span> <span class="c1"># is your wazuh manager ip</span>
+<span class="o">-</span><span class="n">A</span>      <span class="c1"># option means that you want to specify a name other than hostname.</span>
+        <span class="c1"># This command suppose tcp/1515 port used,</span>
+        <span class="c1"># if not, you should change command to include the right port.</span>
+</pre></div>
+</div>
+<p>Please review, authd documentation or find a different way to register your agent. <a class="reference external" href="https://documentation.wazuh.com/current/user-manual/registering/index.html">Register agent documentation</a></p>
+<p>Finally, modify your ossec.conf file to monitor your suricata output</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">localfile</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">log_format</span><span class="o">&gt;</span><span class="n">syslog</span><span class="o">&lt;/</span><span class="n">log_format</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">location</span><span class="o">&gt;/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">eve</span><span class="o">.</span><span class="n">json</span><span class="o">&lt;/</span><span class="n">location</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">localfile</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>And restart your wazuh agent</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">$</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">wazuh-agent</span></code></div></blockquote>
+</div>
+<div class="section" id="target-instances">
+<h2>Target Instances<a class="headerlink" href="#target-instances" title="Permalink to this headline">¶</a></h2>
+<p>We will need some tools and a user in each one of your servers in order to coordinate the traffic capture functionality</p>
+<ul class="simple">
+<li>Create and configure owl user in your servers</li>
+</ul>
+<p>The owl user will be use by Ansible to run traffic capture and collect pcap files. to create user and configure it please follow <a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/owluser-setup.sh">this script</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># 28.02.18 tested in amazon Linux instance - @owlmaster</span>
+
+<span class="c1"># NOTE -- run this script in a server using</span>
+<span class="c1"># sudo bash owluser-setup.sh</span>
+
+<span class="n">sudo</span> <span class="n">adduser</span> <span class="n">owl</span>
+<span class="n">echo</span> <span class="s2">&quot;create owl user ssh folder&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span>
+<span class="n">echo</span> <span class="s2">&quot;setting ssh folder permissions&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">chmod</span> <span class="mi">700</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span>
+<span class="n">echo</span> <span class="s2">&quot;create authorized keys file&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">touch</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
+<span class="n">echo</span> <span class="s2">&quot;setting authorized keys permissions&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">chmod</span> <span class="mi">600</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
+<span class="n">echo</span> <span class="s2">&quot;include owlmaster key - this is your owl.pub created on your OwlH master&quot;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">echo</span> <span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUcJhz9gpE2a1gra67eF/0jjsTBtNHRMawZGLDjQM5mXkmcfy4BTrykvuby0eEEO9hhSRMA5so9cAsmAkQKpW0dxRx0Y5c8LKwrtkzmOHrltQrFTeLmaJaojXDIjVch6XNTwOSnOO9b9O5KKjsJe86I55YP+4sf3ux7azEYVEUWzoN5aqELe+Z4+/A93F142QlJLuCra3Jp5GgeZoBBU7H2bKnSOXOmEQHUjiPETDUDTb1xyb3lVdYALAW3P424KvfmoTK+i3S8hy9vMHcgHQUkyH8ijfKbHZ0V0PTC5WEqVp6bGSGmd2qzyUbapeCnzrtWjiGEhFIL+jZoIg3xXH/ owlmaster@owlh.net&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">owl</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
+
+<span class="c1"># JUST IN CASE -</span>
+<span class="c1"># sudo -u owl sudo tcpdump -i eth0</span>
+
+<span class="c1"># Prepare owlh related stuff folder</span>
+<span class="n">echo</span> <span class="s2">&quot;prepare owlh stuff folder /var/owlh&quot;</span>
+<span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span>
+<span class="n">sudo</span> <span class="n">chown</span> <span class="n">owl</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">traffic</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="n">etc</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">owl</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">owlh</span><span class="o">/</span><span class="nb">bin</span>
+
+<span class="n">echo</span> <span class="s2">&quot;install tcpdump&quot;</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">tcpdump</span>
+
+<span class="c1"># Allow owl use tcpdump with sudo without password</span>
+<span class="n">echo</span> <span class="s2">&quot;allow user owl to use tcpdump&quot;</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump&#39;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sudoers</span>
+
+
+<span class="c1"># clean and end</span>
+<span class="n">echo</span> <span class="s2">&quot;should be done. Enjoy your day.&quot;</span>
+</pre></div>
+</div>
+<p>Script also includes tcpdump installation as part of the traffic capture stuff. Please be sure you have tcpdump running before continue. This step is only needed if you don’t have tcpdump installed yet.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;install tcpdump&quot;</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">tcpdump</span>
+
+<span class="c1"># Allow owl use tcpdump with sudo without password</span>
+<span class="n">echo</span> <span class="s2">&quot;allow user owl to use tcpdump&quot;</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump&#39;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sudoers</span>
+</pre></div>
+</div>
+<p><strong>Copy bpf filter file.</strong></p>
+</div>
+<div class="section" id="register-your-servers">
+<h2>Register your servers<a class="headerlink" href="#register-your-servers" title="Permalink to this headline">¶</a></h2>
+<p>We need to know a little bit about your network. At least, we need to know what are the servers that you want to capture traffic from.</p>
+<p>Please, include in your OwlH server inventory file all your servers /etc/owlh/inventory.json. Define them as needed but keep json format.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;agent-1-openrules&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ip&quot;</span> <span class="p">:</span> <span class="s2">&quot;192.168.1.218&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;enabled&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;active&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;agent-2-217&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ip&quot;</span> <span class="p">:</span> <span class="s2">&quot;192.168.1.217&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;enabled&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;active&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enjoy-it">
+<h2>Enjoy It<a class="headerlink" href="#enjoy-it" title="Permalink to this headline">¶</a></h2>
+<p>Start Software TAP</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># is everything in place?</span>
+<span class="c1"># start Wazuh</span>
+<span class="c1"># start Suricata</span>
+<span class="c1"># start Bro</span>
+<span class="c1"># start Flock Controller</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-you-need-help">
+<h2>If you need help:<a class="headerlink" href="#if-you-need-help" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>email our support team - <a class="reference external" href="mailto:support&#37;&#52;&#48;owlh&#46;net">support<span>&#64;</span>owlh<span>&#46;</span>net</a></li>
+<li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
+</ul>
+<p><strong>OwlH - current v0.4 - May : Bro integration and AWS and GCloud support</strong></p>
+<p>documentation last updated - May 31, 2018</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NetworkIDS.html" class="btn btn-neutral float-right" title="Network IDS support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OwlHPCI.html" class="btn btn-neutral" title="OwlH for PCI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, owlh team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.4 - Cloud and Bro',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

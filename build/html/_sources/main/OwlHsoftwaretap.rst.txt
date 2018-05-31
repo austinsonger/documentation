@@ -1,0 +1,365 @@
+Software TAP for AWS and GCloud
+===============================
+
+OwlH Software TAP to monitor traffic in AWS and GCLOUD environments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /img/softwareTAP.png
+
+
+OwlH Software TAP (vTAP) will collect full or specific traffic from your instances and forward it to OwlH Master that will run the Network IDS tool to do the analysis.
+
+.. _OwlH Software TAP repository: https://github.com/owlh/owlhmaster
+
+This doc will describe a basic configuration using CentOS instances, Bro and Suricata Network IDS and Wazuh Integration. (other Linux distributions as well as Windows Support is available)
+
+There are a lot of moving pieces, feel free to ask for help support@owlh.net. This doc will try to simplify deployment but for sure it will need some customization as well as may need some architecture understanding.
+
+Main steps:
+
+* Introduction: How does it work?
+
+
+* Prepare your environment
+   * Option: Create an administration network
+   * OwlH Master
+   * Suricata NIDS
+   * BRO NIDS
+   * Wazuh Integration
+   * Default configuration settings
+* Register your instances
+   * Define Instances settings
+   * Configure your instance
+* Enjoy it
+
+
+
+Introduction: What does Sotware TAP do and how does it work?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Software TAP is for capture traffic in remote instances, transport captured traffic to a central analysis platform, analyze the traffic and alert. It works in any environment, but it is really useful when you need this visibility in a cloud environment. 
+
+Main Components
+^^^^^^^^^^^^^^^
+
+.. image:: /img/nettap-components.png
+
+There are different components.
+
+* OwlH Master
+   * Orchestration
+   * Dummy Interface
+   * Network IDS
+* Target Instances
+* Storage and Visualization
+* Wazuh Integration
+
+
+.. note:: For cloud like AWS or Google Cloud should be good idea to deploy our instances with two different network interfaces, so we can use main interface as public service interface and secondary for management propouses, as traffic forward from instances to OwlH system
+
+.. image:: /img/awsmgm.png
+
+* A more detailed block diagram
+
+.. image:: /img/softwareTapGCAWS.png
+
+
+----
+
+OwlH Master Orchestration
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Prepare OwlH Master software
+----------------------------
+
+::
+
+    # sudo curl https://raw.githubusercontent.com/owlh/owlhmaster/master/softwareTAP/config.sh > /tmp/configure_OwlHmaster.sh
+    # sudo bash /tmp/configure_OwlHmaster.sh
+    # rm /tmp/configure_OwlHmaster.sh
+
+OwlH Master ssh Key
+-------------------
+
+* Copy your owlh master ssh key to your instances /tmp folder. Be sure it is in the right place.
+
+::
+
+    # scp /home/owlh/.ssh/owlhmaster.pub user@1.1.1.1:/tmp/owlhmaster.pub 
+
+.. note:: change user and 1.1.1.1 as required or please, follow your own deployment process to ensure that the owlh master pub key is in place on each instance.
+
+Create Dummy interface for Network IDS
+--------------------------------------
+
+::
+
+    # sudo curl https://raw.githubusercontent.com/owlh/owlhostnettap/master/dummy.sh.centos7 > /tmp/dummy.sh
+    # sudo bash /tmp/dummy.sh
+    # rm /tmp/dummy.sh 
+
+
+
+----
+
+Network IDS support
+^^^^^^^^^^^^^^^^^^^
+
+Deploy Suricata as Network IDS
+------------------------------
+
+.. _Suricata deployment script: https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh
+
+`Suricata deployment script`_ will help you to deploy Suricata 4.0.4 from source code in a CentOS 7 box.
+
+.. _Suricata documentation: https://suricata.readthedocs.io/en/suricata-4.0.4/install.html
+
+If you prefer a different way to deploy suricata, please follow `Suricata documentation`_.
+
+**Run Suricata IDS**
+
+
+Deploy Bro as Network IDS
+-------------------------
+
+.. _Bro deployment script: https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh
+
+`Bro deployment script`_ will help you to deploy Bro IDS from source code in a CentOS 7 box.
+
+.. _Bro documentation: https://suricata.readthedocs.io/en/suricata-4.0.4/install.html
+
+If you prefer a different way to deploy Bro, please follow `Bro documentation`_.
+
+**Run Bro IDS**
+
+
+OwlH Master Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**OwlH Master Configuration for Software TAP**
+
+We call flock Controller the main process that will drive Software TAP functionality. This is the default configuration file that you will find in your /etc/owlh/ folder. 
+
+
+::
+
+   {
+    "pidfile" : "/tmp/flock.pid",
+    "logfile" : "/var/log/owlh/flock.log",
+    "inventory" : "/etc/owlh/inventory.conf",
+    "owlh_user" : "owlh",
+    "owlh_user_key" : "/home/owlh/.ssh/owlhmaster",
+    "max_cpu" : "25",
+    "max_mem" : "25",
+    "max_storage" : "80",
+    "capture_time" : "60",
+    "default_interface" : "ens33",
+    "filter_path" : "/etc/owlh/filter.bpf",
+    "local_pcap_path" : "/usr/share/owlh/in_queue/",
+    "pcap_path" : "/usr/share/owlh/pcap/",
+    "owlh_interface" : "owlh",
+    "suricata_on" : "True",
+    "bro_on" : "True"
+   }
+
+**BPF filter**
+
+You can specify what traffic to be captured if you don't want to capture everything. Main and default configuration will provide filter to not collect management traffic from OwlH master to your agents.
+
+Remember this filter must be deployed into each one agent. be sure it is on each one of your servers.
+
+Your bpf filter should be at least something like this
+
+::
+
+   not host 1.1.1.1 and not port 22
+
+Where 1.1.1.1 must be replaced with your OwlH master ip that will connect to your server.
+
+
+----
+
+Wazuh system
+^^^^^^^^^^^^
+
+.. _Wazuh documentation: https://documentation.wazuh.com/current/installation-guide/index.html
+
+Be sure you have at least one Wazuh manager and elastic stack working before to continue. Please follow `Wazuh documentation`_.
+
+
+Integrate OwlH master with Wazuh
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _Wazuh agent deploy: https://documentation.wazuh.com/current/installation-guide/installing-wazuh-agent/wazuh_agent_rpm.html
+
+Integrate OwlH master with Wazuh is pretty easy. We only need to deploy our Wazuh agent into the OwlH master. Follow `Wazuh agent deploy`_ instructions for RPM packets to deploy the agent.
+
+in summary, you will set up the repository by running the following command:
+
+::
+
+    # cat > /etc/yum.repos.d/wazuh.repo <<\EOF
+    [wazuh_repo]
+    gpgcheck=1
+    gpgkey=https://packages.wazuh.com/key/GPG-KEY-WAZUH
+    enabled=1
+    name=Wazuh repository
+    baseurl=https://packages.wazuh.com/3.x/yum/
+    protect=1
+    EOF
+
+and now, install wazuh agent
+
+::
+
+    # yum install wazuh-agent
+
+now, lest register agent into your Wazuh Manager. if you are using authd on your manager:
+
+::
+
+    # register agent
+    /var/ossec/bin/agent-auth -m 1.1.1.1 -A owlhmaster
+
+A few things here:
+
+::
+
+    1.1.1.1 # is your wazuh manager ip
+    -A      # option means that you want to specify a name other than hostname.
+            # This command suppose tcp/1515 port used,
+            # if not, you should change command to include the right port.
+
+.. _Register agent documentation: https://documentation.wazuh.com/current/user-manual/registering/index.html
+
+Please review, authd documentation or find a different way to register your agent. `Register agent documentation`_
+
+Finally, modify your ossec.conf file to monitor your suricata output
+
+::
+
+    <localfile>
+      <log_format>syslog</log_format>
+      <location>/var/log/suricata/eve.json</location>
+    </localfile>
+
+And restart your wazuh agent
+
+    ``$ systemctl restart wazuh-agent``
+
+
+
+
+Target Instances
+^^^^^^^^^^^^^^^^
+
+We will need some tools and a user in each one of your servers in order to coordinate the traffic capture functionality
+
+* Create and configure owl user in your servers
+
+.. _this script:  https://raw.githubusercontent.com/owlh/owlhostnettap/master/owluser-setup.sh
+
+The owl user will be use by Ansible to run traffic capture and collect pcap files. to create user and configure it please follow `this script`_:
+
+::
+
+   #!/bin/bash
+   # 28.02.18 tested in amazon Linux instance - @owlmaster
+
+   # NOTE -- run this script in a server using
+   # sudo bash owluser-setup.sh
+
+   sudo adduser owl
+   echo "create owl user ssh folder"
+   sudo -u owl mkdir /home/owl/.ssh
+   echo "setting ssh folder permissions"
+   sudo -u owl chmod 700 /home/owl/.ssh
+   echo "create authorized keys file"
+   sudo -u owl touch /home/owl/.ssh/authorized_keys
+   echo "setting authorized keys permissions"
+   sudo -u owl chmod 600 /home/owl/.ssh/authorized_keys
+   echo "include owlmaster key - this is your owl.pub created on your OwlH master"
+   sudo -u owl echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUcJhz9gpE2a1gra67eF/0jjsTBtNHRMawZGLDjQM5mXkmcfy4BTrykvuby0eEEO9hhSRMA5so9cAsmAkQKpW0dxRx0Y5c8LKwrtkzmOHrltQrFTeLmaJaojXDIjVch6XNTwOSnOO9b9O5KKjsJe86I55YP+4sf3ux7azEYVEUWzoN5aqELe+Z4+/A93F142QlJLuCra3Jp5GgeZoBBU7H2bKnSOXOmEQHUjiPETDUDTb1xyb3lVdYALAW3P424KvfmoTK+i3S8hy9vMHcgHQUkyH8ijfKbHZ0V0PTC5WEqVp6bGSGmd2qzyUbapeCnzrtWjiGEhFIL+jZoIg3xXH/ owlmaster@owlh.net" >> /home/owl/.ssh/authorized_keys
+
+   # JUST IN CASE -
+   # sudo -u owl sudo tcpdump -i eth0
+
+   # Prepare owlh related stuff folder
+   echo "prepare owlh stuff folder /var/owlh"
+   sudo mkdir /var/owlh
+   sudo chown owl /var/owlh
+   sudo -u owl mkdir /var/owlh/traffic
+   sudo -u owl mkdir /var/owlh/etc
+   sudo -u owl mkdir /var/owlh/bin
+
+   echo "install tcpdump"
+   sudo yum -y install tcpdump
+
+   # Allow owl use tcpdump with sudo without password
+   echo "allow user owl to use tcpdump"
+   sudo sed -i '/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' /etc/sudoers
+
+
+   # clean and end
+   echo "should be done. Enjoy your day."
+
+Script also includes tcpdump installation as part of the traffic capture stuff. Please be sure you have tcpdump running before continue. This step is only needed if you don't have tcpdump installed yet.
+
+::
+
+   echo "install tcpdump"
+   sudo yum -y install tcpdump
+
+   # Allow owl use tcpdump with sudo without password
+   echo "allow user owl to use tcpdump"
+   sudo sed -i '/^root/a owl     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' /etc/sudoers
+
+**Copy bpf filter file.**
+
+
+
+Register your servers
+^^^^^^^^^^^^^^^^^^^^^
+
+We need to know a little bit about your network. At least, we need to know what are the servers that you want to capture traffic from.
+
+Please, include in your OwlH server inventory file all your servers /etc/owlh/inventory.json. Define them as needed but keep json format.
+
+:: 
+
+    [
+        {
+            "id" : "1",
+            "name" : "agent-1-openrules",
+            "ip" : "192.168.1.218",
+            "enabled" : "true",
+            "active" : "true"
+        },
+        {
+            "id" : "2",
+            "name" : "agent-2-217",
+            "ip" : "192.168.1.217",
+            "enabled" : "true",
+            "active" : "true"
+        }
+    ]
+
+
+
+Enjoy It
+^^^^^^^^
+
+Start Software TAP 
+
+:: 
+
+   # is everything in place?
+   # start Wazuh
+   # start Suricata
+   # start Bro
+   # start Flock Controller
+
+
+
+
+.. include:: /main/contact.rst
