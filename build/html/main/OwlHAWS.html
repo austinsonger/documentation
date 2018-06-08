@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Software TAP for Cloud (AWS and GCloud) &mdash; owlh 0.4 - Cloud and Bro documentation</title>
+  <title>SoftwareTAP for Cloud (AWS and GCloud) &mdash; owlh 0.4 - Cloud and Bro documentation</title>
   
 
   
@@ -162,9 +162,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHsoftwaretap.html">Software TAP for AWS and GCloud</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-software-tap-to-monitor-traffic-in-aws-and-gcloud-environments">OwlH Software TAP to monitor traffic in AWS and GCLOUD environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#introduction-what-does-sotware-tap-do-and-how-does-it-work">Introduction: What does Sotware TAP do and how does it work?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHsoftwaretap.html">SoftwareTAP for AWS and GCloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-softwaretap-to-monitor-traffic-in-aws-and-gcloud-environments">OwlH SoftwareTAP to monitor traffic in AWS and GCLOUD environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#introduction-what-does-sotwaretap-do-and-how-does-it-work">Introduction: What does SotwareTAP do and how does it work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#main-components">Main Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-orchestration">OwlH Master Orchestration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#prepare-owlh-master-software">Prepare OwlH Master software</a></li>
@@ -173,15 +173,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#network-ids-support">Network IDS support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#continuous-network-ids-monitor-and-sniffing">Continuous Network IDS monitor and sniffing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#deploy-suricata-as-network-ids">Deploy Suricata as Network IDS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#deploy-bro-as-network-ids">Deploy Bro as Network IDS</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#wazuh-system">Wazuh system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-configuration">OwlH Master Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#target-instances">Target Instances</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#register-your-servers">Register your servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#wazuh-system">Wazuh system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#enjoy-it">Enjoy It</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#if-you-need-help">If you need help:</a></li>
 </ul>
@@ -234,7 +235,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Software TAP for Cloud (AWS and GCloud)</li>
+      <li>SoftwareTAP for Cloud (AWS and GCloud)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -253,12 +254,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="software-tap-for-cloud-aws-and-gcloud">
-<h1>Software TAP for Cloud (AWS and GCloud)<a class="headerlink" href="#software-tap-for-cloud-aws-and-gcloud" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="owlh-software-tap-configuration-will-allow-you-to-monitor-traffic-in-your-aws-environment">
-<h2>OwlH Software TAP configuration will allow you to monitor traffic in your AWS environment<a class="headerlink" href="#owlh-software-tap-configuration-will-allow-you-to-monitor-traffic-in-your-aws-environment" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="softwaretap-for-cloud-aws-and-gcloud">
+<h1>SoftwareTAP for Cloud (AWS and GCloud)<a class="headerlink" href="#softwaretap-for-cloud-aws-and-gcloud" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="owlh-softwaretap-configuration-will-allow-you-to-monitor-traffic-in-your-aws-environment">
+<h2>OwlH SoftwareTAP configuration will allow you to monitor traffic in your AWS environment<a class="headerlink" href="#owlh-softwaretap-configuration-will-allow-you-to-monitor-traffic-in-your-aws-environment" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/nettap1.png" src="../_images/nettap1.png" />
-<p>OwlH will use a software TAP (vTAP) to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.</p>
+<p>OwlH will use a SoftwareTAP (vTAP) to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.</p>
 <p>Scripts are configs are described here in detail. you may find some links to them inline. Also, if you want, you can access our <a class="reference external" href="https://github.com/owlh/owlhostnettap">OwlH net-tap repository</a> to see all them.</p>
 <p>Main steps:</p>
 <ul class="simple">
@@ -652,7 +653,7 @@
 <li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
 </ul>
 <p><strong>OwlH - current v0.4 - May : Bro integration and AWS and GCloud support</strong></p>
-<p>documentation last updated - May 31, 2018</p>
+<p>documentation last updated - Jun 08, 2018</p>
 </div>
 </div>
 

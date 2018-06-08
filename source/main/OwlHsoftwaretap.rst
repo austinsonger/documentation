@@ -1,15 +1,15 @@
-Software TAP for AWS and GCloud
+SoftwareTAP for AWS and GCloud
 ===============================
 
-OwlH Software TAP to monitor traffic in AWS and GCLOUD environments
+OwlH SoftwareTAP to monitor traffic in AWS and GCLOUD environments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: /img/softwareTAP.png
 
 
-OwlH Software TAP (vTAP) will collect full or specific traffic from your instances and forward it to OwlH Master that will run the Network IDS tool to do the analysis.
+OwlH SoftwareTAP (sTAP) will collect full or specific traffic from your instances and forward it to OwlH Master that will run the Network IDS tool to do the analysis.
 
-.. _OwlH Software TAP repository: https://github.com/owlh/owlhmaster
+.. _OwlH SoftwareTAP repository: https://github.com/owlh/owlhmaster
 
 This doc will describe a basic configuration using CentOS instances, Bro and Suricata Network IDS and Wazuh Integration. (other Linux distributions as well as Windows Support is available)
 
@@ -34,10 +34,10 @@ Main steps:
 
 
 
-Introduction: What does Sotware TAP do and how does it work?
+Introduction: What does SotwareTAP do and how does it work?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Software TAP is for capture traffic in remote instances, transport captured traffic to a central analysis platform, analyze the traffic and alert. It works in any environment, but it is really useful when you need this visibility in a cloud environment. 
+SoftwareTAP is for capture traffic in remote instances, transport captured traffic to a central analysis platform, analyze the traffic and alert. It works in any environment, but it is really useful when you need this visibility in a cloud environment. 
 
 Main Components
 ^^^^^^^^^^^^^^^
@@ -144,9 +144,9 @@ If you prefer a different way to deploy Bro, please follow `Bro documentation`_.
 OwlH Master Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**OwlH Master Configuration for Software TAP**
+**OwlH Master Configuration for SoftwareTAP**
 
-We call flock Controller the main process that will drive Software TAP functionality. This is the default configuration file that you will find in your /etc/owlh/ folder. 
+We call flock Controller the main process that will drive SoftwareTAP functionality. This is the default configuration file that you will find in your /etc/owlh/ folder. 
 
 
 ::
@@ -378,7 +378,7 @@ And restart your wazuh agent
 Enjoy It
 ^^^^^^^^
 
-Start Software TAP 
+Start SoftwareTAP 
 
 :: 
 

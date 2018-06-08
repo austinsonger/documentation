@@ -1,13 +1,13 @@
-Software TAP for Cloud (AWS and GCloud)
+SoftwareTAP for Cloud (AWS and GCloud)
 =======================================
 
-OwlH Software TAP configuration will allow you to monitor traffic in your AWS environment
+OwlH SoftwareTAP configuration will allow you to monitor traffic in your AWS environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: /img/nettap.png
 
 
-OwlH will use a software TAP (vTAP) to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.
+OwlH will use a SoftwareTAP (vTAP) to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.
 
 .. _OwlH net-tap repository: https://github.com/owlh/owlhostnettap
 

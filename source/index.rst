@@ -7,6 +7,7 @@ What is OwlH?
 This is OwlH, open source solution. OwlH is born to help security engineers to manage, visualize, analyze and respond to threats detected from Open Source Network IDS like Suricata and BroIDS, offering:
 
 * Manage Network IDS (suricata and broIDS) nodes at scale
+* SoftwareTAP for cloud and on-premises environments
 * Centralized Rule Management
 * Centralized Visualization
 * Network Data Collection and Big Data Storage
