@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SoftwareTAP for AWS and GCloud &mdash; owlh 0.4 - Cloud and Bro documentation</title>
+  <title>Software TAP for AWS and GCloud &mdash; owlh 0.4 - Cloud and Bro documentation</title>
   
 
   
@@ -164,8 +164,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">SoftwareTAP for AWS and GCloud</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#owlh-softwaretap-to-monitor-traffic-in-aws-and-gcloud-environments">OwlH SoftwareTAP to monitor traffic in AWS and GCLOUD environments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software TAP for AWS and GCloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#owlh-software-tap-to-monitor-traffic-in-aws-and-gcloud-environments">OwlH Software TAP to monitor traffic in AWS and GCLOUD environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#introduction-what-does-sotwaretap-do-and-how-does-it-work">Introduction: What does SotwareTAP do and how does it work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#main-components">Main Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#owlh-master-orchestration">OwlH Master Orchestration</a><ul>
@@ -237,7 +237,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>SoftwareTAP for AWS and GCloud</li>
+      <li>Software TAP for AWS and GCloud</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -256,12 +256,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="softwaretap-for-aws-and-gcloud">
-<h1>SoftwareTAP for AWS and GCloud<a class="headerlink" href="#softwaretap-for-aws-and-gcloud" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="owlh-softwaretap-to-monitor-traffic-in-aws-and-gcloud-environments">
-<h2>OwlH SoftwareTAP to monitor traffic in AWS and GCLOUD environments<a class="headerlink" href="#owlh-softwaretap-to-monitor-traffic-in-aws-and-gcloud-environments" title="Permalink to this headline">¶</a></h2>
-<img alt="../_images/softwareTAP.png" src="../_images/softwareTAP.png" />
-<p>OwlH SoftwareTAP (sTAP) will collect full or specific traffic from your instances and forward it to OwlH Master that will run the Network IDS tool to do the analysis.</p>
+  <div class="section" id="software-tap-for-aws-and-gcloud">
+<h1>Software TAP for AWS and GCloud<a class="headerlink" href="#software-tap-for-aws-and-gcloud" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="owlh-software-tap-to-monitor-traffic-in-aws-and-gcloud-environments">
+<h2>OwlH Software TAP to monitor traffic in AWS and GCLOUD environments<a class="headerlink" href="#owlh-software-tap-to-monitor-traffic-in-aws-and-gcloud-environments" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/SoftwareTAP.png" src="../_images/SoftwareTAP.png" />
+<p>OwlH Software TAP (sTAP) will collect full or specific traffic from your instances and forward it to OwlH Master that will run the Network IDS tool to do the analysis.</p>
 <p>This doc will describe a basic configuration using CentOS instances, Bro and Suricata Network IDS and Wazuh Integration. (other Linux distributions as well as Windows Support is available)</p>
 <p>There are a lot of moving pieces, feel free to ask for help <a class="reference external" href="mailto:support&#37;&#52;&#48;owlh&#46;net">support<span>&#64;</span>owlh<span>&#46;</span>net</a>. This doc will try to simplify deployment but for sure it will need some customization as well as may need some architecture understanding.</p>
 <p>Main steps:</p>
@@ -294,7 +294,7 @@
 </div>
 <div class="section" id="introduction-what-does-sotwaretap-do-and-how-does-it-work">
 <h2>Introduction: What does SotwareTAP do and how does it work?<a class="headerlink" href="#introduction-what-does-sotwaretap-do-and-how-does-it-work" title="Permalink to this headline">¶</a></h2>
-<p>SoftwareTAP is for capture traffic in remote instances, transport captured traffic to a central analysis platform, analyze the traffic and alert. It works in any environment, but it is really useful when you need this visibility in a cloud environment.</p>
+<p>Software TAP is for capture traffic in remote instances, transport captured traffic to a central analysis platform, analyze the traffic and alert. It works in any environment, but it is really useful when you need this visibility in a cloud environment.</p>
 </div>
 <div class="section" id="main-components">
 <h2>Main Components<a class="headerlink" href="#main-components" title="Permalink to this headline">¶</a></h2>
@@ -323,14 +323,14 @@
 <ul class="simple">
 <li>A more detailed block diagram</li>
 </ul>
-<img alt="../_images/softwareTapGCAWS.png" src="../_images/softwareTapGCAWS.png" />
+<img alt="../_images/SoftwareTAPGCAWS.png" src="../_images/SoftwareTAPGCAWS.png" />
 </div>
 <hr class="docutils" />
 <div class="section" id="owlh-master-orchestration">
 <h2>OwlH Master Orchestration<a class="headerlink" href="#owlh-master-orchestration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prepare-owlh-master-software">
 <h3>Prepare OwlH Master software<a class="headerlink" href="#prepare-owlh-master-software" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo curl https://raw.githubusercontent.com/owlh/owlhmaster/master/softwareTAP/config.sh &gt; /tmp/configure_OwlHmaster.sh</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo curl https://raw.githubusercontent.com/owlh/owlhmaster/master/Software TAP/config.sh &gt; /tmp/configure_OwlHmaster.sh</span>
 <span class="c1"># sudo bash /tmp/configure_OwlHmaster.sh</span>
 <span class="c1"># rm /tmp/configure_OwlHmaster.sh</span>
 </pre></div>
@@ -381,8 +381,8 @@
 </div>
 <div class="section" id="owlh-master-configuration">
 <h2>OwlH Master Configuration<a class="headerlink" href="#owlh-master-configuration" title="Permalink to this headline">¶</a></h2>
-<p><strong>OwlH Master Configuration for SoftwareTAP</strong></p>
-<p>We call flock Controller the main process that will drive SoftwareTAP functionality. This is the default configuration file that you will find in your /etc/owlh/ folder.</p>
+<p><strong>OwlH Master Configuration for Software TAP</strong></p>
+<p>We call flock Controller the main process that will drive Software TAP functionality. This is the default configuration file that you will find in your /etc/owlh/ folder.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="s2">&quot;pidfile&quot;</span> <span class="p">:</span> <span class="s2">&quot;/tmp/flock.pid&quot;</span><span class="p">,</span>
  <span class="s2">&quot;logfile&quot;</span> <span class="p">:</span> <span class="s2">&quot;/var/log/owlh/flock.log&quot;</span><span class="p">,</span>
@@ -565,7 +565,7 @@ sudo echo &quot;owlh     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump, /usr/bin/c
 </div>
 <div class="section" id="enjoy-it">
 <h2>Enjoy It<a class="headerlink" href="#enjoy-it" title="Permalink to this headline">¶</a></h2>
-<p>Start SoftwareTAP</p>
+<p>Start Software TAP</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># is everything in place?</span>
 <span class="c1"># start Wazuh</span>
 <span class="c1"># start Suricata</span>
@@ -581,7 +581,7 @@ sudo echo &quot;owlh     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump, /usr/bin/c
 <li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
 </ul>
 <p><strong>OwlH - current v0.4 - May : Bro integration and AWS and GCloud support</strong></p>
-<p>documentation last updated - Jun 08, 2018</p>
+<p>documentation last updated - Jun 09, 2018</p>
 </div>
 </div>
 
