@@ -1,36 +1,64 @@
-SoftwareTAP for Cloud (AWS and GCloud)
-=======================================
+Software TAP for AWS and GCloud
+===============================
 
-OwlH SoftwareTAP configuration will allow you to monitor traffic in your AWS environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OwlH Software TAP to monitor traffic in AWS and GCLOUD environments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: /img/nettap.png
+.. image:: /img/softwareTAP.png
 
 
-OwlH will use a SoftwareTAP (vTAP) to collect specific traffic from your instances network interfaces and forward it to an OwlH appliance that will run the Network IDS tool to do the analysis.
+OwlH Software TAP (vTAP) will collect full or specific traffic from your instances and forward it to OwlH Master that will run the Network IDS tool to do the analysis.
 
-.. _OwlH net-tap repository: https://github.com/owlh/owlhostnettap
+.. _OwlH Software TAP repository: https://github.com/owlh/owlhmaster
 
-Scripts are configs are described here in detail. you may find some links to them inline. Also, if you want, you can access our `OwlH net-tap repository`_ to see all them.
+This doc will describe a basic configuration using CentOS instances, Bro and Suricata Network IDS and Wazuh Integration. (other Linux distributions as well as Windows Support is available)
 
 Main steps:
 
+* Introduction: How does it work? 
 * Prepare your environment
-   * Wazuh system
-   * main components
-* Deploy OwlH master as Suricata Network IDS
-* Integrate OwlH master with Wazuh
-* Configure Ansible in OwlH master
-   * Delay between capture
-   * File rotation time
-   * Define capture BPF filter
-* Configure your servers
-* Register your servers
-* Integrate into elastic stack
-* Network IDS alert enrichment
-   * GEO ip
-   * Custom
-   * PCI-DSS
+   * Option: Create an administration network
+   * OwlH Master
+   * Suricata NIDS
+   * BRO NIDS
+   * Wazuh Integration
+   * Default configuration settings
+* Register your instances
+   * Define Instances settings
+   * Configure your instance
+
+
+
+Introduction: What does it do and how does it work?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Software TAP is for capture traffic in remote instances, transport captured traffic to a central analysis platform, analyze the traffic and alert. It works in any environment, but it is really useful when you need this visibility in a cloud environment. 
+
+There are different components.
+
+* OwlH Master
+   * Orchestration
+   * Network IDS
+   * Dummy Interface
+* Target Instances
+* Storage and Visualization
+
+* OwlH Master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Wazuh system
 ^^^^^^^^^^^^
