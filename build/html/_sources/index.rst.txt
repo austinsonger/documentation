@@ -20,6 +20,7 @@ A few topics
 .. toctree::
    :maxdepth: 1
 
+   main/OwlHAbout
    main/OwlHWhat
    main/OwlHatwork
    main/OwlHWazuh
