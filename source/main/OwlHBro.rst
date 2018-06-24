@@ -67,19 +67,19 @@ We are using redef function to include a custom field for each ::Info record of 
 :: 
 
     redef record DNS::Info += {
-        bro_engine:    string    &default:"DNS"    &log;
+        bro_engine:    string    &default="DNS"    &log;
     };
     redef record Conn::Info += {
-        bro_engine:    string    &default:"CONN"    &log;
+        bro_engine:    string    &default="CONN"    &log;
     };
     redef record Weird::Info += {
-        bro_engine:    string    &default:"WEIRD"    &log;
+        bro_engine:    string    &default="WEIRD"    &log;
     };
     redef record SSL::Info += {
-        bro_engine:    string    &default:"SSL"    &log;
+        bro_engine:    string    &default="SSL"    &log;
     };
     redef record SSH::Info += {
-        bro_engine:    string    &default:"SSH"    &log;
+        bro_engine:    string    &default="SSH"    &log;
     };
 
 Loading Bro customizations at Bro start
