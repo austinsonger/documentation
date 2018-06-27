@@ -195,6 +195,42 @@ Please, let us know if you need help.
   * visit our mailing list - `OwlH mailing list`_ (owlh@googlegroups.com)
 
 
+Modify IP data mapping
+----------------------
+
+Suricata json format includes fields like src_ip, src_port, dest_ip and dest_port. but wazuh elastic index is using srcip, srcport, dstip and dstport.  
+
+so we will do the mapping modification in logstash by including the following in the wazuh logstash filter. 
+
+::
+
+    filter {
+        if [data][src_ip] {
+            mutate{
+                add_field => [ "[data][srcip]","%[data][src_ip]"]
+                remove_field => [ "[data][src_ip" ]
+            }
+        }
+        if [data][dest_ip] {
+            mutate{
+                add_field => [ "[data][dstip]","%[data][dest_ip]"]
+                remove_field => [ "[data][dest_ip" ]
+            }
+        }
+        if [data][dest_port] {
+            mutate{
+                add_field => [ "[data][dstport]","%[data][dest_port]"]
+                remove_field => [ "[data][dest_port" ]
+            }
+        }
+        if [data][src_port] {
+            mutate{
+                add_field => [ "[data][srcport]","%[data][src_port]"]
+                remove_field => [ "[data][src_port" ]
+            }
+        }
+    }
+
 Modify Elastic template
 -----------------------
 

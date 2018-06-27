@@ -112,19 +112,19 @@ and owlh_types.bro:
 :: 
 
     redef record DNS::Info += {
-        bro_engine:    string    &default:"DNS"    &log;
+        bro_engine:    string    &default="DNS"    &log;
     };
     redef record Conn::Info += {
-        bro_engine:    string    &default:"CONN"    &log;
+        bro_engine:    string    &default="CONN"    &log;
     };
     redef record Weird::Info += {
-        bro_engine:    string    &default:"WEIRD"    &log;
+        bro_engine:    string    &default="WEIRD"    &log;
     };
     redef record SSL::Info += {
-        bro_engine:    string    &default:"SSL"    &log;
+        bro_engine:    string    &default="SSL"    &log;
     };
     redef record SSH::Info += {
-        bro_engine:    string    &default:"SSH"    &log;
+        bro_engine:    string    &default="SSH"    &log;
     };
  
 
@@ -209,13 +209,13 @@ We need to modify Logstash filters (/etc/logstash/conf.d/) to allow JSON record 
 
 ::
 
-    filter {
+   filter {
         if [data][id][orig_h] {
              mutate {
-                add_field => [ "[data][src_ip]", "%{[data][id][orig_h]}" ]
-                add_field => [ "[data][dest_ip]", "%{[data][id][resp_h]}" ]
-                add_field => [ "[data][src_port]", "%{[data][id][orig_p]}" ]
-                add_field => [ "[data][dest_port]", "%{[data][id][resp_p]}" ]
+                add_field => [ "[data][srcip]", "%{[data][id][orig_h]}" ]
+                add_field => [ "[data][dstip]", "%{[data][id][resp_h]}" ]
+                add_field => [ "[data][srcport]", "%{[data][id][orig_p]}" ]
+                add_field => [ "[data][dstport]", "%{[data][id][resp_p]}" ]
                 remove_field => [ "[data][id]" ]
             }
         }

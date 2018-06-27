@@ -128,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#modify-ip-data-mapping">Modify IP data mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#if-you-need-help">If you need help:</a></li>
 </ul>
@@ -353,19 +354,19 @@ You must include following line in your .bro configuration files. It can be /etc
 </div>
 <p>and owlh_types.bro:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">redef</span> <span class="n">record</span> <span class="n">DNS</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
-    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;DNS&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;DNS&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="n">redef</span> <span class="n">record</span> <span class="n">Conn</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
-    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;CONN&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;CONN&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="n">redef</span> <span class="n">record</span> <span class="n">Weird</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
-    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;WEIRD&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;WEIRD&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="n">redef</span> <span class="n">record</span> <span class="n">SSL</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
-    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;SSL&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;SSL&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="n">redef</span> <span class="n">record</span> <span class="n">SSH</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
-    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="p">:</span><span class="s2">&quot;SSH&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
+    <span class="n">bro_engine</span><span class="p">:</span>    <span class="n">string</span>    <span class="o">&amp;</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;SSH&quot;</span>    <span class="o">&amp;</span><span class="n">log</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -441,16 +442,16 @@ You must include following line in your .bro configuration files. It can be /etc
 <em>It is necesary because bro uses [id] field to group network src and dest addresses and ports info and parsing will fail</em></p>
 <p><em>Also, it is done so we can store IP-PORT data in the right fields for wazuh index</em></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">filter</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="nb">id</span><span class="p">][</span><span class="n">orig_h</span><span class="p">]</span> <span class="p">{</span>
-         <span class="n">mutate</span> <span class="p">{</span>
-            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_ip]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][orig_h]}&quot;</span> <span class="p">]</span>
-            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_ip]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][resp_h]}&quot;</span> <span class="p">]</span>
-            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_port]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][orig_p]}&quot;</span> <span class="p">]</span>
-            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_port]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][resp_p]}&quot;</span> <span class="p">]</span>
-            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][id]&quot;</span> <span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+     <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="nb">id</span><span class="p">][</span><span class="n">orig_h</span><span class="p">]</span> <span class="p">{</span>
+          <span class="n">mutate</span> <span class="p">{</span>
+             <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][srcip]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][orig_h]}&quot;</span> <span class="p">]</span>
+             <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dstip]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][resp_h]}&quot;</span> <span class="p">]</span>
+             <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][srcport]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][orig_p]}&quot;</span> <span class="p">]</span>
+             <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dstport]&quot;</span><span class="p">,</span> <span class="s2">&quot;%{[data][id][resp_p]}&quot;</span> <span class="p">]</span>
+             <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][id]&quot;</span> <span class="p">]</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -466,7 +467,7 @@ You must include following line in your .bro configuration files. It can be /etc
 <li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
 </ul>
 <p><strong>OwlH - current v0.4 - May : Bro integration and AWS and GCloud support</strong></p>
-<p>documentation last updated - Jun 24, 2018</p>
+<p>documentation last updated - Jun 28, 2018</p>
 </div>
 </div>
 </div>

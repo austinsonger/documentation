@@ -93,8 +93,11 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What can you do with OwlH? -= Roadmap =-</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#owlh-will-help-you-to">OwlH will help you to:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHAbout.html">About OwlH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAbout.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What are we thinking about -= Roadmap =-</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#backlog-there-is-something-else-to-be-done-always">BackLog - There is something else to be done, always.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-4-release-notes-may">v0.4 - Release notes (May)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a><ul>
@@ -125,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modify-ip-data-mapping">Modify IP data mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#modify-elastic-template">Modify Elastic template</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#if-you-need-help">If you need help:</a></li>
 </ul>
@@ -166,7 +170,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHsoftwaretap.html">Software TAP for AWS and GCloud</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-software-tap-to-monitor-traffic-in-aws-and-gcloud-environments">OwlH Software TAP to monitor traffic in AWS and GCLOUD environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#introduction-what-does-sotware-tap-do-and-how-does-it-work">Introduction: What does Sotware TAP do and how does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#introduction-what-does-sotwaretap-do-and-how-does-it-work">Introduction: What does SotwareTAP do and how does it work?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#main-components">Main Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-orchestration">OwlH Master Orchestration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#prepare-owlh-master-software">Prepare OwlH Master software</a></li>
@@ -175,15 +179,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#network-ids-support">Network IDS support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#continuous-network-ids-monitor-and-sniffing">Continuous Network IDS monitor and sniffing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#deploy-suricata-as-network-ids">Deploy Suricata as Network IDS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#deploy-bro-as-network-ids">Deploy Bro as Network IDS</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#wazuh-system">Wazuh system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-configuration">OwlH Master Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#target-instances">Target Instances</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#register-your-servers">Register your servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#wazuh-system">Wazuh system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#enjoy-it">Enjoy It</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#if-you-need-help">If you need help:</a></li>
 </ul>
@@ -407,6 +412,39 @@
 </ul>
 </div></blockquote>
 </div>
+<div class="section" id="modify-ip-data-mapping">
+<h2>Modify IP data mapping<a class="headerlink" href="#modify-ip-data-mapping" title="Permalink to this headline">¶</a></h2>
+<p>Suricata json format includes fields like src_ip, src_port, dest_ip and dest_port. but wazuh elastic index is using srcip, srcport, dstip and dstport.</p>
+<p>so we will do the mapping modification in logstash by including the following in the wazuh logstash filter.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">filter</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">src_ip</span><span class="p">]</span> <span class="p">{</span>
+        <span class="n">mutate</span><span class="p">{</span>
+            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][srcip]&quot;</span><span class="p">,</span><span class="s2">&quot;%[data][src_ip]&quot;</span><span class="p">]</span>
+            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_ip&quot;</span> <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">dest_ip</span><span class="p">]</span> <span class="p">{</span>
+        <span class="n">mutate</span><span class="p">{</span>
+            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dstip]&quot;</span><span class="p">,</span><span class="s2">&quot;%[data][dest_ip]&quot;</span><span class="p">]</span>
+            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_ip&quot;</span> <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">dest_port</span><span class="p">]</span> <span class="p">{</span>
+        <span class="n">mutate</span><span class="p">{</span>
+            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dstport]&quot;</span><span class="p">,</span><span class="s2">&quot;%[data][dest_port]&quot;</span><span class="p">]</span>
+            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_port&quot;</span> <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">src_port</span><span class="p">]</span> <span class="p">{</span>
+        <span class="n">mutate</span><span class="p">{</span>
+            <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][srcport]&quot;</span><span class="p">,</span><span class="s2">&quot;%[data][src_port]&quot;</span><span class="p">]</span>
+            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_port&quot;</span> <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="modify-elastic-template">
 <h2>Modify Elastic template<a class="headerlink" href="#modify-elastic-template" title="Permalink to this headline">¶</a></h2>
 <p>Elasticsearch Wazuh index template is based on agent fields and doesn’t include all the new fields types that Suricata will provide. This is not a real problem as an index refresh into kibana will allow you to manage Suricata without a problem. But some useful things may happen if we use the right field type as for example an amazing flow dashboard with useful traffic graphics.</p>
@@ -436,7 +474,7 @@
 <li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
 </ul>
 <p><strong>OwlH - current v0.4 - May : Bro integration and AWS and GCloud support</strong></p>
-<p>documentation last updated - May 31, 2018</p>
+<p>documentation last updated - Jun 28, 2018</p>
 </div>
 </div>
 </div>
