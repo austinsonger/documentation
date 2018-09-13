@@ -420,25 +420,25 @@
     <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">src_ip</span><span class="p">]</span> <span class="p">{</span>
         <span class="n">mutate</span><span class="p">{</span>
             <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][srcip]&quot;</span><span class="p">,</span><span class="s2">&quot;%{[data][src_ip]}&quot;</span><span class="p">]</span>
-            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_ip&quot;</span> <span class="p">]</span>
+            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_ip]&quot;</span> <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">dest_ip</span><span class="p">]</span> <span class="p">{</span>
         <span class="n">mutate</span><span class="p">{</span>
             <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dstip]&quot;</span><span class="p">,</span><span class="s2">&quot;%{[data][dest_ip]}&quot;</span><span class="p">]</span>
-            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_ip&quot;</span> <span class="p">]</span>
+            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_ip]&quot;</span> <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">dest_port</span><span class="p">]</span> <span class="p">{</span>
         <span class="n">mutate</span><span class="p">{</span>
             <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dstport]&quot;</span><span class="p">,</span><span class="s2">&quot;%{[data][dest_port]}&quot;</span><span class="p">]</span>
-            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_port&quot;</span> <span class="p">]</span>
+            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][dest_port]&quot;</span> <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">if</span> <span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">src_port</span><span class="p">]</span> <span class="p">{</span>
         <span class="n">mutate</span><span class="p">{</span>
             <span class="n">add_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][srcport]&quot;</span><span class="p">,</span><span class="s2">&quot;%{[data][src_port]}&quot;</span><span class="p">]</span>
-            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_port&quot;</span> <span class="p">]</span>
+            <span class="n">remove_field</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s2">&quot;[data][src_port]&quot;</span> <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -474,7 +474,7 @@
 <li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
 </ul>
 <p><strong>OwlH - current v0.4 - May : Bro integration and AWS and GCloud support</strong></p>
-<p>documentation last updated - Aug 07, 2018</p>
+<p>documentation last updated - Sep 13, 2018</p>
 </div>
 </div>
 </div>
