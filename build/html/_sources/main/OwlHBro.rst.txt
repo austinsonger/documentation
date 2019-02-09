@@ -1,4 +1,4 @@
-OwlH - Bro and Wazuh
+OwlH - Zeek and Wazuh
 ====================
 
 Integration Logical Diagram
@@ -9,7 +9,7 @@ Integration Logical Diagram
 Components
 ^^^^^^^^^^
 
-* Bro Node - Bro IDS and Wazuh Agent
+* OwlH Node - Zeek IDS and Wazuh Agent
 * Wazuh Manger 
 * Logstash Server
 * Elastic and Kibana Server
@@ -17,12 +17,12 @@ Components
 Let's see what we need to modify on each component to be able to manage this Bro and Wazuh integration.
 
 
-Configure - Bro Node
---------------------
+Configure - Zeek - OwlH Node
+-----------------------------
 
 This system will require Bro working of course, and Wazuh agent installed. OwlH instructions will help to configure both Bro and Wazuh agent.
 
-Bro Logs Output format to JSON
+Zeek Logs Output format to JSON
 ------------------------------
 
 Option 1 - Modify ASCII writer output
@@ -57,8 +57,8 @@ To install add-json package you can use bro-pkg tool
 .. note:: Thanks to C.L.Martinez and Jan.Grashoefer
 
 
-Bro Event Enritchment to help Wazuh ruleset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Zeek Event Enritchment to help Wazuh ruleset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is a good idea to help wazuh rules to do their job, to include a field that will identify what kind of log line we are analyzing. Bro output doesn't include that info per line by default, so we are going to help wazuh by including the field 'bro_engine' that will tell wazuh what kind of log is it. 
 
@@ -82,8 +82,8 @@ We are using redef function to include a custom field for each ::Info record of 
         bro_engine:    string    &default="SSH"    &log;
     };
 
-Loading Bro customizations at Bro start
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Loading Zeek customizations at Zeek start
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We include all OwlH customizations in OwlH_*.bro files, that helps to have a clear view of what OwlH does as well as we hope it will simplify configuration management. 
 
@@ -166,29 +166,29 @@ We only need to create a few rules to identify the Bro events and forward them t
 
 
 
-Wazuh Bro IDS Rules 
--------------------
+Wazuh Zeek IDS Rules 
+--------------------
 
-Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to manage your BRO logs 
+Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to manage your Zeek logs 
 
 :: 
 
-    <group name="bro">
+    <group name="zeek">
       <rule id="99001" level="5">
         <field name="bro_engine">SSH</field>
-        <description>BRO: SSH Connection</description>
+        <description>Zeek: SSH Connection</description>
       </rule>
       <rule id="99001" level="5">
         <field name="bro_engine">SSL</field>
-        <description>BRO: SSL Connection</description>
+        <description>Zeek: SSL Connection</description>
       </rule>
       <rule id="99002" level="5">
         <field name="bro_engine">DNS</field>
-        <description>BRO: DNS Query</description>
+        <description>Zeek: DNS Query</description>
       </rule>
       <rule id="99004" level="5">
         <field name="bro_engine">CONN</field>
-        <description>BRO: Connection detail</description>
+        <description>Zeek: Connection detail</description>
       </rule>
     </group>
 
@@ -226,7 +226,7 @@ We need to modify Logstash filters (/etc/logstash/conf.d/) to allow JSON record 
 Review your Kibana Dashboard
 ----------------------------
 
-You will need to refresh your Wazuh-alerts-3.x indeces to include the new Bro fields. from your kibana console, go to Management -> index -> select right wazuh-alerts index -> click top-right refresh icon to refresh
+You will need to refresh your Wazuh-alerts-3.x indeces to include the new Zeek fields. from your kibana console, go to Management -> index -> select right wazuh-alerts index -> click top-right refresh icon to refresh
 
 .. image:: /img/kibanabro.png
 

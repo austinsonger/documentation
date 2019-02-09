@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OwlH - Bro and Wazuh &mdash; owlh 0.4 - Cloud and Bro documentation</title>
+  <title>OwlH - Zeek and Wazuh &mdash; owlh 0.4 - Cloud and Bro documentation</title>
   
 
   
@@ -97,15 +97,6 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHAbout.html#if-you-need-help">If you need help:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What are we thinking about -= Roadmap =-</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#backlog-there-is-something-else-to-be-done-always">BackLog - There is something else to be done, always.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-4-release-notes-may">v0.4 - Release notes (May)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWhat.html#if-you-need-help">If you need help:</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html">How does it work?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#main-components">Main components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-nids-node">OwlH NIDS node</a></li>
@@ -135,22 +126,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH - Bro and Wazuh</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH - Zeek and Wazuh</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#integration-logical-diagram">Integration Logical Diagram</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#components">Components</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-bro-node">Configure - Bro Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configure-zeek-owlh-node">Configure - Zeek - OwlH Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zeek-logs-output-format-to-json">Zeek Logs Output format to JSON</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#option-1-modify-ascii-writer-output">Option 1 - Modify ASCII writer output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#option-2-use-add-json-package">Option 2 - Use add-json package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zeek-event-enritchment-to-help-wazuh-ruleset">Zeek Event Enritchment to help Wazuh ruleset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-zeek-customizations-at-zeek-start">Loading Zeek customizations at Zeek start</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-wazuh-manager">Configure - Wazuh Manager</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#wazuh-bro-ids-rules">Wazuh Bro IDS Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wazuh-zeek-ids-rules">Wazuh Zeek IDS Rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-logstash-server">Configure - Logstash Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#logstash-filter">Logstash Filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-your-kibana-dashboard">Review your Kibana Dashboard</a><ul>
@@ -191,10 +182,6 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#enjoy-it">Enjoy It</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#if-you-need-help">If you need help:</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="NetworkIDS.html#if-you-need-help">If you need help:</a></li>
 </ul>
 </li>
 </ul>
@@ -241,7 +228,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>OwlH - Bro and Wazuh</li>
+      <li>OwlH - Zeek and Wazuh</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -260,15 +247,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="owlh-bro-and-wazuh">
-<h1>OwlH - Bro and Wazuh<a class="headerlink" href="#owlh-bro-and-wazuh" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="owlh-zeek-and-wazuh">
+<h1>OwlH - Zeek and Wazuh<a class="headerlink" href="#owlh-zeek-and-wazuh" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="integration-logical-diagram">
 <h2>Integration Logical Diagram<a class="headerlink" href="#integration-logical-diagram" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/broowlh.png" src="../_images/broowlh.png" />
 <div class="section" id="components">
 <h3>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Bro Node - Bro IDS and Wazuh Agent</li>
+<li>OwlH Node - Zeek IDS and Wazuh Agent</li>
 <li>Wazuh Manger</li>
 <li>Logstash Server</li>
 <li>Elastic and Kibana Server</li>
@@ -276,12 +263,12 @@
 <p>Let’s see what we need to modify on each component to be able to manage this Bro and Wazuh integration.</p>
 </div>
 </div>
-<div class="section" id="configure-bro-node">
-<h2>Configure - Bro Node<a class="headerlink" href="#configure-bro-node" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configure-zeek-owlh-node">
+<h2>Configure - Zeek - OwlH Node<a class="headerlink" href="#configure-zeek-owlh-node" title="Permalink to this headline">¶</a></h2>
 <p>This system will require Bro working of course, and Wazuh agent installed. OwlH instructions will help to configure both Bro and Wazuh agent.</p>
 </div>
-<div class="section" id="bro-logs-output-format-to-json">
-<h2>Bro Logs Output format to JSON<a class="headerlink" href="#bro-logs-output-format-to-json" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zeek-logs-output-format-to-json">
+<h2>Zeek Logs Output format to JSON<a class="headerlink" href="#zeek-logs-output-format-to-json" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="option-1-modify-ascii-writer-output">
 <h3>Option 1 - Modify ASCII writer output<a class="headerlink" href="#option-1-modify-ascii-writer-output" title="Permalink to this headline">¶</a></h3>
 <p>you can load the json_logs.bro configuration that will tell ASCII writer to write output in JSON format.
@@ -311,8 +298,8 @@ You must include following line in your .bro configuration files. It can be /etc
 <p class="last">Thanks to C.L.Martinez and Jan.Grashoefer</p>
 </div>
 </div>
-<div class="section" id="bro-event-enritchment-to-help-wazuh-ruleset">
-<h3>Bro Event Enritchment to help Wazuh ruleset<a class="headerlink" href="#bro-event-enritchment-to-help-wazuh-ruleset" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="zeek-event-enritchment-to-help-wazuh-ruleset">
+<h3>Zeek Event Enritchment to help Wazuh ruleset<a class="headerlink" href="#zeek-event-enritchment-to-help-wazuh-ruleset" title="Permalink to this headline">¶</a></h3>
 <p>It is a good idea to help wazuh rules to do their job, to include a field that will identify what kind of log line we are analyzing. Bro output doesn’t include that info per line by default, so we are going to help wazuh by including the field ‘bro_engine’ that will tell wazuh what kind of log is it.</p>
 <p>We are using redef function to include a custom field for each ::Info record of each Protocol. Here are just a few of them, we will include more by default in next releases.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">redef</span> <span class="n">record</span> <span class="n">DNS</span><span class="p">::</span><span class="n">Info</span> <span class="o">+=</span> <span class="p">{</span>
@@ -333,8 +320,8 @@ You must include following line in your .bro configuration files. It can be /etc
 </pre></div>
 </div>
 </div>
-<div class="section" id="loading-bro-customizations-at-bro-start">
-<h3>Loading Bro customizations at Bro start<a class="headerlink" href="#loading-bro-customizations-at-bro-start" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="loading-zeek-customizations-at-zeek-start">
+<h3>Loading Zeek customizations at Zeek start<a class="headerlink" href="#loading-zeek-customizations-at-zeek-start" title="Permalink to this headline">¶</a></h3>
 <p>We include all OwlH customizations in OwlH_*.bro files, that helps to have a clear view of what OwlH does as well as we hope it will simplify configuration management.</p>
 <p>Under /etc/bro/site we will create two files</p>
 <ul class="simple">
@@ -405,25 +392,25 @@ You must include following line in your .bro configuration files. It can be /etc
 <p>Good news is that Wazuh’s JSON decoder works really great, so using JSON output from BRO allow us to save time developing an specific decoder for its standard ASCII out.</p>
 <p>We only need to create a few rules to identify the Bro events and forward them to ELK.</p>
 </div>
-<div class="section" id="wazuh-bro-ids-rules">
-<h2>Wazuh Bro IDS Rules<a class="headerlink" href="#wazuh-bro-ids-rules" title="Permalink to this headline">¶</a></h2>
-<p>Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to manage your BRO logs</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">group</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bro&quot;</span><span class="o">&gt;</span>
+<div class="section" id="wazuh-zeek-ids-rules">
+<h2>Wazuh Zeek IDS Rules<a class="headerlink" href="#wazuh-zeek-ids-rules" title="Permalink to this headline">¶</a></h2>
+<p>Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to manage your Zeek logs</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">group</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;zeek&quot;</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">rule</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;99001&quot;</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bro_engine&quot;</span><span class="o">&gt;</span><span class="n">SSH</span><span class="o">&lt;/</span><span class="n">field</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">BRO</span><span class="p">:</span> <span class="n">SSH</span> <span class="n">Connection</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Zeek</span><span class="p">:</span> <span class="n">SSH</span> <span class="n">Connection</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
   <span class="o">&lt;/</span><span class="n">rule</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">rule</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;99001&quot;</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bro_engine&quot;</span><span class="o">&gt;</span><span class="n">SSL</span><span class="o">&lt;/</span><span class="n">field</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">BRO</span><span class="p">:</span> <span class="n">SSL</span> <span class="n">Connection</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Zeek</span><span class="p">:</span> <span class="n">SSL</span> <span class="n">Connection</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
   <span class="o">&lt;/</span><span class="n">rule</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">rule</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;99002&quot;</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bro_engine&quot;</span><span class="o">&gt;</span><span class="n">DNS</span><span class="o">&lt;/</span><span class="n">field</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">BRO</span><span class="p">:</span> <span class="n">DNS</span> <span class="n">Query</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Zeek</span><span class="p">:</span> <span class="n">DNS</span> <span class="n">Query</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
   <span class="o">&lt;/</span><span class="n">rule</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">rule</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;99004&quot;</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bro_engine&quot;</span><span class="o">&gt;</span><span class="n">CONN</span><span class="o">&lt;/</span><span class="n">field</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">BRO</span><span class="p">:</span> <span class="n">Connection</span> <span class="n">detail</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Zeek</span><span class="p">:</span> <span class="n">Connection</span> <span class="n">detail</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
   <span class="o">&lt;/</span><span class="n">rule</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">group</span><span class="o">&gt;</span>
 </pre></div>
@@ -457,7 +444,7 @@ You must include following line in your .bro configuration files. It can be /etc
 </div>
 <div class="section" id="review-your-kibana-dashboard">
 <h2>Review your Kibana Dashboard<a class="headerlink" href="#review-your-kibana-dashboard" title="Permalink to this headline">¶</a></h2>
-<p>You will need to refresh your Wazuh-alerts-3.x indeces to include the new Bro fields. from your kibana console, go to Management -&gt; index -&gt; select right wazuh-alerts index -&gt; click top-right refresh icon to refresh</p>
+<p>You will need to refresh your Wazuh-alerts-3.x indeces to include the new Zeek fields. from your kibana console, go to Management -&gt; index -&gt; select right wazuh-alerts index -&gt; click top-right refresh icon to refresh</p>
 <img alt="../_images/kibanabro.png" src="../_images/kibanabro.png" />
 <p>And that’s all folks.</p>
 <div class="section" id="if-you-need-help">
