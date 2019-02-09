@@ -9,7 +9,7 @@ If you need help:
 * visit our mailing list - `OwlH mailing list`_ (owlh@googlegroups.com)
 
 
-**OwlH - current v0.4 - May : Bro integration and AWS and GCloud support**
+**OwlH - current v0.7 - Jan : OwlH Node and Master API**
 
 documentation last updated - |today|
 

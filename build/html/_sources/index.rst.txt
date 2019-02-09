@@ -21,13 +21,11 @@ A few topics
    :maxdepth: 1
 
    main/OwlHAbout
-   main/OwlHWhat
    main/OwlHatwork
    main/OwlHWazuh
    main/OwlHBro
    main/OwlHPCI
    main/OwlHsoftwaretap
-   main/NetworkIDS
 
 
 
