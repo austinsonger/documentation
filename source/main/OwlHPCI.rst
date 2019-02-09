@@ -5,7 +5,6 @@ OwlH can help you to demonstrate compliance with requirements:
 --------------------------------------------------------------
 
 Download OwlH PCI-DSS v3.2 Mapping - `owlh_pcidss_3.2.pdf`_
-
 .. _owlh_pcidss_3.2.pdf: https://drive.google.com/file/d/1IfC23AHSULjY6GKmXG_S5ZIUWKEMyB33/view?usp=sharing
 
 Define your custom rules to detect compliance related traffic:

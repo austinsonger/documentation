@@ -4,7 +4,7 @@ Software TAP for AWS and GCloud
 OwlH Software TAP to monitor traffic in AWS and GCLOUD environments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: /img/SoftwareTAP.png
+.. image:: /img/softwareTAP.png
 
 
 OwlH Software TAP (sTAP) will collect full or specific traffic from your instances and forward it to OwlH Master that will run the Network IDS tool to do the analysis.

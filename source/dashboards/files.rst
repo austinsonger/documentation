@@ -1,5 +1,0 @@
-
-Files Dashboard
-================
-
-* Files dashboard

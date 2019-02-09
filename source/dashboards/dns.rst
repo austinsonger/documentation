@@ -1,5 +1,0 @@
-
-DNS Dashboard
-================
-
-* dns dashboard

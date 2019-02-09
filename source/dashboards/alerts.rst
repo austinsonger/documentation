@@ -1,5 +1,0 @@
-
-Alerts Dashboard
-================
-
-* Alert dashboard

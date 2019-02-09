@@ -1,5 +1,0 @@
-
-Flow Dashboard
-================
-
-* Flow dashboard
