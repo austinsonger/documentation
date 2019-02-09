@@ -172,7 +172,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#network-ids-support">Network IDS support</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#continuous-network-ids-monitor-and-sniffing">Continuous Network IDS monitor and sniffing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deploy-suricata-as-network-ids">Deploy Suricata as Network IDS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#deploy-bro-as-network-ids">Deploy Bro as Network IDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deploy-zeek-as-network-ids">Deploy Zeek as Network IDS</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#owlh-master-configuration">OwlH Master Configuration</a></li>
@@ -363,11 +363,11 @@
 <p>If you prefer a different way to deploy suricata, please follow <a class="reference external" href="https://suricata.readthedocs.io/en/suricata-4.0.4/install.html">Suricata documentation</a>.</p>
 <p><strong>Run Suricata IDS</strong></p>
 </div>
-<div class="section" id="deploy-bro-as-network-ids">
-<h3>Deploy Bro as Network IDS<a class="headerlink" href="#deploy-bro-as-network-ids" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh">Bro deployment script</a> will help you to deploy Bro IDS from source code in a CentOS 7 box.</p>
-<p>If you prefer a different way to deploy Bro, please follow <a class="reference external" href="https://suricata.readthedocs.io/en/suricata-4.0.4/install.html">Bro documentation</a>.</p>
-<p><strong>Run Bro IDS</strong></p>
+<div class="section" id="deploy-zeek-as-network-ids">
+<h3>Deploy Zeek as Network IDS<a class="headerlink" href="#deploy-zeek-as-network-ids" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh">Zeek deployment script</a> will help you to deploy Bro IDS from source code in a CentOS 7 box.</p>
+<p>If you prefer a different way to deploy Bro, please follow <a class="reference external" href="https://docs.zeek.org/en/stable/">Zeek documentation</a>.</p>
+<p><strong>Run Zeek IDS</strong></p>
 </div>
 </div>
 <div class="section" id="owlh-master-configuration">
@@ -408,7 +408,7 @@
 <h2>Target Instances<a class="headerlink" href="#target-instances" title="Permalink to this headline">¶</a></h2>
 <p>We will need some tools and a user in each one of your servers in order to coordinate the traffic capture functionality</p>
 <ul class="simple">
-<li>Create and configure owl user in your servers</li>
+<li>Create and configure owlh user in your servers</li>
 </ul>
 <p>The owlh user will be use by OwlH Master Orchestrator to run traffic capture and collect pcap files. to create user and configure it please follow <a class="reference external" href="https://raw.githubusercontent.com/owlh/owlhostnettap/master/owlh-setup.sh.centos7">this script</a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>#!/bin/bash
@@ -560,7 +560,7 @@ sudo echo &quot;owlh     ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump, /usr/bin/c
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># is everything in place?</span>
 <span class="c1"># start Wazuh</span>
 <span class="c1"># start Suricata</span>
-<span class="c1"># start Bro</span>
+<span class="c1"># start Zeek</span>
 <span class="c1"># start Flock Controller</span>
 </pre></div>
 </div>

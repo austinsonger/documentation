@@ -127,18 +127,18 @@ If you prefer a different way to deploy suricata, please follow `Suricata docume
 **Run Suricata IDS**
 
 
-Deploy Bro as Network IDS
+Deploy Zeek as Network IDS
 -------------------------
 
-.. _Bro deployment script: https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh
+.. _Zeek deployment script: https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh
 
-`Bro deployment script`_ will help you to deploy Bro IDS from source code in a CentOS 7 box.
+`Zeek deployment script`_ will help you to deploy Bro IDS from source code in a CentOS 7 box.
 
-.. _Bro documentation: https://suricata.readthedocs.io/en/suricata-4.0.4/install.html
+.. _Zeek documentation: https://docs.zeek.org/en/stable/
 
-If you prefer a different way to deploy Bro, please follow `Bro documentation`_.
+If you prefer a different way to deploy Bro, please follow `Zeek documentation`_.
 
-**Run Bro IDS**
+**Run Zeek IDS**
 
 
 OwlH Master Configuration
@@ -192,7 +192,7 @@ Target Instances
 
 We will need some tools and a user in each one of your servers in order to coordinate the traffic capture functionality
 
-* Create and configure owl user in your servers
+* Create and configure owlh user in your servers
 
 .. _this script:  https://raw.githubusercontent.com/owlh/owlhostnettap/master/owlh-setup.sh.centos7
 
@@ -385,7 +385,7 @@ Start Software TAP
    # is everything in place?
    # start Wazuh
    # start Suricata
-   # start Bro
+   # start Zeek
    # start Flock Controller
 
 
