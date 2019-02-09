@@ -61,7 +61,7 @@ There are different components.
 
 * A more detailed block diagram
 
-.. image:: /img/SoftwareTapGCAWS.png
+.. image:: /img/softwareTapGCAWS.png
 
 
 ----
