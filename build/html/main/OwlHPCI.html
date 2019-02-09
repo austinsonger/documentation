@@ -39,7 +39,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="owlh 0.4 - Cloud and Bro documentation" href="../index.html"/>
         <link rel="next" title="Software TAP for AWS and GCloud" href="OwlHsoftwaretap.html"/>
-        <link rel="prev" title="OwlH - Bro and Wazuh" href="OwlHBro.html"/> 
+        <link rel="prev" title="OwlH - Zeek and Wazuh" href="OwlHBro.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -97,15 +97,6 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHAbout.html#if-you-need-help">If you need help:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHWhat.html">What are we thinking about -= Roadmap =-</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#backlog-there-is-something-else-to-be-done-always">BackLog - There is something else to be done, always.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-4-release-notes-may">v0.4 - Release notes (May)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHWhat.html#v0-3-release-notes-february-end">v0.3 - Release notes (February end)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="OwlHWhat.html#if-you-need-help">If you need help:</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="OwlHatwork.html">How does it work?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#main-components">Main components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHatwork.html#owlh-nids-node">OwlH NIDS node</a></li>
@@ -135,22 +126,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="OwlHBro.html">OwlH - Bro and Wazuh</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="OwlHBro.html">OwlH - Zeek and Wazuh</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#integration-logical-diagram">Integration Logical Diagram</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#components">Components</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#configure-bro-node">Configure - Bro Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#bro-logs-output-format-to-json">Bro Logs Output format to JSON</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#configure-zeek-owlh-node">Configure - Zeek - OwlH Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#zeek-logs-output-format-to-json">Zeek Logs Output format to JSON</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#option-1-modify-ascii-writer-output">Option 1 - Modify ASCII writer output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#option-2-use-add-json-package">Option 2 - Use add-json package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#bro-event-enritchment-to-help-wazuh-ruleset">Bro Event Enritchment to help Wazuh ruleset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#loading-bro-customizations-at-bro-start">Loading Bro customizations at Bro start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#zeek-event-enritchment-to-help-wazuh-ruleset">Zeek Event Enritchment to help Wazuh ruleset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#loading-zeek-customizations-at-zeek-start">Loading Zeek customizations at Zeek start</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#configure-wazuh-manager">Configure - Wazuh Manager</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#wazuh-bro-ids-rules">Wazuh Bro IDS Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#wazuh-zeek-ids-rules">Wazuh Zeek IDS Rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#configure-logstash-server">Configure - Logstash Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#logstash-filter">Logstash Filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHBro.html#review-your-kibana-dashboard">Review your Kibana Dashboard</a><ul>
@@ -161,6 +152,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OwlH for PCI</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#owlh-can-help-you-to-demonstrate-compliance-with-requirements">OwlH can help you to demonstrate compliance with requirements:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#define-your-custom-rules-to-detect-compliance-related-traffic">Define your custom rules to detect compliance related traffic:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-apply-suricata-pci-mapping">How to apply Suricata PCI Mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-manage-and-custom-your-suricata-pci-mapping">How to manage and custom your Suricata PCI Mapping</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#if-you-need-help">If you need help:</a></li>
@@ -191,10 +183,6 @@
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#enjoy-it">Enjoy It</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html#if-you-need-help">If you need help:</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="NetworkIDS.html">Network IDS support</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="NetworkIDS.html#if-you-need-help">If you need help:</a></li>
 </ul>
 </li>
 </ul>
@@ -265,17 +253,10 @@
 <div class="section" id="owlh-can-help-you-to-demonstrate-compliance-with-requirements">
 <h2>OwlH can help you to demonstrate compliance with requirements:<a class="headerlink" href="#owlh-can-help-you-to-demonstrate-compliance-with-requirements" title="Permalink to this headline">¶</a></h2>
 <p>Download OwlH PCI-DSS v3.2 Mapping - <a class="reference external" href="https://drive.google.com/file/d/1IfC23AHSULjY6GKmXG_S5ZIUWKEMyB33/view?usp=sharing">owlh_pcidss_3.2.pdf</a></p>
-<ul class="simple">
-<li>Requirement 1: Install and maintain a firewall configuration to protect cardholder data</li>
-<li>Requirement 2: Do not use vendor-supplied defaults for system passwords and other security parameters</li>
-<li>Requirement 4: Encrypt transmission of cardholder data across open, public networks</li>
-<li>Requirement 5: Use and regularly update anti-virus software or programs</li>
-<li>Requirement 6: Develop and maintain secure systems and applications</li>
-<li>Requirement 8: Assign a unique ID to each person with computer access</li>
-<li>Requirement 10: Track and monitor all access to network resources and cardholder data</li>
-<li>Requirement 11: Regularly test security systems and processes</li>
-</ul>
-<img alt="../_images/pcidssreq.png" src="../_images/pcidssreq.png" />
+</div>
+<div class="section" id="define-your-custom-rules-to-detect-compliance-related-traffic">
+<h2>Define your custom rules to detect compliance related traffic:<a class="headerlink" href="#define-your-custom-rules-to-detect-compliance-related-traffic" title="Permalink to this headline">¶</a></h2>
+<p>OwlH team will help you to define rules that will identify traffic that can be related to PCI requirements like unencrypted traffic between PCI related systems. Use of unknown services from PCI network to external servers, Firewall policy violations when publishing internal services.</p>
 </div>
 <div class="section" id="how-to-apply-suricata-pci-mapping">
 <h2>How to apply Suricata PCI Mapping<a class="headerlink" href="#how-to-apply-suricata-pci-mapping" title="Permalink to this headline">¶</a></h2>
@@ -333,7 +314,7 @@
         <a href="OwlHsoftwaretap.html" class="btn btn-neutral float-right" title="Software TAP for AWS and GCloud" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="OwlHBro.html" class="btn btn-neutral" title="OwlH - Bro and Wazuh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="OwlHBro.html" class="btn btn-neutral" title="OwlH - Zeek and Wazuh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
