@@ -1,3 +1,4 @@
 # OwlH Documentation
 
-master@owlh.net
+
+support@owlh.net
