@@ -174,19 +174,19 @@ Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to m
 :: 
 
     <group name="zeek">
-      <rule id="99001" level="5">
+      <rule id="990001" level="5">
         <field name="bro_engine">SSH</field>
         <description>Zeek: SSH Connection</description>
       </rule>
-      <rule id="99001" level="5">
+      <rule id="990002" level="5">
         <field name="bro_engine">SSL</field>
         <description>Zeek: SSL Connection</description>
       </rule>
-      <rule id="99002" level="5">
+      <rule id="990003" level="5">
         <field name="bro_engine">DNS</field>
         <description>Zeek: DNS Query</description>
       </rule>
-      <rule id="99004" level="5">
+      <rule id="990004" level="5">
         <field name="bro_engine">CONN</field>
         <description>Zeek: Connection detail</description>
       </rule>
