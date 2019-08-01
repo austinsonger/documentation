@@ -1,7 +1,8 @@
 OwlH PCAP collector and dispatcher configuration for load balance your traffic analysis
 =======================================================================================
 
-What is OwlH Node?
-------------------
+What is OwlH Dispatcher configuration?
+--------------------------------------
 
-This is a single box running your NIDS systems, like Suricata and Zeek.
+When you want to analyze traffic in different NIDS systems because traffic volume is too high
+.. image:: /img/dispatcher.png
