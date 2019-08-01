@@ -6,8 +6,7 @@ About Getting Started with OwlH
 Components
 ----------
 
-* [OwlH Node 2](OwlHNode.rst)
-* :doc:`OwlH Node3 </main/OwlHNode.rst>`
+* OwlH Node 2
 * OwlH Master
 * OwlH UI
 * OwlH Installer
@@ -16,7 +15,7 @@ Components
 .. toctree::
    :maxdepth: 1
 
-   main/OwlHNode
+   OwlHNode
    main/OwlHAbout
    main/OwlHUI
    main/OwlHWazuh
