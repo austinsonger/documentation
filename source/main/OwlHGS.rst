@@ -19,4 +19,7 @@ How to play with them
 * Configure a PCAP dispatcher for load balance your traffic analysis
 * Traffic forensics with Moloch
 
+Check our `Github repos`
+.. Github repos: https://github.com/owlh-net
+
 .. include:: /main/contact.rst
