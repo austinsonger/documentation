@@ -5,7 +5,7 @@ About Getting Started with OwlH
 Components
 ----------
 
-* [OwlH Node 1](OwlHNode.rst)_
+* [OwlH Node 2](OwlHNode.rst)
 * OwlH Master
 * OwlH UI
 * OwlH Installer
