@@ -1,5 +1,5 @@
-OwlH Node
-=========
+OwlH Client
+===========
 
 What is OwlH Node?
 ------------------

@@ -1,5 +1,5 @@
-OwlH Node
-=========
+OwlH Installer
+==============
 
 What is OwlH Node?
 ------------------
