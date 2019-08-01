@@ -23,7 +23,7 @@ A few topics
 
    main/OwlHGS
    main/OwlHAbout
-   main/OwlHatwork
+   main/OwlHUI
    main/OwlHWazuh
    main/OwlHBro
    main/OwlHPCI
