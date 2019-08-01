@@ -1,7 +1,7 @@
 About Getting Started with OwlH
 ===============================
 
-.. _OwlH Node: /main/OwlHNode
+.. _OwlH Node: main/OwlHNode
 
 Components
 ----------
