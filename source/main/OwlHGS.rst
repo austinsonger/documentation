@@ -6,12 +6,6 @@ About Getting Started with OwlH
 Components
 ----------
 
-* OwlH Node 2
-* OwlH Master
-* OwlH UI
-* OwlH Installer
-* OwlH Client
-
 .. toctree::
    :maxdepth: 1
 
@@ -24,6 +18,15 @@ Components
 
 How to play with them
 ---------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   OwlHAllinone
+   OwlHstdonprem
+   OwlHSTAPrtime
+   OwlHDispatcher
+   OwlHForensics
 
 * Deploy as an all-in-one
 * Standard on-premises deployment
