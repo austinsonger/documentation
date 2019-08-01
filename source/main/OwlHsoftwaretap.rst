@@ -1,8 +1,8 @@
-Software TAP for AWS and GCloud
-===============================
+Software TAP for AWS and GCloud - PULL MODE
+===========================================
 
-OwlH Software TAP to monitor traffic in AWS and GCLOUD environments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OwlH Software TAP to monitor traffic in Cloud and remote sites environments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: /img/softwareTAP.png
 
@@ -11,7 +11,7 @@ OwlH Software TAP (sTAP) will collect full or specific traffic from your instanc
 
 .. _OwlH Software TAP repository: https://github.com/owlh/owlhmaster
 
-This doc will describe a basic configuration using CentOS instances, Bro and Suricata Network IDS and Wazuh Integration. (other Linux distributions as well as Windows Support is available)
+This doc will describe a basic configuration using CentOS instances, Zeek and Suricata Network IDS and Wazuh Integration. (other Linux distributions as well as Windows Support is available)
 
 There are a lot of moving pieces, feel free to ask for help support@owlh.net. This doc will try to simplify deployment but for sure it will need some customization as well as may need some architecture understanding.
 
@@ -132,11 +132,11 @@ Deploy Zeek as Network IDS
 
 .. _Zeek deployment script: https://raw.githubusercontent.com/owlh/owlhostnettap/master/Suricata-install-amazonlinux.sh
 
-`Zeek deployment script`_ will help you to deploy Bro IDS from source code in a CentOS 7 box.
+`Zeek deployment script`_ will help you to deploy Zeek IDS from source code in a CentOS 7 box.
 
 .. _Zeek documentation: https://docs.zeek.org/en/stable/
 
-If you prefer a different way to deploy Bro, please follow `Zeek documentation`_.
+If you prefer a different way to deploy Zeek, please follow `Zeek documentation`_.
 
 **Run Zeek IDS**
 
