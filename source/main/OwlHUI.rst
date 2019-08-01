@@ -38,7 +38,7 @@ verify your master ip is correctly set in your 'config' menu.
 * Click on check master api
 * If answer is ack: true, then go back to Nodes menu.
 
-.. note:: your master ip must accesible from your browser using port 50001 (you can modify it)
+.. note:: your master ip must accesible from your browser using port 50001/tcp (you can modify it)
 
 
 
