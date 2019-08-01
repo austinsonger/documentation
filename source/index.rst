@@ -21,7 +21,7 @@ A few topics
 .. toctree::
    :maxdepth: 1
 
-...main/OwlHGS
+   main/OwlHGS
    main/OwlHAbout
    main/OwlHatwork
    main/OwlHWazuh
