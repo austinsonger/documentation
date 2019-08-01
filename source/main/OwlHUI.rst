@@ -51,5 +51,15 @@ Please be sure you include:
 * node ip 
 * node port (50002 is default port)
 
+Accept your modification 
+
+Now you should see your node status set to OFF-LINE (red) if we can't reach Node API using provided IP and port 50002 (or the one defined) or ON-LINE (green) if we can access Node API.
+
+Suricata and Zeek controls
+==========================
+
+in 'network IDS' node menu you will find Suricata and Zeek details. If you didn't install suricata and/or Zeek in your node yet they will appear as N/A (black). if it is installed but not running will appear as OFF (red) and if they are running will appear as ON (green)
+
+
 
 .. include:: /main/contact.rst
