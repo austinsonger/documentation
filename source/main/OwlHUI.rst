@@ -46,6 +46,7 @@ Your First Node
 OwlH default configuration comes with a default sensor configured. You can **ADD** your new sensors or modify the current one by using 'Actions -> Modify node' option. 
 
 Please be sure you include: 
+
 * node name
 * node ip 
 * node port (50002 is default port)
