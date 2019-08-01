@@ -13,6 +13,19 @@ Components
 * OwlH Installer
 * OwlH Client
 
+.. toctree::
+   :maxdepth: 1
+
+   main/OwlHNode
+   main/OwlHAbout
+   main/OwlHUI
+   main/OwlHWazuh
+   main/OwlHBro
+   main/OwlHPCI
+   main/OwlHsoftwaretap
+
+
+
 How to play with them
 ---------------------
 
