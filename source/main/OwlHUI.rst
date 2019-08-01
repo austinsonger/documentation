@@ -6,7 +6,9 @@ About OwlH UI (user interface)
 Access
 ------
 
-OwlH UI access means: 
+Usually, OwlH UI is installed in the same machine than OwlH Master. You can choose to install OwlH Master and OwlH UI in different servers (advanced)
+
+OwlH UI access means to point your web browser to your MASTER/UI using: 
 
 * https - 443/tcp - access to a human friendly web based console to manage your OwlH components
 * API - 50001/TCP - access to Master API

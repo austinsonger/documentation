@@ -9,7 +9,7 @@ If you need help:
 * visit our mailing list - `OwlH mailing list`_ (owlh@googlegroups.com)
 
 
-**OwlH - current v0.8 - Jul : OwlH Node and Master API**
+**OwlH - current v0.8 - Aug : New version details**
 
 documentation last updated - |today|
 
