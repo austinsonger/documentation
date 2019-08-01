@@ -16,4 +16,7 @@ How to play with them
 * Deploy as an all-in-one
 * Standard on-premises deployment
 * Software TAP configuration with real-time traffic collection
-* Configure a PCAP dispatcher for traffic analysis load balance
+* Configure a PCAP dispatcher for load balance your traffic analysis
+* Traffic forensics with Moloch
+
+.. include:: /main/contact.rst
