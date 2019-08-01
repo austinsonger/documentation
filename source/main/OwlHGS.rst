@@ -16,13 +16,10 @@ Components
    :maxdepth: 1
 
    OwlHNode
-   main/OwlHAbout
-   main/OwlHUI
-   main/OwlHWazuh
-   main/OwlHBro
-   main/OwlHPCI
-   main/OwlHsoftwaretap
-
+   OwlHMaster
+   OwlHUI
+   OwlHInstaller
+   OwlHClient
 
 
 How to play with them
