@@ -7,7 +7,7 @@ Components
 ----------
 
 * [OwlH Node 2](OwlHNode.rst)
-* :doc:`OwlH Node3 </main/OwlHnode>`
+* :doc:`OwlH Node3 </main/OwlHNode.rst>`
 * OwlH Master
 * OwlH UI
 * OwlH Installer
