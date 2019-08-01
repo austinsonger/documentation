@@ -29,6 +29,7 @@ First time you connect to your OwlH UI
 verify your master ip is correctly set in your 'config' menu.
 
 ::
+
     home -> config
 
 * Set the right master ip
