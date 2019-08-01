@@ -2,10 +2,12 @@ About Getting Started with OwlH
 ===============================
 
 
+
 Components
 ----------
 
 * [OwlH Node 2](OwlHNode.rst)
+* :doc:`OwlH Node<OwlHnode>`
 * OwlH Master
 * OwlH UI
 * OwlH Installer
