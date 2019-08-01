@@ -1,10 +1,12 @@
 About Getting Started with OwlH
 ===============================
 
+.. _OwlH Node: /main/OwlHNode
+
 Components
 ----------
 
-* OwlH Node
+* OwlH Node_
 * OwlH Master
 * OwlH UI
 * OwlH Installer
