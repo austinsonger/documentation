@@ -11,3 +11,13 @@ OS version                   URL
 if you run OS like CentOS 7  wget http://repo.owlh.net/current-centos/owlhinstaller.tar.gz
 if you run OS like Ubuntu    wget http://repo.owlh.net/current-debian/owlhinstaller.tar.gz
 ===========================  =============================================================
+
+Now let's install it. 
+
+:: 
+
+  # mkdir /tmp/owlhinstaller
+  # tar -C /tmp/owlhinstaller -xvf owlhinstaller.tar.gz
+
+We are almost done. In order to allow OwlH installer to do its work, we need to tell it what is/are out target/s for this box. A target is an OwlH component that must be installed or updated. All this info is provided in the config.json file included in the owlhinstaller folder
+
