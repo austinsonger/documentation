@@ -50,6 +50,7 @@ Usually, you would like to have both outputs, ASCII and JSON. You can use add-js
 To install add-json package you can use bro-pkg tool 
 
 ::
+
     bro-pkg install add-json
 
 .. note:: bro-pkg installation (http://bro-package-manager.readthedocs.io/en/stable/quickstart.html#installation)*

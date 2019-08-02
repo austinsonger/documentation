@@ -62,12 +62,15 @@ Use our OwlH installer to install your OwlH UI.
 .. attention::
     you can change your installation paths as needed. Changing default paths may need further paths change for some configurations like service init files. If you are not familiar with it, keep defaults until it is really needed or ask for help.
 
+run OwlH Installer to install OwlH UI and OwlH Master
+`````````````````````````````````````````````````````
 
 :: 
 
     # cd /tmp/owlhinstaller
     # ./owlhinstaller
     # bash /var/www/owlh/conf/services/owlh-conf.sh
+    # bash /usr/local/owlh/src/owlhmaster/conf/services/owlhmaster-service.sh
 
 Access
 ------

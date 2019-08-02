@@ -4,7 +4,7 @@ OwlH PCAP collector and dispatcher configuration for load balance your traffic a
 What is OwlH Dispatcher configuration?
 --------------------------------------
 
-When you want to analyze traffic in different NIDS systems because traffic volume is too high
+When you want to analyze traffic in different NIDS systems because traffic volume is too high for a single NIDS.
 
 .. image:: /img/dispatcher.png
 
