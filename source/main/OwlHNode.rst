@@ -121,9 +121,33 @@ Check if your OwlH Node is running
     # netstat -nputa | grep 50002
 
 
+Modify your OwlH Installer configuration to keep your system uptodate
+`````````````````````````````````````````````````````````````````````
 
 
+.. note:: 
+    Right now, our target is "owlhnode", our action is "update". 
 
+:: 
+
+  ...
+  "tmpfolder":"/tmp/",
+  "action": "update",      <===
+  "repourl":"http://repo.owlh.net/current/",
+  "target": [
+      "owlhnode"            <===
+  ],
+  ...
+
+You can add owlhinstaller to your crontab for an automatic update of your platform. following lines will move OwlH installer and create cron job. Please change as needed. 
+
+.. note:: Whiled this is recommended, it is not mandatory. you can run your OwlH Installer manually as per your needs
+
+:: 
+
+    # mkdir /usr/local/owlh/src/owlhinstaller
+    # cp /tmp/owlhinstaller/* /usr/local/owlh/src/owlhinstaller/
+    # (crontab -l ; echo "0 0 * * * /usr/local/owlh/src/owlhinstaller/owlhinstaller ") | crontab -
 
 
 
