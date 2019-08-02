@@ -90,7 +90,7 @@ We are almost done. In order to allow OwlH installer to do its work, we need to 
   }
 
 
-.. attention: Install Path change
+.. attention:: Install Path change
     you can change your installation paths as needed. Changing default paths may need further paths change for some configurations like service init files. If you are not familiar with it, keep defaults until it is really needed or ask for help.
 
 
