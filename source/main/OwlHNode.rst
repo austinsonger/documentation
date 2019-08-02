@@ -48,46 +48,46 @@ We are almost done. In order to allow OwlH installer to do its work, we need to 
 
 :: 
 
-{
-    "versionfile":"current.version",
-    "masterbinpath":"/root/workspace/src/owlhmaster/",
-    "masterconfpath":"/root/workspace/src/owlhmaster/conf/",
-    "mastertarfile":"owlhmaster.tar.gz",
-    "nodebinpath":"/root/workspace/src/owlhnode/",
-    "nodeconfpath":"/root/workspace/src/owlhnode/conf/",
-    "nodetarfile":"owlhnode.tar.gz",
-    "uipath":"/var/www/owlh/",
-    "uiconfpath":"/var/www/owlh/conf/",
-    "uitarfile":"owlhui.tar.gz",
-    "tmpfolder":"/tmp/",
-    **"action": "install"**,
-    "repourl":"http://repo.owlh.net/current/",
-    "target": [
-        **"owlhnode"**
-    ],
-    "masterfiles":[
-        "main.conf",
-        "app.conf"
-    ],
-    "nodefiles":[
-        "main.conf",
-        "stap-defaults.json",
-        "app.conf"
-    ],
-    "uifiles":[
-        "ui.conf"
-    ],
-    "masterdb":[
-        "group.db",
-        "node.db",
-        "ruleset.db",
-        "plugins.db"
-    ],
-    "nodedb":[
-        "plugins.db",
-        "servers.db"
-    ]
-}
+  {
+  "versionfile":"current.version",
+  "masterbinpath":"/root/workspace/src/owlhmaster/",
+  "masterconfpath":"/root/workspace/src/owlhmaster/conf/",
+  "mastertarfile":"owlhmaster.tar.gz",
+  "nodebinpath":"/root/workspace/src/owlhnode/",
+  "nodeconfpath":"/root/workspace/src/owlhnode/conf/",
+  "nodetarfile":"owlhnode.tar.gz",
+  "uipath":"/var/www/owlh/",
+  "uiconfpath":"/var/www/owlh/conf/",
+  "uitarfile":"owlhui.tar.gz",
+  "tmpfolder":"/tmp/",
+  **"action": "install"**,
+  "repourl":"http://repo.owlh.net/current/",
+  "target": [
+      **"owlhnode"**
+  ],
+  "masterfiles":[
+      "main.conf",
+      "app.conf"
+  ],
+  "nodefiles":[
+      "main.conf",
+      "stap-defaults.json",
+      "app.conf"
+  ],
+  "uifiles":[
+      "ui.conf"
+  ],
+  "masterdb":[
+      "group.db",
+      "node.db",
+      "ruleset.db",
+      "plugins.db"
+  ],
+  "nodedb":[
+      "plugins.db",
+      "servers.db"
+  ]
+  }
 
 
 
