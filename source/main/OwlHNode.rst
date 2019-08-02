@@ -20,7 +20,8 @@ How to install OwlH Node
 
 Ready? 
 
-Download OwlH Installer software. 
+Download OwlH Installer software
+````````````````````````````````
 
 .. table:: OwlH Installer downloads
    :widths: auto
