@@ -3,6 +3,13 @@ About OwlH UI (user interface)
 
 .. image:: /img/mainui.png
 
+Installation
+------------
+
+Use our OwlH installer to install your OwlH UI. 
+
+.. include:: /main/OwlHInstallerDownload.rst
+
 Access
 ------
 
