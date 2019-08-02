@@ -28,8 +28,8 @@ for the first time you will need to approve and accept our default self-signed c
 OwlH UI Main Menu
 *****************
 
-Current main menus:
-```````````````````
+Current main menus: 
+````````````````````
 
 * nodes - OwlH nodes list, status and configuration
 * open rules - Ruleset management, create 3rd party and custom rulesets, schedule auto-update, etc.
@@ -42,7 +42,7 @@ Coming soon:
 * adapt and response
 
 First time you connect to your OwlH UI
-======================================
+--------------------------------------
 
 verify your master ip is correctly set in your 'config' menu.
 
@@ -59,7 +59,7 @@ verify your master ip is correctly set in your 'config' menu.
 .. note:: your master ip must accesible from your browser using port 50001/tcp (you can modify it)
 
 Your First Node
-===============
+---------------
 
 OwlH default configuration comes with a default sensor configured. You can **ADD** your new sensors or modify the current one by using 'Actions -> Modify node' option. 
 
@@ -74,7 +74,7 @@ Accept your modification
 Now you should see your node status set to OFF-LINE (red) if we can't reach Node API using provided IP and port 50002 (or the one defined) or ON-LINE (green) if we can access Node API.
 
 Suricata and Zeek controls
-==========================
+--------------------------
 
 in 'network IDS' node menu you will find Suricata and Zeek details. If you didn't install suricata and/or Zeek in your node yet they will appear as N/A (black). if it is installed but not running will appear as OFF (red) and if they are running will appear as ON (green)
 
