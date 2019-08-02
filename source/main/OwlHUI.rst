@@ -4,14 +4,14 @@ About OwlH UI (user interface)
 .. image:: /img/mainui.png
 
 Installation
-============
+------------
 
 Use our OwlH installer to install your OwlH UI. 
 
 .. include:: /main/OwlHInstallerDownload.rst
 
 Access
-======
+------
 
 Usually, OwlH UI is installed in the same machine than OwlH Master. You can choose to install OwlH Master and OwlH UI in different servers (advanced)
 
@@ -24,9 +24,8 @@ OwlH UI access means to point your web browser to your MASTER/UI ip using:
 
 for the first time you will need to approve and accept our default self-signed certs. And you will do it for both https and API services. You will see option to 'check API connection' if you need to accept the API certs. 
 
-*****************
 OwlH UI Main Menu
-*****************
+-----------------
 
 Current main menus: 
 ````````````````````
