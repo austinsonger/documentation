@@ -90,8 +90,36 @@ We are almost done. In order to allow OwlH installer to do its work, we need to 
   }
 
 
-.. attention:: Install Path change
+.. attention::
     you can change your installation paths as needed. Changing default paths may need further paths change for some configurations like service init files. If you are not familiar with it, keep defaults until it is really needed or ask for help.
+
+Install OwlH Node
+`````````````````
+
+:: 
+
+    # cd /tmp/owlhinstaller
+    # ./owlhinstaller
+    # cp /usr/local/owlh/src/owlhnode/conf/services/owlhnode.service /etc/systemd/system/
+    # systemctl daemon-reload
+    # systemctl enable owlhnode.service
+    # systemctl start owlhnode.service
+
+Check if your OwlH Node is running  
+````````````````````````````````````
+
+:: 
+
+    check owlhnode logs 
+    # tail -f /var/log/owlh/owlhnode-api.log
+
+    check owlhnode process is running
+    # systemctl status owlhnode.service
+    # ps -ef | grep owlhnode
+
+    check if owlhnode service port is listening
+    # netstat -nputa | grep 50002
+
 
 
 
