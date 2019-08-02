@@ -15,7 +15,8 @@ While you do your local analysis with your Suricata and Zeek, you can also do th
 How to install OwlH Node
 ------------------------
 
-First, be sure you will have your OwlH Master ready. And your OwlH UI pointing to your OwlH Master. Check this.
+.. important::
+    First, be sure you will have your OwlH Master ready. And your OwlH UI pointing to your OwlH Master. Check this.
 
 Ready? 
 
