@@ -60,10 +60,10 @@ We are almost done. In order to allow OwlH installer to do its work, we need to 
   "uiconfpath":"/var/www/owlh/conf/",
   "uitarfile":"owlhui.tar.gz",
   "tmpfolder":"/tmp/",
-  **"action": "install"**,
+  "action": "install",      <===
   "repourl":"http://repo.owlh.net/current/",
   "target": [
-      **"owlhnode"**
+      "owlhnode"            <===
   ],
   "masterfiles":[
       "main.conf",
@@ -88,6 +88,18 @@ We are almost done. In order to allow OwlH installer to do its work, we need to 
       "servers.db"
   ]
   }
+
+
+.. attention: Install Path change
+    you can change your installation paths as needed. Changing default paths may need further paths change for some configurations like service init files. If you are not familiar with it, keep defaults until it is really needed or ask for help.
+
+
+
+
+
+
+
+.. include:: /main/contact.rst
 
 
 
