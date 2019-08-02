@@ -128,6 +128,8 @@ Modify your OwlH Installer configuration to keep your system uptodate
 .. note:: 
     Right now, our target is "owlhnode", our action is "update". 
 
+modify your config.json file to set action as "update".
+
 :: 
 
   ...
@@ -141,7 +143,7 @@ Modify your OwlH Installer configuration to keep your system uptodate
 
 You can add owlhinstaller to your crontab for an automatic update of your platform. following lines will move OwlH installer and create cron job. Please change as needed. 
 
-.. note:: Whiled this is recommended, it is not mandatory. you can run your OwlH Installer manually as per your needs
+.. note:: While this is recommended, it is not mandatory. you can run your OwlH Installer manually as per your needs
 
 :: 
 
