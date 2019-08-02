@@ -14,3 +14,4 @@ But we can help you to integrate it with your NIDS infrastructure. We need a few
 * are we going to process PCAP files? 
 * Moloch uses ElasticSearch as back-end. while writing it elk 7.x support is mostly under construction. hopefully this is obsolete and now a days is supported. Moloch v2.x will support it but we will use a previous version.
 
+.. include:: /main/contact.rst
