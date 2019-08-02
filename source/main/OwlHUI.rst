@@ -18,12 +18,16 @@ for the first time you will need to approve and accept our default self-signed c
 OwlH UI Main Menu
 -----------------
 
+Current main menus:
+```````````````````
+
 * nodes - OwlH nodes list, status and configuration
 * open rules - Ruleset management, create 3rd party and custom rulesets, schedule auto-update, etc.
 * master - OwlH master status and configuration
 * config - Define Master API IP 
 
-Comming soon:
+Coming soon:
+````````````
 
 * adapt and response
 
