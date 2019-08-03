@@ -76,6 +76,53 @@ run OwlH Installer to install OwlH UI and OwlH Master
     # bash /usr/local/owlh/src/owlhmaster/conf/services/owlhmaster-service.sh
 
 
+Check if your OwlH Master is running  
+````````````````````````````````````
+
+:: 
+
+    check owlhmaster logs 
+    # tail -f /var/log/owlh/owlhmaster-api.log
+
+    check owlhmaster process is running
+    # systemctl status owlhmaster.service
+    # ps -ef | grep owlhmaster
+
+    check if owlhmaster service port is listening
+    # netstat -nputa | grep 50001
+
+
+Modify your OwlH Installer configuration to keep your system uptodate
+`````````````````````````````````````````````````````````````````````
+
+
+.. note:: 
+    Right now, our target is "owlhmaster", our action is "update". 
+
+modify your config.json file to set action as "update".
+
+:: 
+
+  ...
+  "tmpfolder":"/tmp/",
+  "action": "update",      <===
+  "repourl":"http://repo.owlh.net/current/",
+  "target": [
+      "owlhmaster"            <===
+  ],
+  ...
+
+You can add owlhinstaller to your crontab for an automatic update of your platform. following lines will move OwlH installer and create cron job. Please change as needed. 
+
+.. note:: While this is recommended, it is not mandatory. you can run your OwlH Installer manually as per your needs
+
+:: 
+
+    # mkdir /usr/local/owlh/src/owlhinstaller
+    # cp /tmp/owlhinstaller/* /usr/local/owlh/src/owlhinstaller/
+    # (crontab -l ; echo "0 0 * * * /usr/local/owlh/src/owlhinstaller/owlhinstaller ") | crontab -
+
+
 
 
 .. include:: /main/contact.rst
