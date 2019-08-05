@@ -104,12 +104,12 @@ Files to take into account to update. This files are verified and compared betwe
 You may need to end installation by running the both service scripts that you can download from our repository. Them will be integrated by default in our installer soon
 
 
-OwlH Master service
+**OwlH Master service**
 :centos: http://repo.owlh.net/current-centos/owlhmaster-service.sh
 :debian: http://repo.owlh.net/current-debian/owlhmaster-service.sh
 
 
-OwlH UI virtualhost definition and configuration
+**OwlH UI virtualhost definition and configuration**
 :centos: http://repo.owlh.net/current-centos/owlhui-httpd.sh
 :debian: http://repo.owlh.net/current-debian/owlhui-httpd.sh
 
