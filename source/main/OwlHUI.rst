@@ -69,8 +69,15 @@ run OwlH Installer to install OwlH UI and OwlH Master
 
     # cd /tmp/owlhinstaller
     # ./owlhinstaller
-    # bash /var/www/owlh/conf/services/owlh-conf.sh
-    # bash /usr/local/owlh/src/owlhmaster/conf/services/owlhmaster-service.sh
+
+**OwlH Master service**
+:centos: http://repo.owlh.net/current-centos/owlhmaster-service.sh
+:debian: http://repo.owlh.net/current-debian/owlhmaster-service.sh
+
+
+**OwlH UI virtualhost definition and configuration**
+:centos: http://repo.owlh.net/current-centos/owlhui-httpd.sh
+:debian: http://repo.owlh.net/current-debian/owlhui-httpd.sh
 
 Access
 ------
