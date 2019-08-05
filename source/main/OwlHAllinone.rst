@@ -57,6 +57,7 @@ This will install OwlH components as well as Suricata, Zeek and Wazuh agent. Ple
 * Register your Wazuh agent with your wazuh manager.
     * follow Wazuh instructions to register your wazuh agent. Wazuh agent software is now installed so you only need to automatically register agent using authd command or manually, and update ossec.conf file to point to your wazuh manager (this can be done from OwlH UI)
     * remembert to restart your agent
+    https://documentation.wazuh.com/current/user-manual/registering/api/api-register-linux-unix.html#linux-and-unix-hosts
 
 At this point your OwlH all-in-one is setup. to be able to see in the right way NIDS information in Kibana we must do two more steps. 
 

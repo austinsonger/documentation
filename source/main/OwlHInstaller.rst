@@ -90,8 +90,7 @@ Usually owlhmaster and owlhui are installed together.
   "masterdb":[
       "group.db",
       "node.db",
-      "ruleset.db",
-      "plugins.db"
+      "ruleset.db"
   ],
   "nodedb":[
       "plugins.db",
@@ -102,7 +101,17 @@ Usually owlhmaster and owlhui are installed together.
 Files to take into account to update. This files are verified and compared between new version and current deployment when you are running and update action. update process does not overwrite current files or DB, it just add the new default fields or database reference. you don't need to take care of those files, but if you don't wont a file or db to be updated by installer you can remove it from here. 
 
 
+You may need to end installation by running the both service scripts that you can download from our repository. Them will be integrated by default in our installer soon
 
+
+OwlH Master service
+:centos: http://repo.owlh.net/current-centos/owlhmaster-service.sh
+:debian: http://repo.owlh.net/current-debian/owlhmaster-service.sh
+
+
+OwlH UI virtualhost definition and configuration
+:centos: http://repo.owlh.net/current-centos/owlhui-httpd.sh
+:debian: http://repo.owlh.net/current-debian/owlhui-httpd.sh
 
 
 
