@@ -1,7 +1,10 @@
 OwlH Standard on-prem configuration
 ===================================
 
-What is OwlH Node?
-------------------
+What is OwlH in Standard on-premises configuration?
+---------------------------------------------------
 
-This is a single box running your NIDS systems, like Suricata and Zeek.
+.. image:: /img/onpremises.png
+
+
+.. include:: /main/contact.rst
