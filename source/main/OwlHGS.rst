@@ -31,4 +31,3 @@ How to play with them
 .. _Github repos: https://github.com/owlh-net
 Check our `Github repos`_
 
-.. include:: /main/contact.rst
