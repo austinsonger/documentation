@@ -1,7 +1,11 @@
 OwlH Software TAP real time configuration
 =========================================
 
-What is OwlH Node?
-------------------
+What is OwlH Software TAP real-time configuration mode?
+-------------------------------------------------------
 
-This is a single box running your NIDS systems, like Suricata and Zeek.
+.. image:: /img/staprealtime.png
+
+
+
+.. include:: /main/contact.rst
