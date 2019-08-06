@@ -31,7 +31,7 @@ A few topics
 
 Our target is to provide help for: 
 
-   * Network IDS integrated with Host IDS solution like Wazuh in a single pane of glass
+   * Network IDS integration with Host IDS solution like Wazuh in a single pane of glass
    * On-Premises Network IDS 
    * Cloud Network IDS by Software TAP and traffic transport
    * Network IDS Orchestration
