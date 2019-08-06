@@ -27,6 +27,8 @@ Our target right now is to provide help for:
 
 .. image:: /img/owlh-flavour.png
 
+.. image:: /img/OwlHcap.png
+
 .. include:: /main/contact.rst
 
 A few topics
