@@ -7,19 +7,21 @@ What is OwlH Software TAP real-time configuration mode?
 .. image:: /img/staprealtime.png
 
 Software TAP - Collect traffic from server instances
-````````````````````````````````````````````````````
+```````````````````````````````````````````````````
 
-* Install OwlH Client in your linux system (debian or CentOS based systems)
-* Run traffic forwarding command on you windows systems
+* Client Side:
+    * Install OwlH Client in your linux system (debian or CentOS based systems)
+    * Run traffic forwarding command on you windows systems
 * Define a local interface in your OwlH Node to inject the remote traffic.
+* Run Traffic collector in your OwlH Node.
 * Point your NIDS solutions to listen the local interface 
 
 Software TAP - Using AWS VPC traffic mirror
 ```````````````````````````````````````````
 
-* configure your VPC port mirror
+* Configure your VPC port mirror
     * check Amazon instances limitations and compatibility
-* your OwlH node should run two network interfaces.
+* Your OwlH node should run two network interfaces.
 * Create a local interface to manage VxLAN Traffic
 * Point your NIDS solutions to listen the VxLAN interface
 
