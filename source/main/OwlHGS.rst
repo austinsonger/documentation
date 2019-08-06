@@ -16,8 +16,8 @@ Components
    OwlHClient
 
 
-How to play with them
----------------------
+How to use/configure them
+-------------------------
 
 .. toctree::
    :maxdepth: 1
