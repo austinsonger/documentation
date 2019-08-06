@@ -29,10 +29,11 @@ A few topics
    main/OwlHPCI
 
 
-Our target right now is to provide help for: 
-   * Network IDS integrated with Host IDS solution
+Our target is to provide help for: 
+
+   * Network IDS integrated with Host IDS solution like Wazuh in a single pane of glass
    * On-Premises Network IDS 
-   * Cloud Network IDS Software TAP
+   * Cloud Network IDS by Software TAP and traffic transport
    * Network IDS Orchestration
    * Alert Enrichment
    * Data Visualization 
