@@ -40,6 +40,8 @@ Our target right now is to provide help for:
 
 .. image:: /img/owlh-flavour.png
 
+As per our latest version, in OwlH solution you may find: 
+
 .. image:: /img/OwlHcap.png
 
 .. include:: /main/contact.rst
