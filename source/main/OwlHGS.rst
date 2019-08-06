@@ -25,6 +25,7 @@ How to play with them
    OwlHAllinone
    OwlHstdonprem
    OwlHSTAPrtime
+   OwlHsoftwaretap
    OwlHDispatcher
    OwlHForensics
 

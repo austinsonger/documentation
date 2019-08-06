@@ -40,7 +40,6 @@ A few topics
    main/OwlHWazuh
    main/OwlHBro
    main/OwlHPCI
-   main/OwlHsoftwaretap
 
 
 
