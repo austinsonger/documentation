@@ -16,21 +16,6 @@ This picture will summarize the process we are working in.
 
 .. image:: /img/owlhprocess.png
 
-Our target right now is to provide help for: 
-   * Network IDS integrated with Host IDS solution
-   * On-Premises Network IDS 
-   * Cloud Network IDS Software TAP
-   * Network IDS Orchestration
-   * Alert Enrichment
-   * Data Visualization 
-   * Adapt and response
-
-.. image:: /img/owlh-flavour.png
-
-.. image:: /img/OwlHcap.png
-
-.. include:: /main/contact.rst
-
 A few topics
 ------------
 
@@ -44,5 +29,17 @@ A few topics
    main/OwlHPCI
 
 
+Our target right now is to provide help for: 
+   * Network IDS integrated with Host IDS solution
+   * On-Premises Network IDS 
+   * Cloud Network IDS Software TAP
+   * Network IDS Orchestration
+   * Alert Enrichment
+   * Data Visualization 
+   * Adapt and response
+
+.. image:: /img/owlh-flavour.png
+
+.. image:: /img/OwlHcap.png
 
 .. include:: /main/contact.rst
