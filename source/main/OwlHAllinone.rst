@@ -31,7 +31,7 @@ Installation
 
 :: 
 
-  # wget http://repo.owlh.net/current/owlh-allinone.sh
+  # wget http://repo.owlh.net/current-centos/owlh-allinone.sh
 
 * Run installer
 
