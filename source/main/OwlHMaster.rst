@@ -116,7 +116,7 @@ modify your config.json file to set action as "update".
   ...
   "tmpfolder":"/tmp/",
   "action": "update",      <===
-  "repourl":"http://repo.owlh.net/current/",
+  "repourl":"http://repo.owlh.net/current/",  <=== Repo url may vary
   "target": [
       "owlhmaster"            <===
   ],
