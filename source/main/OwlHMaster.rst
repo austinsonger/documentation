@@ -79,10 +79,14 @@ Configure your Master and UI
 
     if CentOs:
         # wget http://repo.owlh.net/current-centos/services/owlhui-httpd.sh
+        # bash owlhui-httpd.sh
         # wget http://repo.owlh.net/current-centos/services/owlhmaster-service.sh
+        # bash owlhmaster-service.sh
     if Debian/Ubuntu:
         # wget http://repo.owlh.net/current-debian/services/owlhui-httpd.sh
+        # bash owlhui-httpd.sh
         # wget http://repo.owlh.net/current-debian/services/owlhmaster-service.sh
+        # bash owlhmaster-service.sh
 
 
 
