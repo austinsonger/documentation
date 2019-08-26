@@ -72,8 +72,18 @@ run OwlH Installer to install OwlH UI and OwlH Master
 
     # cd /tmp/owlhinstaller
     # ./owlhinstaller
-    # bash /var/www/owlh/conf/services/owlh-conf.sh
-    # bash /usr/local/owlh/src/owlhmaster/conf/services/owlhmaster-service.sh
+
+Configure your Master and UI 
+
+::
+
+    if CentOs:
+        # wget http://repo.owlh.net/current-centos/services/owlhui-httpd.sh
+        # wget http://repo.owlh.net/current-centos/services/owlhmaster-service.sh
+    if Debian/Ubuntu:
+        # wget http://repo.owlh.net/current-debian/services/owlhui-httpd.sh
+        # wget http://repo.owlh.net/current-debian/services/owlhmaster-service.sh
+
 
 
 Check if your OwlH Master is running  
