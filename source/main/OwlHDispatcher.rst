@@ -8,3 +8,16 @@ When you want to analyze traffic in different NIDS systems because traffic volum
 
 .. image:: /img/dispatcher.png
 
+There are multiple possible configurations. Mostly you need to think about few things: 
+
+.- Where do you want to do dispatcher? 
+    .- Usually it is done in OwlH Master component. 
+    .- You can think about use OwlH Node too. 
+
+.- How to get traffic
+    .- From socket - When systems forward traffic to your 
+    .- From local interface connected to a SPAN port, Mirror Port.
+    .- When running in AWS using VPC Mirror you should configure a VxLAN interface and collect traffic from there.
+
+.- Where store PCAP files and how big they will be.
+    
