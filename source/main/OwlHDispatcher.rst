@@ -19,17 +19,18 @@ How to get traffic?
     * From local interface connected to a SPAN port, Mirror Port
     * When running in AWS using VPC Mirror you should configure a VxLAN interface and collect traffic from there
 
-Where store PCAP files and how big they will be?
+Where to store PCAP files and how big they will be?
     * By default OwlH Master will use /tmp/dispatcher to save temporal PCAP files until they are moved to final destination
     * Default PCAP size is set by time, so we will create PCAP files as big as 1 min of traffic capture.
+    * There is also possible to define BPF filter to store only the useful traffic.
 
 Who will analyze traffic?
     * There are two possible PCAP analyzers
-        * Pool of nodes -> that resource will receive one PCAP each. You can set as many OwlH Nodes as needed.
-        * Alone consumers -> that resource will receive all the PCAPs. It can be not only an OwlH Node, it can be a Moloch In folder, or a Forensic Storage Resource.
+        * Pool of nodes -> that pool of resources will receive one PCAP each using a round-robin algorithm. You can set as many OwlH Nodes as needed in a pool.
+        * Alone consumers -> that resource will receive all the PCAPs. It can be not only an OwlH Node, it can be a Moloch In folder, or a Forensic Storage Resource. You can set as many Alone consumers as needed.
     * You can setup them in the dispatcher JSON configuration file
     * a PCAP file will be sent to:
-        * one OwlH Node from the pool
+        * One OwlH Node from the pool
         * **AND** to all OwlH Nodes or any other destinations defined as Alone 
 
 How PCAPs will be shared?

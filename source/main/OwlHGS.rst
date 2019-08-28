@@ -1,8 +1,6 @@
 Getting Started with OwlH
 =========================
 
-
-
 Components
 ----------
 
