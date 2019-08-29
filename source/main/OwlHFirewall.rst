@@ -4,7 +4,7 @@ OwlH - Check Firewall
 Please, be sure your firewall is properly set.
 
 When using iptables 
--------------------
+````````````````````
 
 OwlH Master and UI:
 
@@ -26,7 +26,7 @@ OwlH Node:
 
 
 When using firewalld
---------------------
+````````````````````
 
 OwlH Master and UI:
 
