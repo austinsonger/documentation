@@ -45,7 +45,8 @@ This will install OwlH components as well as Suricata, Zeek and Wazuh agent. Ple
 .. include:: /main/OwlHFirewall.rst
 
 
-* Point your browser
+Point your browser  
+````````````````````
 
 ::
 
