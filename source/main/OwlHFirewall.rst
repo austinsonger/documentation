@@ -1,4 +1,4 @@
-OwlH - Check Firewall
+Check your Firewall
 ---------------------
 
 Please, be sure your firewall is properly set.
