@@ -170,7 +170,7 @@ We only need to create a few rules to identify the Bro events and forward them t
 Wazuh Zeek IDS Rules 
 --------------------
 
-Include the Wazuh rules into your /var/ossec/etc/rules/local-rules.xml file to manage your Zeek logs 
+Include the Wazuh rules into your /var/ossec/etc/rules/zeek-rules.xml file to manage your Zeek logs 
 
 :: 
 
