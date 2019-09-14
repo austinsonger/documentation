@@ -20,13 +20,12 @@ A few topics
 ------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    main/OwlHGS
    main/OwlHUC
    main/OwlHUI
-   main/OwlHWazuh
-   main/OwlHBro
+
 
 
 Our target is to provide help for: 
