@@ -23,10 +23,10 @@ A few topics
    :maxdepth: 1
 
    main/OwlHGS
+   main/OwlHUC
    main/OwlHUI
    main/OwlHWazuh
    main/OwlHBro
-   main/OwlHPCI
 
 
 Our target is to provide help for: 
