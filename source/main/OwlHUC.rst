@@ -11,6 +11,8 @@ How to use/configure OwlH Components
    OwlHsoftwaretap
    OwlHDispatcher
    OwlHForensics
+   OwlHWazuh
+   OwlHBro
 
 .. _Github repos: https://github.com/owlh-net
 Check our `Github repos`_
