@@ -1,6 +1,6 @@
 
-How to use/configure them
-=========================
+How to use/configure OwlH Components
+====================================
 
 .. toctree::
    :maxdepth: 1
