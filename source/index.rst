@@ -20,7 +20,7 @@ A few topics
 ------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    main/OwlHGS
    main/OwlHUC
