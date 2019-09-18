@@ -54,6 +54,12 @@ Point your browser
     https://your.owlh.ip:50001/v1/home 
 
 * Accept certificate for owlh:443 and owlh:50001
+    * if you can't see the right information verify that your.owlh.ip address is correctly saved:
+        * Go to top menu -> config -> set your master ip with your.owlh.ip and save.
+    * If ip isn't changed it can be because a permission issue with the ui.conf file. 
+        * To solve it you can run: 
+            * # wget -O - repo.owlh.net/current-centos/owlh-0.8.10.sh | bash
+        * Or modify the /var/www/owlh/conf/ui.conf file with your prefered shell editor.
 * Modify your first node ip with the current node ip, should be same than owlh.ip
 * Modify the right interface for Suricata and Zeek to listen
     * Go to traffic flow -> network -> (i) icon
