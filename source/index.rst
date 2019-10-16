@@ -4,6 +4,7 @@ OwlH Documentation home
 About OwlH
 ==========
 
+    v0.10.0
 Security world is not related to a tool. It is related to a continuous process that must be able to evolve and adapt to your network, systems, and software as they do. 
 
 Also, Security and cyber-security terms are a really big and complex world with a huge amount sub-worlds, regions, areas, or whatever how you would like to call them 
