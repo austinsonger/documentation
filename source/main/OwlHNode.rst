@@ -80,7 +80,10 @@ Install OwlH Node
 
     # cd /tmp/owlhinstaller
     # ./owlhinstaller
-    # bash /usr/local/owlh/src/owlhnode/conf/services/owlhnode-service.sh
+    # cp /usr/local/owlh/src/owlhnode/conf/service/owlhnode.service /etc/systemd/system
+    # systemctl daemon-reload
+    # systemctl enable owlhnode
+    # systemctl start owlhnode
 
 Check if your OwlH Node is running  
 ````````````````````````````````````
