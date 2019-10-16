@@ -8,8 +8,9 @@ Download and prepare OwlH Installer
 ===========================  =============================================================
 OS version                   URL
 ===========================  =============================================================
-if you run OS like CentOS 7  wget http://repo.owlh.net/current-centos/owlhinstaller.tar.gz
-if you run OS like Ubuntu    wget http://repo.owlh.net/current-debian/owlhinstaller.tar.gz
+CentOS 7                     wget http://repo.owlh.net/current-centos/owlhinstaller.tar.gz
+Ubuntu                       wget http://repo.owlh.net/current-debian/owlhinstaller.tar.gz
+Raspbian                     wget http://repo.owlh.net/current-arm/owlhinstaller.tar.gz
 ===========================  =============================================================
 
 Now let's install it. 
