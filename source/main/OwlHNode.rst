@@ -41,7 +41,7 @@ Ready?
   "uitarfile":"owlhui.tar.gz",
   "tmpfolder":"/tmp/",
   "action": "install",      <===
-  "repourl":"http://repo.owlh.net/current/",
+  "repourl":"http://repo.owlh.net/current-centos/",  <=== choose your right repo (current-centos, current-debian, current-arm) 
   "target": [
       "owlhnode"            <===
   ],
@@ -115,7 +115,7 @@ modify your config.json file to set action as "update".
   ...
   "tmpfolder":"/tmp/",
   "action": "update",      <===
-  "repourl":"http://repo.owlh.net/current/",
+  "repourl":"http://repo.owlh.net/current-centos/",  <=== choose your right repo
   "target": [
       "owlhnode"            <===
   ],
