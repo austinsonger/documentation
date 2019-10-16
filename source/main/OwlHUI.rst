@@ -1,7 +1,7 @@
 OwlH UI (user interface)
 ==============================
 
-.. notice::
+.. attention::
     
     v0.10.0
     We have some new features
