@@ -31,14 +31,17 @@ Installation
 
 :: 
 
-  # wget http://repo.owlh.net/current-centos/owlh-allinone.sh
+  # wget http://repo.owlh.net/current-centos/owlh-allinone-centos7.sh
 
 * Run installer
 
 :: 
 
-  # bash owlh-allinone.sh
+  # bash owlh-allinone-centos7.sh 1.1.1.1
 
+.. note::
+    - use your owlh allinone node ip instead of 1.1.1.1
+    - if working in a cloud environment use the public ip as needed
 
 This will install OwlH components as well as Suricata, Zeek and Wazuh agent. Please be patient as it may take a while.
 
@@ -53,27 +56,24 @@ Point your browser
     https://your.owlh.ip, 
     https://your.owlh.ip:50001/v1/home 
 
+.. _User Interface Manual: http://documentation.owlh.net/en/0.10.0/main/OwlHUI.html
+see our `User Interface Manual`_ 
+
 * Accept certificate for owlh:443 and owlh:50001
+* If not connected to the right Master ip
     * if you can't see the right information verify that your.owlh.ip address is correctly saved:
         * Go to top menu -> config -> set your master ip with your.owlh.ip and save.
     * If ip isn't changed it can be because a permission issue with the ui.conf file. 
         * To solve it you can run: 
             * # wget -O - repo.owlh.net/current-centos/owlh-0.8.10.sh | bash
         * Or modify the /var/www/owlh/conf/ui.conf file with your prefered shell editor.
-* Modify your first node ip with the current node ip, should be same than owlh.ip
-* Modify the right interface for Suricata and Zeek to listen
-    * Go to traffic flow -> network -> (i) icon
-    * Select the right interface and apply
+* Modify or add your first node ip with the current node ip, should be same than owlh.ip
 * Register your Wazuh agent with your wazuh manager.
     * follow Wazuh instructions to register your wazuh agent. Wazuh agent software is now installed so you only need to automatically register agent using authd command or manually, and update ossec.conf file to point to your wazuh manager (this can be done from OwlH UI)
-    * remembert to restart your agent
+    * remember to restart your agent
     https://documentation.wazuh.com/current/user-manual/registering/api/api-register-linux-unix.html#linux-and-unix-hosts
 
-At this point your OwlH all-in-one is setup. to be able to see in the right way NIDS information in Kibana we must do two more steps. 
-
-* Update Wazuh rules to include Suricata (new ones) and Zeek 
-* Update filebeat on Wazuh Manager to parse and send the events in the right format and to the right index. 
-* Install in Kibana the OwlH dashboards-visualizations-search.
+Now we need to configure Wazuh Manager and ELK to allow OwlH data flow
 
 More to come.
 
