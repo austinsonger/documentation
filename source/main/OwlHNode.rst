@@ -105,11 +105,14 @@ Register your new node in your OwlH Master
 
 You will need:
 ::
-    a OwlH node name
+    OwlH node name
     OwlH node ip 
     OwlH node port
 
-Go to your OwlH master console -> nodes -> Add node and introduce the right values
+Go to your OwlH master console -> nodes -> Add NIDS and introduce the right values
+
+.. image:: /img/addnode.png
+
 
 Modify your OwlH Installer configuration to keep your system uptodate
 `````````````````````````````````````````````````````````````````````
