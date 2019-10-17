@@ -10,7 +10,6 @@ While you do your local analysis with your Suricata and Zeek, you can also do th
 * Forward sniffed traffic in real time to a different system 
 * Collect traffic from remote servers sent by socket and save it to PCAP files or re-inject that traffic to a local network interface
 * Include threat intelligence feeds and analyze your suricata and zeek outputs. 
-* run detection capabilities as: new external services, new HOST/MAC detection, etc.
 
 How to install OwlH Node
 ------------------------
