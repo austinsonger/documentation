@@ -26,6 +26,12 @@ Ready?
 .. note:: 
     Right now, our target is "owlhnode", our action is "install"
 
+.. important::
+    Choose the right repo:
+      http://repo.owlh.net/current-centos/
+      http://repo.owlh.net/current-debian/
+      http://repo.owlh.net/current-arm/
+
 :: 
 
   {
