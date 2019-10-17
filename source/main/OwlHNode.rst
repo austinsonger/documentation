@@ -100,6 +100,16 @@ Check if your OwlH Node is running
     check if owlhnode service port is listening
     # netstat -nputa | grep 50002
 
+Register your new node in your OwlH Master
+``````````````````````````````````````````
+
+You will need:
+::
+    a OwlH node name
+    OwlH node ip 
+    OwlH node port
+
+Go to your OwlH master console -> nodes -> Add node and introduce the right values
 
 Modify your OwlH Installer configuration to keep your system uptodate
 `````````````````````````````````````````````````````````````````````
