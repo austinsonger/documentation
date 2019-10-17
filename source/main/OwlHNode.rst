@@ -28,9 +28,9 @@ Ready?
 
 .. important::
     Choose the right repo:
-      http://repo.owlh.net/current-centos/
-      http://repo.owlh.net/current-debian/
-      http://repo.owlh.net/current-arm/
+      - http://repo.owlh.net/current-centos/
+      - http://repo.owlh.net/current-debian/
+      - http://repo.owlh.net/current-arm/
 
 :: 
 
