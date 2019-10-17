@@ -16,12 +16,14 @@ How to install OwlH Node
 ------------------------
 
 .. important::
-    First, be sure you will have your OwlH Master ready. And your OwlH UI pointing to your OwlH Master. Check this.
+    First, be sure you will have your OwlH Master ready. And your OwlH UI pointing to your OwlH Master. 
+
+
+.. image:: /img/nodes.png
 
 Ready? 
 
 .. include:: /main/OwlHInstallerDownload.rst
-
 
 .. note:: 
     Right now, our target is "owlhnode", our action is "install"
