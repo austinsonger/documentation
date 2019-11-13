@@ -9,6 +9,7 @@ OwlH UI - GROUPS
 
 
 OwlH UI - GROUP DETAIL
+^^^^^^^^^^^^^^^^^^^^^^
 
     - sync all configurations
     - add nodes to group
