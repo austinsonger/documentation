@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OwlH Dispatcher configuration &mdash; owlh 0.4 - Cloud and Bro documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="owlh 0.4 - Cloud and Bro documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> owlh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="OwlHGS.html">Getting Started with OwlH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHGS.html#components">Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHNode.html">OwlH Node</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHNode.html#what-is-owlh-node">What is OwlH Node?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHNode.html#how-to-install-owlh-node">How to install OwlH Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHMaster.html">OwlH Master</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHMaster.html#what-is-owlh-master">What is OwlH Master?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHMaster.html#install-owlh-master">Install OwlH Master</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHUI.html">OwlH UI (user interface)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHUI.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHInstaller.html">OwlH Installer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHInstaller.html#what-is-owlh-installer">What is OwlH Installer?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHInstaller.html#prepare-your-owlh-installer">Prepare your OwlH Installer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHClient.html">OwlH Client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHClient.html#what-is-owlh-client">What is OwlH Client?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHUC.html">How to use/configure OwlH Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAllinone.html">OwlH All-in-One configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHAllinone.html#what-is-owlh-all-in-one">What is OwlH All-In-One?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHAllinone.html#installation-auto-install">Installation - auto install</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHAllinone.html#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHAllinone.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHAllinone.html#check-your-firewall">Check your Firewall</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHAllinone.html#when-using-iptables">When using iptables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHAllinone.html#when-using-firewalld">When using firewalld</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHAllinone.html#point-your-browser">Point your browser</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHstdonprem.html">OwlH Standard on-prem configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHstdonprem.html#what-is-owlh-in-standard-on-premises-configuration">What is OwlH in Standard on-premises configuration?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHstdonprem.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHSTAPrtime.html">OwlH Software TAP real time configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHSTAPrtime.html#what-is-owlh-software-tap-real-time-configuration-mode">What is OwlH Software TAP real-time configuration mode?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHSTAPrtime.html#software-tap-collect-traffic-from-server-instances">Software TAP - Collect traffic from server instances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHSTAPrtime.html#software-tap-using-aws-vpc-traffic-mirror">Software TAP - Using AWS VPC traffic mirror</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html">Software TAP for AWS and GCloud - PULL MODE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-software-tap-to-monitor-traffic-in-cloud-and-remote-sites-environments">OwlH Software TAP to monitor traffic in Cloud and remote sites environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#introduction-what-does-sotwaretap-do-and-how-does-it-work">Introduction: What does SotwareTAP do and how does it work?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#main-components">Main Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-orchestration">OwlH Master Orchestration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#prepare-owlh-master-software">Prepare OwlH Master software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-ssh-key">OwlH Master ssh Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#create-dummy-interface-for-network-ids">Create Dummy interface for Network IDS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#network-ids-support">Network IDS support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#continuous-network-ids-monitor-and-sniffing">Continuous Network IDS monitor and sniffing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#deploy-suricata-as-network-ids">Deploy Suricata as Network IDS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#deploy-zeek-as-network-ids">Deploy Zeek as Network IDS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-configuration">OwlH Master Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#target-instances">Target Instances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#register-your-servers">Register your servers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#wazuh-system">Wazuh system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#enjoy-it">Enjoy It</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHDispatcher.html">OwlH PCAP collector and dispatcher configuration for load balance your traffic analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHDispatcher.html#what-is-owlh-dispatcher-configuration">What is OwlH Dispatcher configuration?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHForensics.html">OwlH Forensics with Moloch configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHForensics.html#what-is-moloch">What is Moloch?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHForensics.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html">OwlH - Suricata and Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#how-to-easily-integrate-suricata-with-wazuh">How to easily integrate Suricata with Wazuh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHWazuh.html#main-steps">Main steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#deploy-suricata-or-use-a-current-suricata-deployment">Deploy Suricata or use a Current Suricata deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-suricata-to-store-output-in-json-format-eve-log-configuration">Configure Suricata to store output in JSON format - EVE log configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-stack-if-you-are-not-done-yet">Install Wazuh stack if you are not done yet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-agent-in-the-suricata-system">Install Wazuh Agent in the suricata system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#modify-ip-data-mapping">Modify IP data mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHWazuh.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html">OwlH - Zeek and Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#integration-logical-diagram">Integration Logical Diagram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#components">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#configure-zeek-owlh-node">Configure - Zeek - OwlH Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#zeek-logs-output-format-to-json">Zeek Logs Output format to JSON</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#option-1-modify-ascii-writer-output">Option 1 - Modify ASCII writer output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#option-2-use-add-json-package">Option 2 - Use add-json package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#zeek-event-enritchment-to-help-wazuh-ruleset">Zeek Event Enritchment to help Wazuh ruleset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#loading-zeek-customizations-at-zeek-start">Loading Zeek customizations at Zeek start</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#configure-wazuh-manager">Configure - Wazuh Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#wazuh-zeek-ids-rules">Wazuh Zeek IDS Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#configure-logstash-server">Configure - Logstash Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#logstash-filter">Logstash Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#review-your-kibana-dashboard">Review your Kibana Dashboard</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHUI.html">OwlH UI (user interface)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHUI.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">owlh</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>OwlH Dispatcher configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/main/OwlHDispatcherConf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="owlh-dispatcher-configuration">
+<h1>OwlH Dispatcher configuration<a class="headerlink" href="#owlh-dispatcher-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Install Master
+Install UI</p>
+<p>Choose the right options now.</p>
+<p>Configure Traffic Collection</p>
+<blockquote>
+<div><ul class="simple">
+<li>Network to PCAP</li>
+<li>SOCKET to PCAP</li>
+</ul>
+</div></blockquote>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, owlh team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.4 - Cloud and Bro',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

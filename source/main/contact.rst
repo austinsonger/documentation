@@ -8,8 +8,9 @@ If you need help:
 * email our support team - support@owlh.net
 * visit our mailing list - `OwlH mailing list`_ (owlh@googlegroups.com)
 
+.. _OwlH Changelog: https://github.com/OwlH-net/roadmap/blob/master/README.md
 
-**OwlH - current v0.8 - Aug : New version details**
+**OwlH - current v0.10.x - Oct** - `OwlH Changelog`_
 
 documentation last updated - |today|
 

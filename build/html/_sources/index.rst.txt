@@ -1,18 +1,14 @@
 OwlH Documentation home
 =======================
 
-What is OwlH?
--------------
+About OwlH
+==========
 
-This is OwlH, open source solution. OwlH is born to help security engineers to manage, visualize, analyze and respond to threats detected from Open Source Network IDS like Suricata and BroIDS, offering:
+    v0.10.0
 
-* Manage Network IDS (suricata and broIDS) nodes at scale
-* SoftwareTAP for cloud and on-premises environments
-* Centralized Rule Management
-* Centralized Visualization
-* Network Data Collection and Big Data Storage
-* Compliance Mapping and Dashboards
-* Incident Response Automation
+This picture will summarize the process we are working in.
+
+.. image:: /img/owlhprocess.png
 
 A few topics
 ------------
@@ -20,13 +16,25 @@ A few topics
 .. toctree::
    :maxdepth: 1
 
-   main/OwlHAbout
-   main/OwlHatwork
-   main/OwlHWazuh
-   main/OwlHBro
-   main/OwlHPCI
-   main/OwlHsoftwaretap
+   main/OwlHGS
+   main/OwlHUC
+   main/OwlHUI
 
 
+CHANGELOG
+---------
 
-.. include:: /main/contact.rst
+As per our latest version, in OwlH solution you may find: 
+
+.. _OwlH Changelog: https://github.com/OwlH-net/roadmap/blob/master/README.md
+
+**OwlH - current v0.10.x - Oct** - `OwlH Changelog`_
+
+
+.. _OwlH mailing list: https://groups.google.com/d/forum/owlh
+
+* email our support team - support@owlh.net
+* visit our mailing list - `OwlH mailing list`_ (owlh@googlegroups.com)
+
+documentation last updated - |today|
+

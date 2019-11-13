@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OwlH Installer &mdash; owlh 0.4 - Cloud and Bro documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="owlh 0.4 - Cloud and Bro documentation" href="../index.html"/>
+        <link rel="up" title="Getting Started with OwlH" href="OwlHGS.html"/>
+        <link rel="next" title="OwlH Client" href="OwlHClient.html"/>
+        <link rel="prev" title="OwlH UI (user interface)" href="OwlHUI.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> owlh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="OwlHGS.html">Getting Started with OwlH</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="OwlHGS.html#components">Components</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="OwlHNode.html">OwlH Node</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHNode.html#what-is-owlh-node">What is OwlH Node?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHNode.html#how-to-install-owlh-node">How to install OwlH Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHMaster.html">OwlH Master</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHMaster.html#what-is-owlh-master">What is OwlH Master?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHMaster.html#install-owlh-master">Install OwlH Master</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHUI.html">OwlH UI (user interface)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHUI.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">OwlH Installer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-owlh-installer">What is OwlH Installer?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-your-owlh-installer">Prepare your OwlH Installer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHClient.html">OwlH Client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHClient.html#what-is-owlh-client">What is OwlH Client?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHUC.html">How to use/configure OwlH Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHAllinone.html">OwlH All-in-One configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHAllinone.html#what-is-owlh-all-in-one">What is OwlH All-In-One?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHAllinone.html#installation-auto-install">Installation - auto install</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHAllinone.html#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHAllinone.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHAllinone.html#check-your-firewall">Check your Firewall</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHAllinone.html#when-using-iptables">When using iptables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHAllinone.html#when-using-firewalld">When using firewalld</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHAllinone.html#point-your-browser">Point your browser</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHstdonprem.html">OwlH Standard on-prem configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHstdonprem.html#what-is-owlh-in-standard-on-premises-configuration">What is OwlH in Standard on-premises configuration?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHstdonprem.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHSTAPrtime.html">OwlH Software TAP real time configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHSTAPrtime.html#what-is-owlh-software-tap-real-time-configuration-mode">What is OwlH Software TAP real-time configuration mode?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHSTAPrtime.html#software-tap-collect-traffic-from-server-instances">Software TAP - Collect traffic from server instances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHSTAPrtime.html#software-tap-using-aws-vpc-traffic-mirror">Software TAP - Using AWS VPC traffic mirror</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHsoftwaretap.html">Software TAP for AWS and GCloud - PULL MODE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-software-tap-to-monitor-traffic-in-cloud-and-remote-sites-environments">OwlH Software TAP to monitor traffic in Cloud and remote sites environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#introduction-what-does-sotwaretap-do-and-how-does-it-work">Introduction: What does SotwareTAP do and how does it work?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#main-components">Main Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-orchestration">OwlH Master Orchestration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#prepare-owlh-master-software">Prepare OwlH Master software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-ssh-key">OwlH Master ssh Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#create-dummy-interface-for-network-ids">Create Dummy interface for Network IDS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#network-ids-support">Network IDS support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#continuous-network-ids-monitor-and-sniffing">Continuous Network IDS monitor and sniffing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#deploy-suricata-as-network-ids">Deploy Suricata as Network IDS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHsoftwaretap.html#deploy-zeek-as-network-ids">Deploy Zeek as Network IDS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#owlh-master-configuration">OwlH Master Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#target-instances">Target Instances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#register-your-servers">Register your servers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#wazuh-system">Wazuh system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#integrate-owlh-master-with-wazuh">Integrate OwlH master with Wazuh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#enjoy-it">Enjoy It</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHsoftwaretap.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHDispatcher.html">OwlH PCAP collector and dispatcher configuration for load balance your traffic analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHDispatcher.html#what-is-owlh-dispatcher-configuration">What is OwlH Dispatcher configuration?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHForensics.html">OwlH Forensics with Moloch configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHForensics.html#what-is-moloch">What is Moloch?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHForensics.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHWazuh.html">OwlH - Suricata and Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#how-to-easily-integrate-suricata-with-wazuh">How to easily integrate Suricata with Wazuh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHWazuh.html#main-steps">Main steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#deploy-suricata-or-use-a-current-suricata-deployment">Deploy Suricata or use a Current Suricata deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-suricata-to-store-output-in-json-format-eve-log-configuration">Configure Suricata to store output in JSON format - EVE log configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-stack-if-you-are-not-done-yet">Install Wazuh stack if you are not done yet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#install-wazuh-agent-in-the-suricata-system">Install Wazuh Agent in the suricata system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-suricata-rules-to-create-right-alarms">Configure Wazuh Suricata rules to create right alarms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#configure-wazuh-agent-to-read-the-eve-json-output-file">Configure Wazuh Agent to read the eve.json output file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#if-you-require-pci-configure-owlh-pci-mapping">If you require PCI. Configure OwlH PCI mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#modify-ip-data-mapping">Modify IP data mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHWazuh.html#modify-elastic-template">Modify Elastic template</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHWazuh.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OwlHBro.html">OwlH - Zeek and Wazuh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#integration-logical-diagram">Integration Logical Diagram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#components">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#configure-zeek-owlh-node">Configure - Zeek - OwlH Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#zeek-logs-output-format-to-json">Zeek Logs Output format to JSON</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#option-1-modify-ascii-writer-output">Option 1 - Modify ASCII writer output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#option-2-use-add-json-package">Option 2 - Use add-json package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#zeek-event-enritchment-to-help-wazuh-ruleset">Zeek Event Enritchment to help Wazuh ruleset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#loading-zeek-customizations-at-zeek-start">Loading Zeek customizations at Zeek start</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#wazuh-agent-configuration">Wazuh Agent configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#configure-wazuh-manager">Configure - Wazuh Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#wazuh-zeek-ids-rules">Wazuh Zeek IDS Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#configure-logstash-server">Configure - Logstash Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#logstash-filter">Logstash Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OwlHBro.html#review-your-kibana-dashboard">Review your Kibana Dashboard</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="OwlHBro.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OwlHUI.html">OwlH UI (user interface)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OwlHUI.html#if-you-need-help">If you need help:</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">owlh</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="OwlHGS.html">Getting Started with OwlH</a> &raquo;</li>
+        
+      <li>OwlH Installer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/main/OwlHInstaller.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="owlh-installer">
+<h1>OwlH Installer<a class="headerlink" href="#owlh-installer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-owlh-installer">
+<h2>What is OwlH Installer?<a class="headerlink" href="#what-is-owlh-installer" title="Permalink to this headline">¶</a></h2>
+<p>OwlH Installer is a helper tool that will help you to keep your software up-to-date to the latest version. It will take care of the new versions for OwlH Master, OwlH UI and OwlH Node and will update them as needed.</p>
+<div class="section" id="download-and-prepare-owlh-installer">
+<h3>Download and prepare OwlH Installer<a class="headerlink" href="#download-and-prepare-owlh-installer" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OS version</th>
+<th class="head">URL</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CentOS 7</td>
+<td>wget <a class="reference external" href="http://repo.owlh.net/current-centos/owlhinstaller.tar.gz">http://repo.owlh.net/current-centos/owlhinstaller.tar.gz</a></td>
+</tr>
+<tr class="row-odd"><td>Ubuntu</td>
+<td>wget <a class="reference external" href="http://repo.owlh.net/current-debian/owlhinstaller.tar.gz">http://repo.owlh.net/current-debian/owlhinstaller.tar.gz</a></td>
+</tr>
+<tr class="row-even"><td>Raspbian</td>
+<td>wget <a class="reference external" href="http://repo.owlh.net/current-arm/owlhinstaller.tar.gz">http://repo.owlh.net/current-arm/owlhinstaller.tar.gz</a></td>
+</tr>
+</tbody>
+</table>
+<p>Now let’s install it.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mkdir /tmp/owlhinstaller</span>
+<span class="c1"># tar -C /tmp/owlhinstaller -xvf owlhinstaller.tar.gz</span>
+</pre></div>
+</div>
+<p>We are almost done. In order to allow OwlH installer to do its work, we need to tell it what is/are out target/s for this box. A target is an OwlH component that must be installed or updated. All this info is provided in the config.json file included in the owlhinstaller folder</p>
+</div>
+</div>
+<div class="section" id="prepare-your-owlh-installer">
+<h2>Prepare your OwlH Installer<a class="headerlink" href="#prepare-your-owlh-installer" title="Permalink to this headline">¶</a></h2>
+<p>You need to configure and prepare your OwlH Installer, all information needed is provided in the config.json file.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;versionfile&quot;</span><span class="p">:</span><span class="s2">&quot;current.version&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>Current.version is the file that stores your actual local version and compares it with the one OwlH provides from our repository. if your local file does not exists, or version is lower than the one provided by OwlH then the action defined will be taken, update or install. Current.version file is stored in conf folder on each component.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;masterbinpath&quot;</span><span class="p">:</span><span class="s2">&quot;/root/workspace/src/owlhmaster/&quot;</span><span class="p">,</span>
+<span class="s2">&quot;masterconfpath&quot;</span><span class="p">:</span><span class="s2">&quot;/root/workspace/src/owlhmaster/conf/&quot;</span><span class="p">,</span>
+<span class="s2">&quot;mastertarfile&quot;</span><span class="p">:</span><span class="s2">&quot;owlhmaster.tar.gz&quot;</span><span class="p">,</span>
+<span class="s2">&quot;nodebinpath&quot;</span><span class="p">:</span><span class="s2">&quot;/root/workspace/src/owlhnode/&quot;</span><span class="p">,</span>
+<span class="s2">&quot;nodeconfpath&quot;</span><span class="p">:</span><span class="s2">&quot;/root/workspace/src/owlhnode/conf/&quot;</span><span class="p">,</span>
+<span class="s2">&quot;nodetarfile&quot;</span><span class="p">:</span><span class="s2">&quot;owlhnode.tar.gz&quot;</span><span class="p">,</span>
+<span class="s2">&quot;uipath&quot;</span><span class="p">:</span><span class="s2">&quot;/var/www/owlh/&quot;</span><span class="p">,</span>
+<span class="s2">&quot;uiconfpath&quot;</span><span class="p">:</span><span class="s2">&quot;/var/www/owlh/conf/&quot;</span><span class="p">,</span>
+<span class="s2">&quot;uitarfile&quot;</span><span class="p">:</span><span class="s2">&quot;owlhui.tar.gz&quot;</span><span class="p">,</span>
+<span class="s2">&quot;tmpfolder&quot;</span><span class="p">:</span><span class="s2">&quot;/tmp/&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>Those are the diferent paths and packet names we use locally to install or update your local OwlH system. them can be modified. If you are not familiar with the way them work, please keep default configuration. If you prefer to modify them because some policy but you want to be sure, let us know and we will help you.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;install&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>Right now there are two possible actions: “install” and “update”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Install:</th><td class="field-body">Install will create all directories if they do not exists. Will copy all default files or overwrite them if they exists. Any configuration files will be written back</td>
+</tr>
+<tr class="field-even field"><th class="field-name">update:</th><td class="field-body">Update will copy the new component binary, will include any new key in the configuration files and will keep the current ones without modify or remove. It will also include new tables and table fields on each db, again it will not overwrite any current data in your configuration DBs.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;repourl&quot;</span><span class="p">:</span><span class="s2">&quot;http://repo.owlh.net/current/&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>There will be different repositories depending on your OS.
+We will reduce and manage which repository to be used from our own installer. But in current version we must include the right repository that must be used.</p>
+<p>Current repositories depending on your OS based system, are:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">centos:</th><td class="field-body"><a class="reference external" href="http://repo.owlh.net/current/">http://repo.owlh.net/current/</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">centos:</th><td class="field-body"><a class="reference external" href="http://repo.owlh.net/current-centos/">http://repo.owlh.net/current-centos/</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">debian:</th><td class="field-body"><a class="reference external" href="http://repo.owlh.net/current-debian/">http://repo.owlh.net/current-debian/</a></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;owlhmaster&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;owlhui&quot;</span>
+<span class="p">],</span>
+</pre></div>
+</div>
+<p>Target is were you define what components should be installed on your system.</p>
+<p>Current possible targets are :  owlhmaster, owlhnode, owlhui</p>
+<p>Usually owlhmaster and owlhui are installed together.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;masterfiles&quot;</span><span class="p">:[</span>
+    <span class="s2">&quot;main.conf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app.conf&quot;</span>
+<span class="p">],</span>
+<span class="s2">&quot;nodefiles&quot;</span><span class="p">:[</span>
+    <span class="s2">&quot;main.conf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stap-defaults.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app.conf&quot;</span>
+<span class="p">],</span>
+<span class="s2">&quot;uifiles&quot;</span><span class="p">:[</span>
+    <span class="s2">&quot;ui.conf&quot;</span>
+<span class="p">],</span>
+<span class="s2">&quot;masterdb&quot;</span><span class="p">:[</span>
+    <span class="s2">&quot;group.db&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;node.db&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ruleset.db&quot;</span>
+<span class="p">],</span>
+<span class="s2">&quot;nodedb&quot;</span><span class="p">:[</span>
+    <span class="s2">&quot;plugins.db&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;servers.db&quot;</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Files to take into account to update. This files are verified and compared between new version and current deployment when you are running and update action. update process does not overwrite current files or DB, it just add the new default fields or database reference. you don’t need to take care of those files, but if you don’t wont a file or db to be updated by installer you can remove it from here.</p>
+<p>You may need to end installation by running the both service scripts that you can download from our repository. Them will be integrated by default in our installer soon</p>
+<p><strong>OwlH Master service</strong>
+:centos: <a class="reference external" href="http://repo.owlh.net/current-centos/owlhmaster-service.sh">http://repo.owlh.net/current-centos/owlhmaster-service.sh</a>
+:debian: <a class="reference external" href="http://repo.owlh.net/current-debian/owlhmaster-service.sh">http://repo.owlh.net/current-debian/owlhmaster-service.sh</a></p>
+<p><strong>OwlH UI virtualhost definition and configuration</strong>
+:centos: <a class="reference external" href="http://repo.owlh.net/current-centos/owlhui-httpd.sh">http://repo.owlh.net/current-centos/owlhui-httpd.sh</a>
+:debian: <a class="reference external" href="http://repo.owlh.net/current-debian/owlhui-httpd.sh">http://repo.owlh.net/current-debian/owlhui-httpd.sh</a></p>
+<ul class="simple">
+<li>email our support team - <a class="reference external" href="mailto:support&#37;&#52;&#48;owlh&#46;net">support<span>&#64;</span>owlh<span>&#46;</span>net</a></li>
+<li>visit our mailing list - <a class="reference external" href="https://groups.google.com/d/forum/owlh">OwlH mailing list</a> (<a class="reference external" href="mailto:owlh&#37;&#52;&#48;googlegroups&#46;com">owlh<span>&#64;</span>googlegroups<span>&#46;</span>com</a>)</li>
+</ul>
+<p><strong>OwlH - current v0.10.x - Oct</strong> - <a class="reference external" href="https://github.com/OwlH-net/roadmap/blob/master/README.md">OwlH Changelog</a></p>
+<p>documentation last updated - Nov 01, 2019</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OwlHClient.html" class="btn btn-neutral float-right" title="OwlH Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OwlHUI.html" class="btn btn-neutral" title="OwlH UI (user interface)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, owlh team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.4 - Cloud and Bro',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
