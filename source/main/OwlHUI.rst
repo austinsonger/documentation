@@ -2,9 +2,7 @@ OwlH UI (user interface)
 ==============================
 
 .. attention::
-    v0.10.0
-    We have some new features
-    We will publish documentation here... thanks for waiting... 
+    v0.11.0 UI doc Draft
 
 
 User Interface - top menu
