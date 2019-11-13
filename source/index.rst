@@ -4,7 +4,7 @@ OwlH Documentation home
 About OwlH
 ==========
 
-    v0.10.0
+    v0.11.0
 
 This picture will summarize the process we are working in.
 
@@ -28,7 +28,7 @@ As per our latest version, in OwlH solution you may find:
 
 .. _OwlH Changelog: https://github.com/OwlH-net/roadmap/blob/master/README.md
 
-**OwlH - current v0.10.x - Oct** - `OwlH Changelog`_
+**OwlH - current v0.11.x - Oct** - `OwlH Changelog`_
 
 
 .. _OwlH mailing list: https://groups.google.com/d/forum/owlh
