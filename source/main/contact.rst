@@ -10,7 +10,7 @@ If you need help:
 
 .. _OwlH Changelog: https://github.com/OwlH-net/roadmap/blob/master/README.md
 
-**OwlH - current v0.10.x - Oct** - `OwlH Changelog`_
+**OwlH - current v0.11.x - Nov** - `OwlH Changelog`_
 
 documentation last updated - |today|
 
