@@ -1,7 +1,7 @@
 OwlH UI - GROUPS
 ================
 
-..image:: /img/UI-groups-main.png
+.. image:: /img/UI-groups-main.png
 
     - create group
     - add nodes to group
@@ -9,7 +9,7 @@ OwlH UI - GROUPS
     - manage group configuration
     - edit group details 
 
-..image:: /img/UI-group-detail.png
+.. image:: /img/UI-group-detail.png
 
 OwlH UI - GROUP DETAIL
 ^^^^^^^^^^^^^^^^^^^^^^

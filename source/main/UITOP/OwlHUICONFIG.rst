@@ -1,7 +1,7 @@
 OwlH UI - CONFIG
 ================
 
-..image:: /img/UI-config.png
+.. image:: /img/UI-config.png
 
     - Set master ip
 

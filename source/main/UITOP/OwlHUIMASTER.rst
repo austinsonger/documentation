@@ -1,7 +1,7 @@
 OwlH UI - MASTER
 ================
 
-..image:: /img/UI-master-mainview.png
+.. image:: /img/UI-master-mainview.png
 
     - Master configuration
         - edit master configuration - main.conf

@@ -1,7 +1,7 @@
 OwlH UI - NODES
 ===============
 
-..image:: /img/UI-nodes-main.png
+.. image:: /img/UI-nodes-main.png
 
     - short nodes
     - add nodes
@@ -14,7 +14,7 @@ OwlH UI - NODES
     - delete node
 
 
-..image:: /img/UI-node-services-top.png
+.. image:: /img/UI-node-services-top.png
 
 OwlH UI - Node Services
 ^^^^^^^^^^^^^^^^^^^^^^^
