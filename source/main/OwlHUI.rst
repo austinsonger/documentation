@@ -5,6 +5,8 @@ OwlH UI (user interface)
     v0.11.0 UI doc Draft
 
 
+.. image:: /img/UI-home.png
+
 User Interface - top menu
 -------------------------
 

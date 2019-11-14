@@ -1,12 +1,15 @@
 OwlH UI - GROUPS
 ================
 
+..image:: /img/UI-groups-main.png
+
     - create group
     - add nodes to group
     - delete group 
     - manage group configuration
     - edit group details 
 
+..image:: /img/UI-group-detail.png
 
 OwlH UI - GROUP DETAIL
 ^^^^^^^^^^^^^^^^^^^^^^

@@ -1,6 +1,8 @@
 OwlH UI - OPEN RULES
 ====================
 
+.. image:: /img/UI-openrules-main.png
+
     - manage ruleset sources
     - create local ruleset
     - sync all rulesets
@@ -9,6 +11,7 @@ OwlH UI - OPEN RULES
         - see ruleset files
             - see rules list
             - modify rules
+            - add comment to a rule in a ruleset
             - enable/disable rule
             - clone rule 
         - sync ruleset with nodes 
@@ -19,6 +22,7 @@ OwlH UI - OPEN RULES
             - date from
             - period - day, week, month
 
+.. image:: /img/UI-openrules-newsource.png
 
 OwlH UI - Ruleset sources
 ^^^^^^^^^^^^^^^^^^^^^^^^^

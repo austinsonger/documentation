@@ -1,6 +1,8 @@
 OwlH UI - NODES
 ===============
 
+..image:: /img/UI-nodes-main.png
+
     - short nodes
     - add nodes
     - view node monitor info
@@ -11,6 +13,8 @@ OwlH UI - NODES
     - incident log
     - delete node
 
+
+..image:: /img/UI-node-services-top.png
 
 OwlH UI - Node Services
 ^^^^^^^^^^^^^^^^^^^^^^^
