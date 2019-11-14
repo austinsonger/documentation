@@ -3,6 +3,9 @@ OwlH UI - NODES
 
 .. image:: /img/UI-nodes-main.png
 
+OwlH Nodes Management
+^^^^^^^^^^^^^^^^^^^^^
+
     - short nodes
     - add nodes
     - view node monitor info

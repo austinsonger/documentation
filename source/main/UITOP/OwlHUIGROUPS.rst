@@ -3,6 +3,9 @@ OwlH UI - GROUPS
 
 .. image:: /img/UI-groups-main.png
 
+OwlH Nodes GROUPS management 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     - create group
     - add nodes to group
     - delete group 

@@ -3,6 +3,9 @@ OwlH UI - MASTER
 
 .. image:: /img/UI-master-mainview.png
 
+OwlH MASTER - main configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     - Master configuration
         - edit master configuration - main.conf
         - change control logs

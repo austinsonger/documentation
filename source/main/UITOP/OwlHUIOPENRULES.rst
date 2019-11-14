@@ -3,6 +3,9 @@ OwlH UI - OPEN RULES
 
 .. image:: /img/UI-openrules-main.png
 
+OwlH UI - Local Rulesets
+^^^^^^^^^^^^^^^^^^^^^^^^
+
     - manage ruleset sources
     - create local ruleset
     - sync all rulesets
