@@ -62,6 +62,12 @@ Modify Wazuh Module
 
     # vi /usr/share/filebeat/module/wazuh/alerts/config/alerts.yml 
 
+
+.. attention:: 
+    be sure your file looks like this
+
+::
+
     fields:
       index_prefix: {{ .index_prefix }}
     type: log
@@ -69,11 +75,7 @@ Modify Wazuh Module
     {{ range $i, $path := .paths }}
      - {{$path}}
     {{ end }}
-    exclude_lines: ["bro_engine"]   << THIS LINES SHOULD BE INCLUDED
-
-.. attention:: 
-    be sure your file looks like this
-
+    exclude_lines: ["bro_engine"]   
 
 Modify filebeat
 ^^^^^^^^^^^^^^^
@@ -84,6 +86,11 @@ Modify Filebeat configuration
 ::
 
     # vi /etc/filebeat/filebeat.yml 
+
+.. attention:: 
+    be sure your file looks like this
+
+::
 
     # Wazuh - Filebeat configuration file
     filebeat.modules:
@@ -105,15 +112,15 @@ Modify Filebeat configuration
     ## OwlH pipeline sync
     filebeat.overwrite_pipelines: true
 
-.. attention:: 
-    be sure your file looks like this
 
-restart Filebeat
+Restart Filebeat
 ----------------
 
 You should be done. check your kibana to see the OwlH dashboards in dashboards section, and indices in discovery section.
 
 ::
+
+    Restart Filebeat
 
     # systemctl restart filebeat 
 
@@ -121,4 +128,4 @@ You should be done. check your kibana to see the OwlH dashboards in dashboards s
 
     # journalctl -f -u filebeat
 
-    Check your kibana console.
+    From your web browser, check kibana->dashboards
