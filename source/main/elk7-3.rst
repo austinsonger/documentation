@@ -4,7 +4,7 @@ Sync with ELK 7.3
 
 .. warning::
 
-    Be sure you are running ELK stuff (elasticsearch, filebeat and kibana) with version >7.3.2
+    Be sure you are running ELK (elasticsearch, filebeat and kibana) with version >7.3.2
 
 we will need to modify a bit the Wazuh's default filebeat configuration, we will do:
 
@@ -38,24 +38,28 @@ Import OwlH kibana dashboards and objects in Kibana
 ---------------------------------------------------
 
 ::
+
     # curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/tmp/owlhfilebeat/owlh-kibana-obkects-20191030.ndjson 
 
 Install OwlH template
 ---------------------
 
 ::
+
     # curl -XPUT -H 'Content-Type: application/json' 'http://localhost:9200/_template/owlh' -d@/tmp/owlhfilebeat/owlh-template.json
 
 Install OwlH module
 -------------------
 
-:: 
+::
+
     # tar -C /usr/share/filebeat/modules/ -xf /tmp/filebeat/owlh-filebeat-7.4-module.tar.gz
 
 Modify Wazuh Module
 -------------------
 
 ::
+
     # vi /usr/share/filebeat/module/wazuh/alerts/config/alerts.yml 
 
     fields:
@@ -78,6 +82,7 @@ Modify Filebeat configuration
 -----------------------------
 
 ::
+
     # vi /etc/filebeat/filebeat.yml 
 
     # Wazuh - Filebeat configuration file
@@ -109,6 +114,7 @@ restart Filebeat
 You should be done. check your kibana to see the OwlH dashboards in dashboards section, and indices in discovery section.
 
 ::
+
     # systemctl restart filebeat 
 
     Check Filebeat output
