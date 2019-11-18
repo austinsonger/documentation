@@ -1,5 +1,5 @@
 
-Sync with ELK 7.3
+Sync with ELK 7.x
 =================
 
 .. warning::
