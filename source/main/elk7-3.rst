@@ -6,7 +6,7 @@ Sync with ELK 7.3
 
     Be sure you are running ELK (elasticsearch, filebeat and kibana) with version >7.3.2
 
-we will need to modify a bit the Wazuh's default filebeat configuration, we will do:
+We will need to modify a bit the Wazuh's default filebeat configuration, we will do:
 
   * import OwlH-Kibana objects in Kibana
   * load OwlH template in Elasticsearch
@@ -19,7 +19,7 @@ we will need to modify a bit the Wazuh's default filebeat configuration, we will
   You must have access to your Wazuh's manager shell console where Filebeat is installed and to Kibana's console 
 
 .. note:: 
-  Please, check URLS and paths to ensure you use the right commands and that you adapt command lines as needed. 
+  Please, check URLs and paths to ensure you use the right commands and that you adapt command lines as needed. 
 
 
 
