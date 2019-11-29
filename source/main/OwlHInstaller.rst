@@ -13,6 +13,9 @@ Prepare your OwlH Installer
 
 You need to configure and prepare your OwlH Installer, all information needed is provided in the config.json file. 
 
+Version file
+^^^^^^^^^^^^
+
 :: 
 
   {
