@@ -65,9 +65,7 @@ see our `User Interface Manual`_
     * if you can't see the right information verify that your.owlh.ip address is correctly saved:
         * Go to top menu -> config -> set your master ip with your.owlh.ip and save.
     * If ip isn't changed it can be because a permission issue with the ui.conf file. 
-        * To solve it you can run: 
-            * # wget -O - repo.owlh.net/current-centos/owlh-0.8.10.sh | bash
-        * Or modify the /var/www/owlh/conf/ui.conf file with your prefered shell editor.
+        * Modify the /var/www/owlh/conf/ui.conf file with your prefered shell editor.
 * Modify or add your first node ip with the current node ip, should be same than owlh.ip
 * Register your Wazuh agent with your wazuh manager.
     * follow Wazuh instructions to register your wazuh agent. Wazuh agent software is now installed so you only need to automatically register agent using authd command or manually, and update ossec.conf file to point to your wazuh manager (this can be done from OwlH UI)
