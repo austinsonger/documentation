@@ -76,6 +76,35 @@ see our `User Interface Manual`_
 
 Now we need to configure Wazuh Manager and ELK to allow OwlH data flow
 
+Installation - Update your software
+-----------------------------------
+
+OwlH Installer will help you to keep your All-in-one updated. 
+
+Edit file config.json and define action as update 
+
+::
+
+    # vi /tmp/owlhinstaller/config.json
+
+    ... (~line 18)
+    "tmpfolder":"/tmp/",
+    "action": "update",         <<<<< be sure action is update
+    "repourl":"http://repo.owlh.net/current-centos/",
+    "target": [
+        "owlhmaster",
+        "owlhnode",
+        "owlhui"
+    ],
+    ...
+
+Run again your owlhinstaller 
+
+::
+
+    # cd /tmp
+    # ./owlhinstaller
+
 More to come.
 
 .. include:: /main/contact.rst
