@@ -11,11 +11,6 @@ While it is not recommended for production environment, it may work for small co
 .. image:: /img/allinone.png
 
 
-.. attention::
-    - We are updating all-in-one scripts to latest versions. 
-    - Will be done by 2019-11-30.
-    - Drop us an email support@owlh.net if you have any question.
-
 Installation - auto install
 ---------------------------
 
