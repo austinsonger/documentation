@@ -100,7 +100,7 @@ Run again your owlhinstaller
 
 ::
 
-    # cd /tmp
+    # cd /tmp/owlhinstaller
     # ./owlhinstaller
 
 More to come.
