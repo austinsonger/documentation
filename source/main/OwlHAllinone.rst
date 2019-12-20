@@ -32,17 +32,41 @@ Installation
 
 :: 
 
-  # wget http://repo.owlh.net/current-centos/owlh-allinone-centos7.sh
+  # wget http://repo.owlh.net/current-centos/owlh-allinone.sh
 
 * Run installer
 
 :: 
 
-  # bash owlh-allinone-centos7.sh 1.1.1.1
+  # bash owlh-allinone.sh 
+
 
 .. note::
+
+    Notes:
+
+    .- If you are not using an AWS deployment you will need to modify /var/www/owlh/conf/ui.conf to use your real OwlH IP. 
+
+    {
+        "master":{
+            "ip":"<MASTERIP>",   <<< change with your master API IP
+            "port":"50001"
+        }
+    }
+    .- By default, Suricata and Zeek installations are disabled right now. 
+
+    if you want to run them you can uncomment Suricata and Zeek lines in owlh-allinone.sh script 
+
+    bash /tmp/owlhscripts/owlhinterface.sh
+    bash /tmp/owlhscripts/owlhui-httpd.sh
+    #bash /tmp/owlhscripts/owlhsuricata.sh <<< will install Suricata 5.0.1
+    #bash /tmp/owlhscripts/owlhzeek.sh     <<< will install Zeek 3.0.1
+    bash /tmp/owlhscripts/owlhwazuh.sh
+
     - use your owlh allinone node ip instead of 1.1.1.1
     - if working in a cloud environment use the public ip as needed
+
+
 
 This will install OwlH components as well as Suricata, Zeek and Wazuh agent. Please be patient as it may take a while.
 
