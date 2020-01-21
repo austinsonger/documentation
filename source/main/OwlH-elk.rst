@@ -39,7 +39,7 @@ Import OwlH kibana dashboards and objects in Kibana
 
 ::
 
-    # curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/tmp/owlhfilebeat/owlh-kibana-obkects-20191030.ndjson 
+    # curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/tmp/owlhfilebeat/owlh-kibana-objects-20191030.ndjson 
 
 Install OwlH template
 ---------------------
@@ -53,7 +53,7 @@ Install OwlH module
 
 ::
 
-    # tar -C /usr/share/filebeat/modules/ -xf /tmp/filebeat/owlh-filebeat-7.4-module.tar.gz
+    # tar -C /usr/share/filebeat/module/ -xf /tmp/owlhfilebeat/owlh-filebeat-7.4-module.tar.gz
 
 Modify Wazuh Module
 -------------------
