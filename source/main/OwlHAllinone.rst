@@ -53,8 +53,8 @@ Point your browser
 
 ::
 
-    https://your.owlh.ip, 
-    https://your.owlh.ip:50001/v1/home 
+    https://<IP Address>, 
+    https://<IP Address>:50001/v1/home 
 
 .. _User Interface Manual: http://documentation.owlh.net/en/0.10.0/main/OwlHUI.html
 see our `User Interface Manual`_ 
