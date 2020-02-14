@@ -10,7 +10,7 @@ While it is not recommended for production environment, it may work for small co
 
 .. image:: /img/allinone.png
 
-Installation - auto install
+Installation - Auto Install
 ---------------------------
 
 this all-in-one predefined installation will deploy everything needed and configure all them mostly. This is based on a CentOS 7. Just a few steps:
@@ -26,7 +26,8 @@ Before to start we need to be sure we have what we will need to run this allinon
 Installation
 ````````````
 
-* deploy your CentOS 7.
+Red-Hat Based
+^^^^^^^^^
 * Download OwlH All-In-One Installer 
 
 :: 
@@ -39,13 +40,39 @@ Installation
 
   # bash owlh-allinone-centos7.sh 1.1.1.1
 
+
+Debian-Based 
+^^^^^^^^^
+
+* Download OwlH All-In-One Installer 
+
+:: 
+
+  # wget http://repo.owlh.net/current-debian/owlh-aio-deb.sh
+
+* Run installer
+
+:: 
+
+  # bash owlh-aio-deb.sh 1.1.1.1
+
+
 .. note::
     - use your owlh allinone node ip instead of 1.1.1.1
     - if working in a cloud environment use the public ip as needed
 
+
 This will install OwlH components as well as Suricata, Zeek and Wazuh agent. Please be patient as it may take a while.
 
+
+
+
 .. include:: /main/OwlHFirewall.rst
+
+
+
+
+
 
 
 Point your browser
