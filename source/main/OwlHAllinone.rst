@@ -27,7 +27,7 @@ Installation
 ````````````
 
 Red-Hat Based
-^^^^^^^^^
+^^^^^^^^^^^^^
 * Download OwlH All-In-One Installer 
 
 :: 
@@ -42,7 +42,7 @@ Red-Hat Based
 
 
 Debian-Based 
-^^^^^^^^^
+^^^^^^^^^^^^
 
 * Download OwlH All-In-One Installer 
 
